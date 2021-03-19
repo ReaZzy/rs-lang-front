@@ -10,13 +10,13 @@ export const TextBook = () => {
       <h1>Страница учебника</h1>
       {moduleNumbers.map(module =>  module <= moduleNumbers.length 
       ? 
-      <Link to={`/textbook/module/${module}`}>Раздел {module}</Link>
+      <Link key={module} to={`/textbook/module/${module}`}>Раздел {module}</Link>
       :
       null)}
       
       <Switch>
       {moduleNumbers.map(module => module <= moduleNumbers.length 
-      ? <Route path={`/textbook/module/${module}`}><ModulePage moduleNumber={module}/></Route>
+      ? <Route key={module} path={`/textbook/module/${module}`}><ModulePage moduleNumber={module}/></Route>
       : null
       )}
         
