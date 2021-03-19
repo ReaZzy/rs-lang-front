@@ -24,12 +24,3 @@ export const TextBook = () => {
     </div>
   )
 }
-{/* <NavLink to={to}>
-<span>{`${name},`}</span>
-<span style={capitalStringStyle}>{capital}</span>
-</NavLink>
-
-<CountryCard
-          to={`/country/${country.linkName
-            .toLowerCase()
-            .replace(/[-\s]/g, "_")}`} */}
