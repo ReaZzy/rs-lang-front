@@ -1,5 +1,6 @@
 import {registerUserRequest} from "../api";
-import {setError, setIsFetching, setUserInfo} from "./actions";
+import {setError, setIsFetching} from "./actions";
+import {authSetUserInfo} from "../auth/actions";
 export const registerUser = (data) => async (dispatch) =>{
     dispatch(setIsFetching(true))
     const response =  await registerUserRequest(data)
@@ -12,7 +13,7 @@ export const registerUser = (data) => async (dispatch) =>{
         setTimeout(()=>{ dispatch(setError(null))}, 3000)
     }
     else {
-        dispatch( setUserInfo( response.data ) )
+        dispatch( authSetUserInfo( response.data ) )
     }
     dispatch(setIsFetching(false))
 }

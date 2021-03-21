@@ -5,17 +5,21 @@ import RegisterPage from "./pages/Register";
 import {LoginPage} from "./pages/Login/LoginPage";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "./redux/auth/thunks";
+import MyWordsPage from "./pages/MyWordsPage";
 
 function App() {
-    const name = useSelector( state => state.auth.userInfo?.name || state.register.userInfo?.name )
+    const name = useSelector( state => state.auth.userInfo?.name)
+
     const dispatch = useDispatch()
     const handleClick = () => {
         dispatch(logout())
     }
+
     return (
         <div className="App">
             <Link to="/">Главная</Link>
             <Link to="/textbook">Учебник</Link>
+            <Link to="/my-words">Мои слова</Link>
             {name
                 ? <>{name} <button onClick={handleClick}>Log out</button></>
                 : <Redirect to={"/login"}/>
@@ -32,6 +36,9 @@ function App() {
                 </Route>
                 <Route path={"/login"}>
                     <LoginPage/>
+                </Route>
+                <Route path={"/my-words"}>
+                    <MyWordsPage/>
                 </Route>
             </Switch>
         </div>

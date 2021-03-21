@@ -1,0 +1,1 @@
+export const setMyWords = (payload) => ({type:"words/SET_MY_WORDS", payload})
