@@ -1,21 +1,27 @@
 import MainPage from './pages/MainPage'
 import TextBook from './pages/TextBookPage'
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import { ThemeProvider, Container } from "@material-ui/core";
+import { theme } from "./theme";
+import { Header } from './views/Header/Header'
 
 function App() {
   return (
-    <div className="App">
-      <Link to="/">Главная</Link>
-      <Link to="/textbook">Учебник</Link>
-      <Switch>
-        <Route exact path="/">
-          <MainPage />
-        </Route>
-        <Route path="/textbook">
-          <TextBook />
-        </Route>
-      </Switch>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Header />
+      <main className="App">
+        <Container maxWidth="lg">
+          <Switch>
+            <Route exact path="/">
+              <MainPage />
+            </Route>
+            <Route path="/textbook">
+              <TextBook />
+            </Route>
+          </Switch>
+        </Container>
+      </main>
+    </ThemeProvider>
   );
 }
 
