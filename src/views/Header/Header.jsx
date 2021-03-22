@@ -12,6 +12,7 @@ export const Header = () => {
           <Toolbar color="primary"  >
             <NavLink to="/">Главная</NavLink>
             <NavLink to="/textbook">Учебник</NavLink>
+            <NavLink to="/my-words">Мои слова</NavLink>
           </Toolbar>
           </Container>
       </AppBar>
