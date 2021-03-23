@@ -4,7 +4,7 @@ import StartPageSprint from './components/StartPageSprint';
 import GameOverSprint from './components/GameOverSprint';
 import styles from './styles.module.css';
 
-const Sprint = () => {
+const Sprint = React.memo(() => {
   const [startGame, setStartGame] = useState(false);
   const [rightAnswers, setRightAnswers] = useState([]);
   const [wrongAnswers, setWrongAnswers] = useState([]);
@@ -36,6 +36,6 @@ const Sprint = () => {
       )}
     </div>
   );
-};
+});
 
 export default Sprint;

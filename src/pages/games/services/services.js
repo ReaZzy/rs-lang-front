@@ -1,7 +1,8 @@
 export const getData = (level, numberPage) => {
   let items = [];
   let group = 0;
-  const url = 'https://api-rslang.pet-projects.ru/words?';
+  const url = 'https://api-rslang.pet-projects.ru/words';
+
   const wordsData = async () => {
     if (group > numberPage) return items;
 

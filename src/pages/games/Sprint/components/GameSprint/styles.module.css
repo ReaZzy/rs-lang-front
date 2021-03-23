@@ -1,55 +1,53 @@
-.progress {
+.sprint__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+}
+
+.sprint__control_buttons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.sprint__progress {
   width: 100%;
-  background-color: #0f4c81;
-  margin: 0 5px;
-}
-.sound_sprint {
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-}
-.img_bacground_sprint {
-  opacity: 0.2;
-  height: 100%;
+  margin: 20px 10px;
 }
 .head_sprint {
   display: flex;
   justify-content: space-around;
+  width: 100%;
   margin: 20px 0;
+  color: #ffffff;
 }
-.translate_sprint {
-  color: orange;
-}
-.game_content_sprint {
+.sprint__header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  margin: 20px 0;
+  color: #ffffff;
 }
 .title_sprint {
   display: flex;
   justify-content: center;
+  color: #ffffff;
 }
 .title_sprint_wrong {
   display: flex;
   justify-content: center;
   color: red;
 }
-.wrong_button_sprint,
-.right_button_sprint {
-  margin: 5px;
-}
 .control_buttons {
   margin-top: 20px;
   text-align: center;
 }
-.progress_sprint {
-  margin: 20px 10px;
-}
+
 .sprint_circle {
   margin: 5px;
   width: 40px;
   height: 40px;
-  border: 2px solid #0f4c81;
+  border: 2px solid #ffffff;
   border-radius: 100%;
 }
 .circle_extrapoint_sprint {
@@ -58,45 +56,20 @@
   margin: 20px;
 }
 .circle_right {
-  border: 2px solid rgb(7, 209, 7);
+  border: 2px solid orange;
 }
-
-@media screen and (max-width: 520px) {
-  .head-sprint {
-    margin: 40px 0;
-  }
-  .control_buttons {
-    margin-top: 80px;
-  }
+.sprint__translate {
+  color: orange;
 }
-@media screen and (max-width: 470px) {
-  .control_buttons {
-    margin-top: 50px;
-  }
+.game__text {
+  color: #ffffff;
 }
-@media screen and (max-width: 420px) {
-  .control_buttons {
-    margin-top: 30px;
-  }
+.icon__fullScreen {
+  cursor: pointer;
 }
-@media screen and (max-width: 400px) {
-  .head_sprint {
-    margin: 30px 0;
-  }
-}
-@media screen and (max-width: 360px) {
-  .head_sprint {
-    margin: 20px 0;
-  }
-
-  .card_game_sprint {
-    height: 400px;
-    text-align: center;
-  }
-
-  .card_game_sprint_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.fullScreen__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

@@ -1,17 +1,22 @@
-.start_button {
-  border: 2px solid #0f4c81;
-  color: #0f4c81;
+.sprint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.start_button:hover {
-  background-color: #0f4c81;
+.sprint__text {
+  text-align: center;
+}
+.sprint__select_level {
+  margin: 30px;
+}
+.start__text {
   color: #ffffff;
 }
-.header_card_sprint {
-  background-color: #0f4c81;
-  color: #ffffff;
-}
-.selectLevelSprint {
-  margin: 0 auto;
-  margin-bottom: 15px;
-  width: 120px;
+.sprint__select_level {
+  width: 50px;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #ffffff;
 }

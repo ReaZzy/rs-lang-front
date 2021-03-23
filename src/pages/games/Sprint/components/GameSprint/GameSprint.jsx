@@ -1,244 +1,282 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Correct from '../../../../../assets/games/sprint/audio/correct.mp3';
 import ErrorSound from '../../../../../assets/games/sprint/audio/error.mp3';
-import onSound from '../../../../../assets/games/sprint/images/onSound.svg';
-import offSound from '../../../../../assets/games/sprint/images/offSound.svg';
 import { getData } from '../../../services/services';
-import { CircularProgress, LinearProgress } from '@material-ui/core';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import {
+  Card,
+  CircularProgress,
+  LinearProgress,
+  Typography,
+  Button,
+} from '@material-ui/core';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import MusicOffIcon from '@material-ui/icons/MusicOff';
+import FullscreenIcon from '@material-ui/icons/Fullscreen';
+
 import styles from './styles.module.css';
+import { randomInteger, rightAnswer } from '../../helpers/helper';
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
-function randomInteger(min, max) {
-  const rand = min + Math.random() * (max - min);
-  return Math.round(rand);
-}
-const rightAnswer = (counterAnswer, pointForAnswer) => {
-  if (counterAnswer < 3) return pointForAnswer + 10;
-  if (counterAnswer >= 3 && counterAnswer < 6) return pointForAnswer + 20;
-  if (counterAnswer >= 6 && counterAnswer < 9) return pointForAnswer + 40;
-  if (counterAnswer >= 9 && counterAnswer < 12) return pointForAnswer + 80;
-  if (counterAnswer >= 12 && counterAnswer < 15) return pointForAnswer + 160;
-  if (counterAnswer >= 15 && counterAnswer < 18) return pointForAnswer + 320;
-  if (counterAnswer >= 18) return pointForAnswer + 640;
-  return pointForAnswer;
-};
 
-const GameSprint = ({
-  startGame,
-  setRightAnswers,
-  setWrongAnswers,
-  setEndGame,
-  setResultScore,
-  level,
-}) => {
-  const [sound, isSound] = useState(true);
-  const [translate, setTranslate] = useState(' ');
-  const [extraPoint, setExtraPoint] = useState(0);
-  const [point, setPoint] = useState(0);
-  const [words, setWords] = useState([]);
-  const [currentWord, setCurrentWord] = useState({
-    word: '',
-    wordTranslate: '',
-  });
-  const [seconds, setSeconds] = useState(60);
-  const [counterExtraPoints, setCounterExtraPoints] = useState(0);
-  const [responseUser, setResponseUser] = useState('Sprint Game');
-  const [isLoading, setIsLoading] = useState(true);
+const GameSprint = React.memo(
+  ({
+    startGame,
+    setRightAnswers,
+    setWrongAnswers,
+    setEndGame,
+    setResultScore,
+    level,
+  }) => {
+    const [sound, isSound] = useState(true);
+    const [translate, setTranslate] = useState(' ');
+    const [extraPoint, setExtraPoint] = useState(0);
+    const [point, setPoint] = useState(0);
+    const [words, setWords] = useState([]);
+    const [currentWord, setCurrentWord] = useState({
+      word: '',
+      wordTranslate: '',
+    });
+    const handleFullScreen = useFullScreenHandle();
+    const [seconds, setSeconds] = useState(60);
+    const [counterExtraPoints, setCounterExtraPoints] = useState(0);
+    const [responseUser, setResponseUser] = useState('Sprint Game');
+    const [isLoading, setIsLoading] = useState(true);
 
-  const getNewRandomWord = useCallback((count, items) => {
-    const randIndex = randomInteger(0, count);
-    const randWord = items[randIndex];
-    return randWord;
-  }, []);
+    const getNewRandomWord = useCallback((count, items) => {
+      const randIndex = randomInteger(0, count);
+      const randWord = items[randIndex];
+      return randWord;
+    }, []);
 
-  useEffect(() => {
-    const getWords = async () => {
-      const fetchData = getData(level, 6);
-      const newWords = await fetchData();
-      setWords(newWords);
-      const current = newWords[newWords.length - 1];
-      setCurrentWord(current);
-      setIsLoading(false);
-    };
-    getWords();
-  }, [level]);
+    useEffect(() => {
+      const getWords = async () => {
+        const fetchData = getData(level, 10);
+        const newWords = await fetchData();
+        setWords(newWords);
+        const current = newWords[newWords.length - 1];
+        setCurrentWord(current);
+        setIsLoading(false);
+      };
+      getWords();
+    }, [level]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (!isLoading) {
-        setSeconds((sec) => sec - 1);
+    useEffect(() => {
+      const timer = setInterval(() => {
+        if (!isLoading) {
+          setSeconds((sec) => sec - 1);
+        }
+      }, 1000);
+      return () => {
+        clearInterval(timer);
+      };
+    }, [startGame, isLoading]);
+
+    useEffect(() => {
+      if (startGame) {
+        if (seconds === 0 || words.length === 1) {
+          setEndGame(true);
+          setResultScore(point);
+        }
       }
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [startGame, isLoading]);
+    }, [level, seconds, startGame, words, setEndGame, setResultScore, point]);
 
-  useEffect(() => {
-    if (startGame) {
-      if (seconds === 0 || words.length === 1) {
-        setEndGame(true);
-        setResultScore(point);
+    useEffect(() => {
+      if (Object.values(currentWord).length && words.length) {
+        const countElements = words.length - 1;
+        const compareWord = getNewRandomWord(countElements, words);
+        const randIndexCompare = randomInteger(0, 1);
+        const arrayCompareWords = [
+          currentWord.wordTranslate,
+          compareWord.wordTranslate,
+        ];
+        const translateWord = arrayCompareWords[randIndexCompare];
+        setTranslate(translateWord);
       }
-    }
-  }, [level, seconds, startGame, words, setEndGame, setResultScore, point]);
+    }, [words, currentWord, getNewRandomWord]);
 
-  useEffect(() => {
-    if (Object.values(currentWord).length && words.length) {
-      const countElements = words.length - 1;
-      const compareWord = getNewRandomWord(countElements, words);
-      const randIndexCompare = randomInteger(0, 1);
-      const arrayCompareWords = [
+    const handlerSwichSound = useCallback(() => {
+      isSound(!sound);
+    }, [sound]);
+
+    const handlerClickCheck = useCallback(
+      (responseQuestion) => {
+        if (
+          (responseQuestion && translate === currentWord.wordTranslate) ||
+          (!responseQuestion && translate !== currentWord.wordTranslate)
+        ) {
+          setExtraPoint(extraPoint + 1);
+          setRightAnswers(words[words.length - 1]);
+          if (sound) audioCorrect.play();
+          const result = rightAnswer(extraPoint, point);
+          setCounterExtraPoints(result - point);
+          setResponseUser('Sprint Game');
+          setPoint(result);
+        } else {
+          if (sound) audioError.play();
+          setCounterExtraPoints(0);
+          setResponseUser('Wrong!!!');
+          setWrongAnswers(words[words.length - 1]);
+          setExtraPoint(0);
+        }
+
+        const wordsUpdated = words.filter(
+          ({ word }) => word !== currentWord.word
+        );
+        setWords(wordsUpdated);
+        setCurrentWord(wordsUpdated[wordsUpdated.length - 1]);
+      },
+      [
+        currentWord.word,
         currentWord.wordTranslate,
-        compareWord.wordTranslate,
-      ];
-      const translateWord = arrayCompareWords[randIndexCompare];
-      setTranslate(translateWord);
-    }
-  }, [words, currentWord, getNewRandomWord]);
+        extraPoint,
+        point,
+        sound,
+        translate,
+        words,
+        setRightAnswers,
+        setWrongAnswers,
+      ]
+    );
 
-  const handlerSwichSound = useCallback(() => {
-    isSound(!sound);
-  }, [sound]);
+    const handleUserKeyPress = useCallback(
+      (event) => {
+        const { keyCode } = event;
 
-  const handlerClickCheck = useCallback(
-    (responseQuestion) => {
-      if (
-        (responseQuestion && translate === currentWord.wordTranslate) ||
-        (!responseQuestion && translate !== currentWord.wordTranslate)
-      ) {
-        setExtraPoint(extraPoint + 1);
-        setRightAnswers(words[words.length - 1]);
-        if (sound) audioCorrect.play();
-        const result = rightAnswer(extraPoint, point);
-        setCounterExtraPoints(result - point);
-        setResponseUser('Sprint Game');
-        setPoint(result);
-      } else {
-        if (sound) audioError.play();
-        setCounterExtraPoints(0);
-        setResponseUser('Wrong!!!');
-        setWrongAnswers(words[words.length - 1]);
-        setExtraPoint(0);
-      }
+        if (keyCode === 37) {
+          handlerClickCheck(false);
+        }
+        if (keyCode === 39) {
+          handlerClickCheck(true);
+        }
+      },
+      [handlerClickCheck]
+    );
 
-      const wordsUpdated = words.filter(
-        ({ word }) => word !== currentWord.word
-      );
-      setWords(wordsUpdated);
-      setCurrentWord(wordsUpdated[wordsUpdated.length - 1]);
-    },
-    [
-      currentWord.word,
-      currentWord.wordTranslate,
-      extraPoint,
-      point,
-      sound,
-      translate,
-      words,
-      setRightAnswers,
-      setWrongAnswers,
-    ]
-  );
+    useEffect(() => {
+      window.addEventListener('keydown', handleUserKeyPress);
 
-  const handleUserKeyPress = useCallback(
-    (event) => {
-      const { keyCode } = event;
+      return () => {
+        window.removeEventListener('keydown', handleUserKeyPress);
+      };
+    }, [handleUserKeyPress]);
 
-      if (keyCode === 37) {
-        handlerClickCheck(false);
-      }
-      if (keyCode === 39) {
-        handlerClickCheck(true);
-      }
-    },
-    [handlerClickCheck]
-  );
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleUserKeyPress);
-
-    return () => {
-      window.removeEventListener('keydown', handleUserKeyPress);
-    };
-  }, [handleUserKeyPress]);
-
-  return (
-    <>
-      <div className={styles.circle_extrapoint_sprint}>
-        <div
-          className={
-            extraPoint >= 1
-              ? `${styles.circle_right} ${styles.sprint_circle}`
-              : `${styles.sprint_circle}`
-          }
-        />
-        <div
-          className={
-            extraPoint >= 2
-              ? `${styles.circle_right} ${styles.sprint_circle}`
-              : `${styles.sprint_circle}`
-          }
-        />
-        <div
-          className={
-            extraPoint >= 3
-              ? `${styles.circle_right} ${styles.sprint_circle}`
-              : `${styles.sprint_circle}`
-          }
-        />
-      </div>
-      <div className={styles.card_game_sprint_container}>
-        <div className={styles.card_game_sprint}>
-          <div
-            className={
-              responseUser === 'Wrong!!!'
-                ? `{styles.title_sprint_wrong}`
-                : `${styles.title_sprint}`
-            }
-          >
-            {counterExtraPoints > 0
-              ? `+ ${counterExtraPoints} points`
-              : responseUser}
-          </div>
-          <div className={styles.head_sprint}>
-            {' '}
-            <p>Score: {point}</p>
-            {isLoading ? <CircularProgress /> : <p>{seconds}</p>}
-            <img
-              className={styles.sound_sprint}
-              onClick={handlerSwichSound}
-              src={sound ? onSound : offSound}
-              alt='sound-icon'
+    return (
+      <>
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <>
+            <FullscreenIcon
+              className={styles.icon__fullScreen}
+              onClick={handleFullScreen.enter}
+              fontSize='large'
+              color='primary'
             />
-          </div>
-          <div className={styles.game_content_sprint}>
-            <div>{currentWord.word}</div>
-            <div className={styles.translate_sprint}>{translate}</div>
-          </div>
-          <div className={styles.control_buttons}>
-            <button
-              className={styles.wrong_button_sprint}
-              onClick={() => handlerClickCheck(false)}
-            >
-              FALSE
-            </button>
-            <button
-              className={styles.right_button_sprint}
-              onClick={() => handlerClickCheck(true)}
-            >
-              TRUE
-            </button>
-          </div>
-          <div className={styles.progress_sprint}>
-            {' '}
-            <LinearProgress variant='determinate' value={seconds} />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+            <FullScreen handle={handleFullScreen}>
+              <div className={styles.fullScreen__container}>
+                <div className={styles.circle_extrapoint_sprint}>
+                  <div
+                    className={
+                      extraPoint >= 1
+                        ? `${styles.circle_right} ${styles.sprint_circle}`
+                        : `${styles.sprint_circle}`
+                    }
+                  />
+                  <div
+                    className={
+                      extraPoint >= 2
+                        ? `${styles.circle_right} ${styles.sprint_circle}`
+                        : `${styles.sprint_circle}`
+                    }
+                  />
+                  <div
+                    className={
+                      extraPoint >= 3
+                        ? `${styles.circle_right} ${styles.sprint_circle}`
+                        : `${styles.sprint_circle}`
+                    }
+                  />
+                </div>
+                <div className={styles.card_game_sprint_container}>
+                  <div className={styles.card_game_sprint}>
+                    <h3
+                      className={
+                        responseUser === 'Wrong!!!'
+                          ? `${styles.title_sprint_wrong}`
+                          : `${styles.title_sprint}`
+                      }
+                    >
+                      {counterExtraPoints > 0
+                        ? `+ ${counterExtraPoints} points`
+                        : responseUser}
+                    </h3>
+                    <div className={styles.sprint__header}>
+                      {' '}
+                      <h3 className={styles.game__text}>Score: {point}</h3>
+                      {sound ? (
+                        <MusicNoteIcon
+                          onClick={handlerSwichSound}
+                          fontSize='large'
+                          color='primary'
+                        />
+                      ) : (
+                        <MusicOffIcon
+                          onClick={handlerSwichSound}
+                          fontSize='large'
+                          color='primary'
+                        />
+                      )}
+                    </div>
+
+                    <Card variant='outlined' className={styles.sprint__content}>
+                      <h4>{currentWord.word}</h4>
+                      <h4 className={styles.sprint__translate}>{translate}</h4>
+                    </Card>
+
+                    <div className={styles.sprint__control_buttons}>
+                      <div className={styles.buttons__block}>
+                        <Button
+                          variant='contained'
+                          color='secondary'
+                          onClick={() => handlerClickCheck(false)}
+                        >
+                          FALSE
+                        </Button>
+                        <p className={styles.game__text}>arrow left</p>
+                      </div>
+                      <div className={styles.buttons__block}>
+                        <Button
+                          variant='contained'
+                          color='primary'
+                          onClick={() => handlerClickCheck(true)}
+                        >
+                          TRUE
+                        </Button>
+                        <p className={styles.game__text}>arrow right</p>
+                      </div>
+                    </div>
+
+                    <div className={styles.sprint__progress}>
+                      <Typography variant='h4' gutterBottom color='primary'>
+                        {seconds}
+                      </Typography>
+
+                      <LinearProgress
+                        variant='determinate'
+                        value={Math.round((100 / 60) * seconds)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FullScreen>
+          </>
+        )}
+      </>
+    );
+  }
+);
 
 export default GameSprint;

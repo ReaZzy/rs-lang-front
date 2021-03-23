@@ -1,47 +1,23 @@
-.header_gameover_sprint {
-  background-color: #0f4c81;
-  color: #ffffff;
+.gameOver {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 600px;
+}
+.gameOver__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
 }
-.result_buttons {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-.button_sprint {
-  margin: 5px;
-}
-.home_button_sprint {
-  width: 100px;
-  border: 2px solid #0f4c81;
-  color: #0f4c81;
-}
-.home_button_sprint:hover {
-  background-color: #0f4c81;
+.gameOver__container__text {
   color: #ffffff;
 }
-
-.sprint_end_game {
-  padding-top: 30px;
+.result__button__container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 500px;
-  margin: 0 auto;
-  background-color: rgb(250, 248, 233);
-  border-radius: 30px;
-  box-shadow: 10px 15px 39px -7px rgba(0, 0, 0, 0.82);
-  @media (max-width: 767px) {
-    width: auto;
-  }
-}
-
-.sprint_list_group {
-  width: 500px;
-  margin: 0 auto;
-  box-shadow: 10px 15px 39px -7px rgba(0, 0, 0, 0.82);
-  @media (max-width: 767px) {
-    width: auto;
-  }
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
 }
