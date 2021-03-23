@@ -18,10 +18,39 @@ export const loginRequest = (email, password) => {
         .catch(err=>err.response.status)
 }
 
-export const getWordsRequest = (id, token) => {
+export const getMyWordsRequest = (id, token) => {
     return instance.get( `/users/${id}/words` , {
         headers:{
           "Authorization": `Bearer ${token}`
         }
     }).catch(err=>err.response.status)
+}
+export const getWordsRequest = (page,module) => {
+    return instance.get( `/words?group=${module}&page=${page}`)
+}
+
+export const updateTokenRequest = (id, token) => {
+    return instance.get(`/users/${id}/tokens`, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+}
+
+export const getAggregatedWordsRequest = (page, module, id, token) => {
+    return instance.get(`/users/${id}/aggregatedWords?group=${module}&page=${page}`, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+}
+export const setAggregatedWordRequest = (id, wordId, type, token) => {
+    return instance.post(`/users/${id}/words/${wordId}`, {
+        "difficulty": `${type}`,
+        "optional": {}
+    }, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        },
+    })
 }

@@ -1,19 +1,26 @@
+import React, {Suspense, useEffect} from "react"
 import MainPage from './pages/MainPage'
-import TextBook from './pages/TextBookPage'
 import {Switch, Route, Link, Redirect} from "react-router-dom";
 import RegisterPage from "./pages/Register";
 import {LoginPage} from "./pages/Login/LoginPage";
 import {useDispatch, useSelector} from "react-redux";
-import {logout} from "./redux/auth/thunks";
+import {logout, updateToken} from "./redux/auth/thunks";
 import MyWordsPage from "./pages/MyWordsPage";
+
+const TextBookPage = React.lazy(()=> import("./pages/TextBookPage"))
 
 function App() {
     const name = useSelector( state => state.auth.userInfo?.name)
-
+    const isFetching = useSelector( state => state.register.isFetching)
+    const token = useSelector( state => state.auth.userInfo?.refreshToken)
+    const id = useSelector( state => state.auth.userInfo?.id || state.auth.userInfo?.userId)
     const dispatch = useDispatch()
     const handleClick = () => {
         dispatch(logout())
     }
+    useEffect(()=>{
+        dispatch(updateToken(id, token))
+    }, [])
 
     return (
         <div className="App">
@@ -28,8 +35,10 @@ function App() {
                 <Route exact path="/">
                     <MainPage/>
                 </Route>
-                <Route path="/textbook">
-                    <TextBook/>
+                <Route path="/textbook/:module?/:page?">
+                    <Suspense fallback={isFetching}>
+                        <TextBookPage/>
+                    </Suspense>
                 </Route>
                 <Route path={"/register"}>
                     <RegisterPage/>
