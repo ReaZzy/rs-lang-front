@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import MainPage from './pages/MainPage';
 import TextBook from './pages/TextBookPage';
 import { ThemeProvider, Container } from '@material-ui/core';
@@ -55,6 +56,33 @@ function App() {
       </div>
     </ThemeProvider>
   );
+=======
+
+import { ThemeProvider } from "@material-ui/core";
+import { theme } from "./theme";
+import { Header } from './views/Header/Header'
+import { useSelector } from "react-redux";
+import { useRoutes } from './routes';
+
+
+function App() {
+   
+    const isAuthenticated = !!useSelector(state => state.auth.userInfo?.token);
+   
+
+    const routes = useRoutes(isAuthenticated);
+
+    return (
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <Header />
+            <main>
+                {routes}
+            </main>
+        </div>
+      </ThemeProvider>
+    );
+>>>>>>> 8c7b2fb1dd12c8b8753c5604b6bdccccdc1f44f9
 }
 
 export default App;
