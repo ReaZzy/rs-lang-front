@@ -1,19 +1,24 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-const ACCENT_COLOR = "rgb(105, 186, 190)";
+const ACCENT_COLOR = "#5c75f4";
+const LIGHT_COLOR = "#bfd7ff";
+const DARK_COLOR = "#084ac0";
 const TEXT_COLOR = "rgba(0, 0, 0, 0.768)";
 
 // Create a theme instance.
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#80deea",
-      light: "#e0f7fa"
+      main: ACCENT_COLOR,
+      light: LIGHT_COLOR,
+      dark: DARK_COLOR
     },
     secondary: {
-      main: ACCENT_COLOR,
-      contrastText: "#fff",
-    },
+      main: "#f5f5f5",
+      light: "#fafafa",
+      contrastText: "#fff"
+    }
   },
+  
   typography: {
     fontFamily: "Roboto",
     body2: {
@@ -55,6 +60,18 @@ export const theme = createMuiTheme({
     borderRadius: 0,
   },
   overrides: {
+    MuiGrid: {
+      // root: {
+      //   backgroundColor: ACCENT_COLOR
+      // }
+    },
+    MuiPaper: {
+      root: {
+        backgroundColor: ACCENT_COLOR,
+        
+
+      }
+    },
     MuiChip: {
       root: {
         margin: "0 10px 20px 0",

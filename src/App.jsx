@@ -22,12 +22,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Header />
-          <Container maxWidth="lg">
+          {/* <Container maxWidth="lg"> */}
             {name
                 ? <>{name} <button onClick={handleClick}>Log out</button></>
                 : <Redirect to={"/login"}/>
             }
-            
             <Switch>
                 <Route exact path="/">
                     <MainPage/>
@@ -45,7 +44,7 @@ function App() {
                     <MyWordsPage/>
                 </Route>
             </Switch>
-            </Container>
+            {/* </Container> */}
         </div>
       </ThemeProvider>
     );
