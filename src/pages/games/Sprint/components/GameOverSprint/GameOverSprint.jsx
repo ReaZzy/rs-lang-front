@@ -18,8 +18,8 @@ const GameOverSprint = React.memo(
     return (
       <section className={styles.gameOver}>
         <article className={styles.gameOver__container}>
-          <h1 className={styles.gameOver__container__text}>GAME OVER</h1>
-          <h3 className={styles.gameOver__container__text}>
+          <h1 className={styles.gameOver__text}>GAME OVER</h1>
+          <h3 className={styles.gameOver__text}>
             Your result {resultScore} points
           </h3>
           <Button

@@ -199,8 +199,8 @@ const GameSprint = React.memo(
                     }
                   />
                 </div>
-                <div className={styles.card_game_sprint_container}>
-                  <div className={styles.card_game_sprint}>
+                <div>
+                  <div className={styles.sprint__card}>
                     <h3
                       className={
                         responseUser === 'Wrong!!!'
@@ -230,10 +230,10 @@ const GameSprint = React.memo(
                       )}
                     </div>
 
-                    <Card variant='outlined' className={styles.sprint__content}>
+                    <div className={styles.sprint__content}>
                       <h4>{currentWord.word}</h4>
                       <h4 className={styles.sprint__translate}>{translate}</h4>
-                    </Card>
+                    </div>
 
                     <div className={styles.sprint__control_buttons}>
                       <div className={styles.buttons__block}>
@@ -244,7 +244,7 @@ const GameSprint = React.memo(
                         >
                           FALSE
                         </Button>
-                        <p className={styles.game__text}>arrow left</p>
+                        <p className={styles.game__text_btn}>arrow left</p>
                       </div>
                       <div className={styles.buttons__block}>
                         <Button
@@ -254,7 +254,7 @@ const GameSprint = React.memo(
                         >
                           TRUE
                         </Button>
-                        <p className={styles.game__text}>arrow right</p>
+                        <p className={styles.game__text_btn}>arrow right</p>
                       </div>
                     </div>
 

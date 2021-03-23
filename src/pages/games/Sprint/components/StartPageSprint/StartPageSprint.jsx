@@ -20,7 +20,7 @@ const StartPageSprint = React.memo(({ setStartGame, setLevel }) => {
   return (
     <div className={styles.sprint}>
       <div className={styles.sprint__text}>
-        <h1 className={styles.start__text}>Sprint Game</h1>
+        <h1 className={styles.start__text_name}>Sprint Game</h1>
         <h4 className={styles.start__text}>Learn new words and repeat it.</h4>
         <h4 className={styles.start__text}>Choose the correct word.</h4>
       </div>

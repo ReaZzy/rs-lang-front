@@ -1,7 +1,6 @@
 .sprint {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -13,6 +12,11 @@
 }
 .start__text {
   color: #ffffff;
+  font-size: 1.5em;
+}
+.start__text_name {
+  color: #ffffff;
+  font-size: 40px;
 }
 .sprint__select_level {
   width: 50px;
