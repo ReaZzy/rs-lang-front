@@ -41,7 +41,7 @@ const GameOverSprint = React.memo(
             </Button>
             <Button
               variant='outlined'
-              color='secondary'
+              color='primary'
               onClick={() => handlerClickCheck(false)}
             >
               {' '}

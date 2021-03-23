@@ -239,7 +239,7 @@ const GameSprint = React.memo(
                       <div className={styles.buttons__block}>
                         <Button
                           variant='contained'
-                          color='secondary'
+                          color='primary'
                           onClick={() => handlerClickCheck(false)}
                         >
                           FALSE
