@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { Container } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,19 +33,21 @@ export const MainPage = () => {
         {/* <img src={Picture}></img> */}
 
       </section>
-      <Grid container xs={12} spacing={1} className={styles.gridContainer} >
-        <Grid container justify="space-between" className={styles.gridContainer} alignContent="space-between" alignItems="center" item xs={12} spacing={5}>
-          <Grid item xs >
+      <Container maxWidth="lg">
+        <Grid container xs={12} spacing={1} className={styles.gridContainer} >
+          <Grid container justify="space-between" className={styles.gridContainer} alignContent="space-between" alignItems="center" item xs={12} spacing={5}>
+            <Grid item xs >
+              <Paper elevation={3} className={classes.paper}/>
+            </Grid>
+            <Grid item xs >
             <Paper elevation={3} className={classes.paper}/>
           </Grid>
-          <Grid item xs >
-          <Paper elevation={3} className={classes.paper}/>
+          </Grid>
+          <Grid item xs={12} spacing={0}>
+            <Paper elevation={3} className={classes.paper}/>
+          </Grid>
         </Grid>
-        </Grid>
-        <Grid item xs={12} spacing={0}>
-          <Paper elevation={3} className={classes.paper}/>
-        </Grid>
-      </Grid>
+      </Container>
     </div>
   )
 }

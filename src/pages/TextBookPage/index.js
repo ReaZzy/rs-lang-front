@@ -1,2 +1,2 @@
-import {TextBook} from './TextBook';
-export default TextBook;
+import {TextBookPage} from './TextBookPage';
+export default TextBookPage;
