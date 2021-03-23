@@ -1,5 +1,5 @@
 
-import { ThemeProvider, Container } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core";
 import { theme } from "./theme";
 import { Header } from './views/Header/Header'
 import { useSelector } from "react-redux";
@@ -17,13 +17,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Header />
-          <Container maxWidth="lg">
-                    <main>
-                        {routes}
-                    </main>
-            
- 
-            </Container>
+            <main>
+                {routes}
+            </main>
         </div>
       </ThemeProvider>
     );
