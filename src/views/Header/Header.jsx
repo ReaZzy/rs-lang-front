@@ -2,13 +2,8 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
-<<<<<<< HEAD
 import SimpleMenu from '../components/Menu'
 import styles from "./styles.module.css";
-=======
-import Menu from '../components/Menu';
-import styles from './styles.module.css';
->>>>>>> a64d8a84d44ebb7ceafdd44cc63facb6b2447f54
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
