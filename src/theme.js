@@ -21,10 +21,17 @@ export const theme = createMuiTheme({
   
   typography: {
     fontFamily: "Roboto",
+    body1: {
+      fontFamily: "Roboto",
+      fontSize: "20px",
+      marginBottom: "10px",
+    },
     body2: {
       fontFamily: "Roboto",
       marginBottom: "10px",
+      fontSize: "16px",
     },
+    
     h1: {
       fontWeight: "bold",
       fontSize: "40px",
@@ -55,38 +62,32 @@ export const theme = createMuiTheme({
       marginBottom: "20px",
       color: TEXT_COLOR,
     },
+    button: {
+      color: TEXT_COLOR,
+      fontFamily: "Roboto",
+      fontSize: "20px",
+      fontWeight: "bold"
+    }
   },
   shape: {
     borderRadius: 0,
   },
   overrides: {
-    MuiGrid: {
-      // root: {
-      //   backgroundColor: ACCENT_COLOR
-      // }
-    },
     MuiPaper: {
       root: {
-        backgroundColor: ACCENT_COLOR,
-        
-
+        borderRadius: "4px"
       }
-    },
-    MuiChip: {
-      root: {
-        margin: "0 10px 20px 0",
-      },
     },
     MuiCard: {
       root: {
         boxShadow: "none",
+        backgroundColor: "white",
       },
     },
     MuiTextField: {
       root: {
         borderColor: ACCENT_COLOR,
         marginBottom: "20px",
-        // width: "370px",
         "& .MuiInput-underline:before": {
           borderBottomColor: ACCENT_COLOR,
         },
@@ -95,16 +96,9 @@ export const theme = createMuiTheme({
         },
       },
     },
-    MuiNativeSelect: {
-      root: {
-        color: "#fff",
-      },
-      icon: {
-        color: "#fff",
-      },
-    },
     MuiButton: {
       root: {
+        backgroundColor: ACCENT_COLOR,
         "&:focus": {
           outline: "none",
         },
@@ -112,8 +106,14 @@ export const theme = createMuiTheme({
     },
     MuiInputLabel: {
       root: {
-        color: ACCENT_COLOR,
+        // color: ACCENT_COLOR,
       },
+    },
+    MuiMenu: {
+      paper: {
+        background: "#5c75f4",
+        borderRadius: "4px"
+      }
     },
   },
 });

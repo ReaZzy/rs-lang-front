@@ -1,47 +1,75 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { Fade } from "@material-ui/core";
 import { Container } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import styles from "./styles.module.css";
+import Typography from '@material-ui/core/Typography';
 
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    backgroundColor: "#fff",
-    width: "100%",
-    height: "300px",
-  },
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.secondary.light,
-  },
-  media: {
-    height: 300,
-  },
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 export const MainPage = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <section className={styles.Mainpage__section} >
-        {/* <img src={Picture}></img> */}
-
-      </section>
       <Container maxWidth="lg">
-        <Grid container xs={12} spacing={1} className={styles.gridContainer} >
-          <Grid container justify="space-between" className={styles.gridContainer} alignContent="space-between" alignItems="center" item xs={12} spacing={5}>
-            <Grid item xs >
-              <Paper elevation={3} className={classes.paper}/>
-            </Grid>
-            <Grid item xs >
-            <Paper elevation={3} className={classes.paper}/>
+        <Grid container spacing={1} className={styles.gridContainer} >
+          <Grid container justify="space-between" className={styles.gridContainer} alignContent="space-between" alignItems="center"  spacing={7}>
+            <Fade in={true} timeout={700}>
+              <Grid item xs={6} >
+                <Card elevation={3} className={classes.card}> 
+                  <Typography variant="h2" gutterBottom>Достигайте лучших возможных результатов в изучении английких слов вместе с RSLang</Typography>
+                </Card>
+              </Grid>
+            </Fade>
+            <Grid item xs={6} >
+                <Card elevation={3} className={classes.card}>
+                  <img className={styles.photo} alt="main" src={MainPicture}></img>
+                </Card>
+              </Grid>
           </Grid>
+          <Grid className={styles.gridContainer} item xs={6}>
+            <Paper elevation={3} className={styles.video}> 
+              Video
+            </Paper>
           </Grid>
-          <Grid item xs={12} spacing={0}>
-            <Paper elevation={3} className={classes.paper}/>
+          <Grid item xs={6}>
+            <Card className={styles.benefits__card}>
+              <CardMedia
+                component="img"
+                alt={"dictionary"}
+                className={styles.benefits__photo}
+                image={DictionaryPhoto}
+              />
+              <CardContent className={classes.CardContent}>
+                <Typography >Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
+              </CardContent>
+            </Card>
+            <Card className={styles.benefits__card}>
+              <CardMedia
+                component="img"
+                alt={"progress"}
+                className={styles.benefits__photo}
+                image={ProgressPhoto}
+              />
+              <CardContent>
+                <Typography>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
+              </CardContent>
+            </Card>
+            <Card className={styles.benefits__card}>
+                <CardMedia
+                  component="img"
+                  alt={"progress"}
+                  className={styles.benefits__photo}
+                  image={GamesPhoto}
+                />
+                <CardContent>
+                  <Typography variant="body1">Интересные игры для лучшего запоминания слов.</Typography>
+                </CardContent>
+              </Card>
           </Grid>
         </Grid>
       </Container>
