@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  updateToken } from "./redux/auth/thunks";
-import {theme} from "./theme";
-import {ThemeProvider} from "@material-ui/core";
-import {useRoutes} from "./routes";
-import {Header} from "./views/Header/Header";
-
+import { updateToken } from "./redux/auth/thunks";
+import { theme } from "./theme";
+import { ThemeProvider } from "@material-ui/core";
+import { useRoutes } from "./routes";
+import { Header } from "./views/Header/Header";
 
 function App() {
     const dispatch = useDispatch();
@@ -18,8 +17,9 @@ function App() {
         dispatch(updateToken(id, token));
     }, []);
 
-    const isAuthenticated = !!useSelector(state => state.auth.userInfo?.token);
-
+    const isAuthenticated = !!useSelector(
+        (state) => state.auth.userInfo?.token
+    );
 
     const routes = useRoutes(isAuthenticated);
 
@@ -27,9 +27,7 @@ function App() {
         <ThemeProvider theme={theme}>
             <div className="App">
                 <Header />
-                <main>
-                    {routes}
-                </main>
+                <main>{routes}</main>
             </div>
         </ThemeProvider>
     );
