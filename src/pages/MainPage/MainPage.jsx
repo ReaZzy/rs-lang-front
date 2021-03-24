@@ -2,10 +2,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Container } from "@material-ui/core";
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
-import Picture from '../../assets/img/maxresdefault.jpg';
 import styles from "./styles.module.css";
 
 

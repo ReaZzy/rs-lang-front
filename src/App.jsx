@@ -1,61 +1,35 @@
-import React, { Suspense, useEffect } from "react";
-import MainPage from "./pages/MainPage";
-import { Switch, Route, Link, Redirect } from "react-router-dom";
-import RegisterPage from "./pages/Register";
-import { LoginPage } from "./pages/Login/LoginPage";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, updateToken } from "./redux/auth/thunks";
-import MyWordsPage from "./pages/MyWordsPage";
+import {  updateToken } from "./redux/auth/thunks";
+import {theme} from "./theme";
+import {ThemeProvider} from "@material-ui/core";
+import {useRoutes} from "./routes";
+import {Header} from "./views/Header/Header";
 
-const TextBookPage = React.lazy(() => import("./pages/TextBookPage"));
 
 function App() {
-    const name = useSelector((state) => state.auth.userInfo?.name);
-    const isFetching = useSelector((state) => state.register.isFetching);
+    const dispatch = useDispatch();
     const token = useSelector((state) => state.auth.userInfo?.refreshToken);
     const id = useSelector(
         (state) => state.auth.userInfo?.id || state.auth.userInfo?.userId
     );
-    const dispatch = useDispatch();
-    const handleClick = () => {
-        dispatch(logout());
-    };
+
     useEffect(() => {
         dispatch(updateToken(id, token));
     }, []);
 
+    const isAuthenticated = !!useSelector(state => state.auth.userInfo?.token);
+
+
+    const routes = useRoutes(isAuthenticated);
+
     return (
         <ThemeProvider theme={theme}>
             <div className="App">
-                <Link to="/">Главная</Link>
-                <Link to="/textbook">Учебник</Link>
-                <Link to="/my-words">Мои слова</Link>
-                {name ? (
-                    <>
-                        {name} <button onClick={handleClick}>Log out</button>
-                    </>
-                ) : (
-                    <Redirect to={"/login"} />
-                )}
-                <Switch>
-                    <Route exact path="/">
-                        <MainPage />
-                    </Route>
-                    <Route path="/textbook/:module?/:page?">
-                        <Suspense fallback={isFetching}>
-                            <TextBookPage />
-                        </Suspense>
-                    </Route>
-                    <Route path={"/register"}>
-                        <RegisterPage />
-                    </Route>
-                    <Route path={"/login"}>
-                        <LoginPage />
-                    </Route>
-                    <Route path={"/my-words"}>
-                        <MyWordsPage />
-                    </Route>
-                </Switch>
+                <Header />
+                <main>
+                    {routes}
+                </main>
             </div>
         </ThemeProvider>
     );

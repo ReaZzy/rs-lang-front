@@ -20,18 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a49a7954-8154-4d29-8aa9-a39548d6e545" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/TextBookPage/audioComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyWordsPage/MyWordsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyWordsPage/MyWordsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TextBookPage/TextBook.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookPage/TextBook.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/TextBookMain/TextBookMain.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookMain/TextBookMain.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/TextBookPage/TextBookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookPage/TextBookPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth/reducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth/thunks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth/thunks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/words/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/words/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/words/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/words/reducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/words/thunks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/words/thunks.js" afterDir="false" />
@@ -66,12 +61,12 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\pages\TextBookPage" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\redux" />
       <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\redux\register" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\pages\TextBookPage" />
     </key>
   </component>
   <component name="RunManager">
@@ -107,6 +102,9 @@
       <workItem from="1616433805519" duration="2696000" />
       <workItem from="1616442910970" duration="2843000" />
       <workItem from="1616492162182" duration="4315000" />
+      <workItem from="1616497512745" duration="443000" />
+      <workItem from="1616497976388" duration="1793000" />
+      <workItem from="1616528000744" duration="2353000" />
     </task>
     <servers />
   </component>
@@ -130,22 +128,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616230215344" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1616497125563">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1616530432603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616497125563" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1616497125562">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616530432603" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1616530432603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616497125562" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1616497125562">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616530432603" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1616530432602">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616497125562" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1616497125563">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616530432602" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1616530432603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616497125563" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616530432603" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616422452687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -2,6 +2,7 @@ const initialState = {
     words: null,
     myWords: null,
     aggregatedWords: null,
+    wordsFetching: false
 }
 
 const words = (state = initialState, action) => {
@@ -12,8 +13,11 @@ const words = (state = initialState, action) => {
             return {...state, words: action.payload}
         case "words/SET_AGGREGATED_WORDS":
             return {...state, aggregatedWords: action.payload}
+        case "words/SET_WORDS_FETCHING":
+            return {...state, wordsFetching: action.payload}
         case "words/EDIT_AGGREGATED_WORDS":
-            return {...state, aggregatedWords:
+            return {
+                ...state, aggregatedWords:
                     {
                         "paginatedResults": state.aggregatedWords?.paginatedResults.map( e => {
                             if (e._id === action.payload.id) {
