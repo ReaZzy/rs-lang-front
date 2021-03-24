@@ -1,0 +1,36 @@
+.menuIcon {
+  background-color: "#fff" !important;
+}
+
+.icon {
+  color: "#fff" !important;
+  margin-right: 17px !important;
+}
+
+.IconButton {
+  background-color: "#fff"
+}
+
+.link {
+  text-decoration: none;
+  color:#f7e5ff;
+  font-weight: bold;
+  font-family: "Roboto";
+  
+}
+
+.menu {
+  background: #5c75f4 !important;
+  border-radius: 4px !important;
+}
+.MuiMenu-list {
+  background: #5c75f4 !important;
+  border-radius: 4px !important;
+}
+
+.menu__item {
+  display: flex !important;
+}
+
+
+
