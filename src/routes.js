@@ -5,6 +5,9 @@ import TextBookMain from './pages/TextBookMain';
 import RegisterPage from "./pages/Register";
 import { LoginPage } from "./pages/Login/LoginPage";
 import MyWordsPage from "./pages/MyWordsPage";
+import TeamPage from "./pages/TeamPage";
+import ProgressPage from "./pages/ProgressPage";
+import SettingsPage from "./pages/SettingsPage";
 import TextBookPage  from './pages/TextBookPage';
 
 
@@ -26,6 +29,15 @@ export const useRoutes = (isAuthenticated) => {
         </Route>
         <Route path="/my-words">
           <MyWordsPage />
+        </Route>
+        <Route path="/team">
+          <TeamPage />
+        </Route>
+        <Route path="/progress">
+          <ProgressPage />
+        </Route>
+        <Route path="/settings">
+          <SettingsPage />
         </Route>
 
         <Redirect  to="/"/>

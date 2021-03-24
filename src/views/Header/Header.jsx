@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
 import AppBar from '@material-ui/core/AppBar';
-import Menu from '../components/Menu'
+import SimpleMenu from '../components/Menu'
 import styles from "./styles.module.css";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,11 +23,11 @@ export const Header = () => {
   const classes = useStyles();
 
   return (
-    <header>
+    <header className={styles.header}>
       <AppBar color="primary" position="static">
         <Container maxWidth="lg">
           <Toolbar className={styles.toolbar} color="primary.main"  >
-            <Menu />
+            <SimpleMenu />
             <Typography variant="h6" className={classes.title}>
               RSLang
             </Typography>
