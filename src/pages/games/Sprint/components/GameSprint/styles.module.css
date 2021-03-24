@@ -1,0 +1,101 @@
+.sprint__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 300px;
+}
+.sprint__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+.sprint__control_buttons {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.sprint__progress {
+  width: 80%;
+  margin: 20px;
+  padding: 0 10px;
+}
+.head_sprint {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px 0;
+  color: #ffffff;
+}
+.sprint__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff;
+  width: 100%;
+}
+.title_sprint {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: #ffffff;
+  margin: 0;
+}
+.title_sprint_wrong {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: red;
+  margin: 0;
+}
+.control_buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sprint_circle {
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ffffff;
+  border-radius: 100%;
+}
+.circle_extrapoint_sprint {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.circle_right {
+  border: 2px solid orange;
+}
+.sprint__translate {
+  color: orange;
+}
+.game__text {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+.game__text_btn {
+  color: #ffffff;
+}
+.icon__fullScreen {
+  cursor: pointer;
+}
+.fullScreen__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+@media screen and (max-width: 620px) {
+  .sprint__card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .sprint__content {
+    width: 260px;
+  }
+}
