@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams, Link } from 'react-router-dom';
 import { Pagination } from '@material-ui/lab';
 import PaginationItem from '@material-ui/lab/PaginationItem';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 export const TextBookPage = () => {
@@ -45,16 +47,25 @@ export const TextBookPage = () => {
  
   if (!isUrlReady) {
     return (
-      <div>
-        <p>Page is Loading</p>
-      </div>
+      <CircularProgress />
     )
   }
 
   return (
     <div>
       <p>Page content</p>
-      <Pagination count={30}
+      <Pagination
+        count={30}
+        renderItem={(item) => (
+          <PaginationItem
+            component={Link}
+            to={`/textbook/${module}/${item.page}`}
+            {...item}
+          />
+        
+        )
+        
+        }
       />
 
     
