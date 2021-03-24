@@ -9,57 +9,60 @@ import TeamPage from "./pages/TeamPage";
 import ProgressPage from "./pages/ProgressPage";
 import SettingsPage from "./pages/SettingsPage";
 import TextBookPage  from './pages/TextBookPage';
-
+import Sprint from './pages/games/Sprint';
 
 export const useRoutes = (isAuthenticated) => {
-
   if (isAuthenticated) {
     // TextBook - просто список модулей. Менюшка для перемещения по учебнику
 
     return (
       <Switch>
-        <Route path="/" exact>
+        <Route path='/' exact>
           <MainPage />
         </Route>
-        <Route path="/textbook" exact>
+        <Route path='/textbook' exact>
           <TextBookMain />
         </Route>
-        <Route path="/textbook/:module/:page?">
+        <Route path='/textbook/:module/:page?'>
           <TextBookPage />
         </Route>
-        <Route path="/my-words">
+        <Route path='/my-words'>
           <MyWordsPage />
         </Route>
-        <Route path="/team">
+        <Route path='/team'>
           <TeamPage />
         </Route>
-        <Route path="/progress">
+        <Route path='/progress'>
           <ProgressPage />
         </Route>
-        <Route path="/settings">
+        <Route path='/settings'>
           <SettingsPage />
+        </Route>
+        <Route path='/sprint'>
+          <Sprint />
         </Route>
 
         <Redirect  to="/"/>
         
       </Switch>
-    )
+    );
   }
 
   return (
     <Switch>
-      <Route path="/" exact>
+      <Route path='/' exact>
         <MainPage />
       </Route>
-      <Route path="/register" exact>
-      <RegisterPage />
+      <Route path='/register' exact>
+        <RegisterPage />
       </Route>
-      <Route path="/login" exact >
+      <Route path='/login' exact>
         <LoginPage />
       </Route>
-
-      <Redirect to="/" />
-
+      <Route path='/sprint'>
+        <Sprint />
+      </Route>
+      <Redirect to='/' />
     </Switch>
-  )
-}
+  );
+};

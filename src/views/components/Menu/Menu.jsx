@@ -54,6 +54,11 @@ export default function SimpleMenu() {
           <NavLink to="/my-words" className={styles.link}>Мои слова</NavLink>
         </MenuItem>
         <MenuItem style={{color: "#f7e5ff"}} className={styles.menu__item} onClick={handleClose}>
+          <NavLink to='/sprint' className={styles.link}>
+            Sprint game
+          </NavLink>
+        </MenuItem>
+        <MenuItem style={{color: "#f7e5ff"}} className={styles.menu__item} onClick={handleClose}>
           <GroupIcon  className={styles.icon}/>
           <NavLink to="/team" className={styles.link}>О команде</NavLink>
         </MenuItem>
