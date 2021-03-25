@@ -16,7 +16,7 @@ import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import styles from './styles.module.css';
 import { randomInteger, rightAnswer } from '../../helpers/helper';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCorrectWord } from '../../../../../redux/words/actions';
+//import { setCorrectWord } from '../../../../../redux/words/actions';
 import { correctWord, wrongWord } from '../../../../../redux/words/thunks';
 
 const audioCorrect = new Audio(Correct);
