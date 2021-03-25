@@ -8,7 +8,7 @@ import MyWordsPage from "./pages/MyWordsPage";
 import TeamPage from "./pages/TeamPage";
 import ProgressPage from "./pages/ProgressPage";
 import SettingsPage from "./pages/SettingsPage";
-import TextBookPage  from './pages/TextBookPage';
+import TextBookPageWrapper  from './pages/TextBookPageWrapper';
 import Sprint from './pages/games/Sprint';
 
 export const useRoutes = (isAuthenticated) => {
@@ -24,7 +24,7 @@ export const useRoutes = (isAuthenticated) => {
           <TextBookMain />
         </Route>
         <Route path='/textbook/:module/:page?'>
-          <TextBookPage />
+          <TextBookPageWrapper />
         </Route>
         <Route path='/my-words'>
           <MyWordsPage />

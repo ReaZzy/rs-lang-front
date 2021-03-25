@@ -6,7 +6,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
-export const TextBookPage = () => {
+export const TextBookPageWrapper = () => {
 
  
   let { module, page } = useParams();
