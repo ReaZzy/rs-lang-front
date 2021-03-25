@@ -51,11 +51,58 @@ export const TextBookPage = () => {
     )
   }
 
+  const gamesLinkConfig = [
+    {
+      text: 'Саванна',
+      to: '/game/savanna'
+    },
+    {
+      text: 'Аудиовызов',
+      to: '/game/audiogame',
+    },
+    {
+      text: 'Спринт',
+      to: '/game/sprint'
+    },
+    {
+      text: 'Своя игра',
+      to: '/game/svoia_igra'
+    }
+  ]
+
   return (
-    <div>
-      <p>Page content</p>
+    <>
+      <section>
+        <p>Список слов</p>
+      </section>
+
+      <section className="settings-link">
+        <Link to="/textbook/settings">Настройки</Link>
+      </section>
+
+      <section className="games-nav">
+        <nav>
+          <ul>
+            {
+              gamesLinkConfig.map((linkItem, key) => (
+                <li><Link to={linkItem.to} key={key}>{ linkItem.text }</Link></li>
+              )
+              
+              )
+            }
+          </ul>
+        </nav>
+      </section>
+
+      <section>
+        <nav>
+
+        </nav>
+      </section>
+
       <Pagination
         count={30}
+        defaultPage={Number(page)}
         renderItem={(item) => (
           <PaginationItem
             component={Link}
@@ -69,7 +116,7 @@ export const TextBookPage = () => {
       />
 
     
-    </div>
+    </>
   )
 
   
