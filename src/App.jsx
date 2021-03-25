@@ -1,22 +1,36 @@
-import { ThemeProvider } from '@material-ui/core';
-import { theme } from './theme';
-import { Header } from './views/Header/Header';
-import { useSelector } from 'react-redux';
-import { useRoutes } from './routes';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateToken } from "./redux/auth/thunks";
+import { theme } from "./theme";
+import { ThemeProvider } from "@material-ui/core";
+import { useRoutes } from "./routes";
+import { Header } from "./views/Header/Header";
 
 function App() {
-  const isAuthenticated = !!useSelector((state) => state.auth.userInfo?.token);
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.auth.userInfo?.refreshToken);
+    const id = useSelector(
+        (state) => state.auth.userInfo?.id || state.auth.userInfo?.userId
+    );
 
-  const routes = useRoutes(isAuthenticated);
+    useEffect(() => {
+        dispatch(updateToken(id, token));
+    }, []);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <div className='App'>
-        <Header />
-        <main>{routes}</main>
-      </div>
-    </ThemeProvider>
-  );
+    const isAuthenticated = !!useSelector(
+        (state) => state.auth.userInfo?.token
+    );
+
+    const routes = useRoutes(isAuthenticated);
+
+    return (
+        <ThemeProvider theme={theme}>
+            <div className="App">
+                <Header />
+                <main>{routes}</main>
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default App;
