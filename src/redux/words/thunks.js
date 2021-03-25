@@ -1,5 +1,12 @@
 import {setIsFetching} from "../register/actions";
-import {editAggregatedWords, setAggregatedWords, setMyWords, setWords, setWordsFetching} from "./actions";
+import {
+    editAggregatedWords,
+    setAggregatedWords, setCorrectWord,
+    setIncorrectWord,
+    setMyWords,
+    setWords,
+    setWordsFetching
+} from "./actions";
 import {
     deleteWordRequest,
     getAggregatedWordsRequest,
@@ -27,7 +34,7 @@ export const getAggregatedWords = (page, module, id, token) => async (dispatch) 
     dispatch(setAggregatedWords(data?.data[0]))
     dispatch(setWordsFetching(false))
 }
-export const setAggregatedWord = (id, wordId, type, token, page, module) => async (dispatch) =>{
+export const setAggregatedWord = (id, wordId, type, token, page=0, module=0) => async (dispatch) =>{
     dispatch(setIsFetching(true))
     if (type === "deleted" ) await dispatch(deleteWord(id, wordId,token, type))
     const data = await setAggregatedWordRequest(id, wordId, type, token)
@@ -38,4 +45,20 @@ export const setAggregatedWord = (id, wordId, type, token, page, module) => asyn
 export const deleteWord = (id, wordId, token, type="normal") => async (dispatch) =>{
     await deleteWordRequest(id, wordId, token)
     dispatch(editAggregatedWords(wordId, type))
+}
+
+export const wrongWord = (id, word, token) => (dispatch, getState) => {
+    const {words: {wrong}} = getState()
+    const index = wrong.findIndex(e=> e.id === word.id)
+    index > -1
+        && wrong[index]?.wrongTimes > 2 && dispatch(setAggregatedWord(id, word.id, "hard", token))
+    dispatch(setIncorrectWord(word))
+}
+
+export const correctWord = (id, word, token) => (dispatch, getState) => {
+    const {words: {correct}} = getState()
+    const index = correct.findIndex(e=> e.id === word.id)
+    index > -1
+    && correct[index]?.correctTimes > 2 && dispatch(setAggregatedWord(id, word.id, "deleted", token))
+    dispatch(setCorrectWord(word))
 }
