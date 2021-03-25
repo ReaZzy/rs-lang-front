@@ -67,6 +67,16 @@ export default function SimpleMenu() {
             Sprint game
           </NavLink>
         </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <NavLink to='/savanna' className={styles.link}>
+            Savanna
+          </NavLink>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <NavLink to='/audio-challenge' className={styles.link}>
+            Audio challenge
+          </NavLink>
+        </MenuItem>
       </Menu>
     </div>
   );

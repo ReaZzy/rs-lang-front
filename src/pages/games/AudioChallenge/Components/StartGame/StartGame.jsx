@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from 'react';
-import { InputLabel, Select, MenuItem } from '@material-ui/core';
 import CommonStartScreen from '../../../components/CommonStartScreen';
+import { InputLabel, Select, MenuItem } from '@material-ui/core';
 import styles from './styles.module.css';
 
-const StartPageSprint = React.memo(({ setStartGame, setLevel }) => {
+const StartGame = React.memo(({ setstartGamePages, setLevel }) => {
   const [currentLevel, setCurrentLevel] = useState('1');
   const handleClickStart = useCallback(() => {
-    setStartGame(true);
-  }, [setStartGame]);
+    setstartGamePages(true);
+  }, [setstartGamePages]);
 
   const isSelect = useCallback(
     (event) => {
@@ -21,12 +21,12 @@ const StartPageSprint = React.memo(({ setStartGame, setLevel }) => {
   return (
     <CommonStartScreen
       onStartClick={handleClickStart}
-      title='Sprint Game'
+      title='Audio Challenge'
       descriptionText='Learn new words and repeat it.'
-      rules='Choose the correct word!'
-      keyboardRules='You can use keys arrow left and arrow right to control the game!'
+      rules='Training to improve listening skills'
+      keyboardRules='You can use keys 1,2,3,4,5 or Enter to control the game!'
     >
-      <div>
+      <>
         <div className={styles.game__select_level}>
           <InputLabel id='label'>Level</InputLabel>
           <Select
@@ -43,8 +43,8 @@ const StartPageSprint = React.memo(({ setStartGame, setLevel }) => {
             <MenuItem value='6'>6</MenuItem>
           </Select>
         </div>
-      </div>
+      </>
     </CommonStartScreen>
   );
 });
-export default StartPageSprint;
+export default StartGame;

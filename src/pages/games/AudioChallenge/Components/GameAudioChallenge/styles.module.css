@@ -1,0 +1,44 @@
+.game_content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../../../../../assets/games/audioChallenge/audioImg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.audio_challenge__score {
+  color: #ffffff;
+  font-size: 30px;
+  margin: 10px;
+}
+.audio_challenge__panel {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 20px 80px;
+}
+.button_translate_word {
+  margin: 5px;
+}
+.text_center {
+  display: flex;
+  justify-content: center;
+}
+.text__translate {
+  color: #ffffff;
+  margin: 0 3px;
+}
+.word_english {
+  color: #ffffff;
+}
+.fullScreen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

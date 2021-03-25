@@ -1,0 +1,31 @@
+.gameOverScreen {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 30px 80px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../../../../assets/games/sprint/letsPlay.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.gameOver__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gameOver__text {
+  font-size: 30px;
+  color: #ffffff;
+}
+.result__button__container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 20px 0;
+}
+.gameOver__container__text {
+  color: #ffffff;
+}

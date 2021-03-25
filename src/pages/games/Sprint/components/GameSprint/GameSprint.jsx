@@ -4,7 +4,6 @@ import ErrorSound from '../../../../../assets/games/sprint/audio/error.mp3';
 import { getData } from '../../../services/services';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import {
-  Card,
   CircularProgress,
   LinearProgress,
   Typography,

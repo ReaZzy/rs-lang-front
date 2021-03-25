@@ -8,6 +8,8 @@ import MyWordsPage from './pages/MyWordsPage';
 import TextBookPage from './pages/TextBookPage';
 import Sprint from './pages/games/Sprint';
 
+import AudioChallenge from './pages/games/AudioChallenge/AudioChallenge';
+
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
     // TextBook - просто список модулей. Менюшка для перемещения по учебнику
@@ -29,6 +31,9 @@ export const useRoutes = (isAuthenticated) => {
         <Route path='/sprint'>
           <Sprint />
         </Route>
+        <Route path='/audio-challenge'>
+          <AudioChallenge />
+        </Route>
         <Redirect to='/' />
       </Switch>
     );
@@ -47,6 +52,9 @@ export const useRoutes = (isAuthenticated) => {
       </Route>
       <Route path='/sprint'>
         <Sprint />
+      </Route>
+      <Route path='/audio-challenge'>
+        <AudioChallenge />
       </Route>
       <Redirect to='/' />
     </Switch>
