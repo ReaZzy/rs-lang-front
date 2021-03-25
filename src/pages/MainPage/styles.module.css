@@ -3,8 +3,32 @@
   margin-bottom: 20px !important;
 }
 
+.heroSection {
+  margin: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+.pageTitle, .pageMainPicture {
+  display: flex;
+  max-width: 50% !important;
+  background-color: white !important;
+  align-items: center;
+  margin-bottom: 31px;
+}
+
+.videoContainer {
+  margin: 0 !important;
+  margin-bottom: 20px !important;
+}
+
 .photo {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.photoContainer {
   max-height: 352px;
+  object-fit: cover;
 }
 
 .video {
@@ -27,7 +51,6 @@
 
 .benefits__card:first-child {
   margin-bottom: 10px !important;
-
 }
 
 .link {
@@ -42,3 +65,88 @@
   border-radius: 4px;
   text-align: center;
 }
+
+@media (max-width: 1090px) {
+  .videoContainer {
+    max-width: 100% !important;
+    flex-grow: 1 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .benefits__card {
+    width: 66% !important;
+  }
+
+  .benefits__cardContainer {
+    flex-grow: 1 !important;
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefits__photo {
+    width: 91px !important;
+    height: 91px ;
+  }
+}
+
+@media (max-width: 960px) {
+  .heroSection {
+    flex-direction: column-reverse;
+    align-content: center !important;
+    
+  }
+
+  .pageTitle, .pageMainPicture {
+    max-width: 74% !important;
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 34px !important;
+  }
+
+  .benefits__photo {
+    width: 83px !important;
+    height: 83px ;
+  }
+}
+
+@media (max-width: 860px) {
+  .heading {
+    font-size: 31px !important;
+  }
+
+  .cardText {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .heading {
+    font-size: 27px !important;
+  }
+
+  .benefits__photo {
+    width: 78px !important;
+    height: 78px ;
+  }
+}
+
+@media (max-width: 660px) {
+  .heading {
+    font-size: 24px !important;
+  }
+
+  .cardText {
+    font-size: 16px !important;
+  }
+
+  .benefits__photo {
+    width: 76px !important;
+    height: 76px;
+  }
+}
+

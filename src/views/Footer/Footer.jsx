@@ -43,6 +43,9 @@ export const Footer = () => {
             <Typography variant="h6" className={classes.title}>
               RSLang
             </Typography>
+            <Typography variant="body2" className={styles.footer__year}>
+              2021г.
+            </Typography>
             <a
             href={"https://rs.school/react/"}
             className={styles.footer__logo}

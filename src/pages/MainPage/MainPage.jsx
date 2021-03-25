@@ -24,26 +24,26 @@ export const MainPage = () => {
     <div className={classes.root}>
       <Container maxWidth="lg">
         <Grid container spacing={1} className={styles.gridContainer} >
-          <Grid container justify="space-between" className={styles.gridContainer} alignContent="space-between" alignItems="center"  spacing={7}>
+          <Grid container justify="space-between" className={styles.heroSection} alignContent="space-between" alignItems="center"  spacing={7}>
             <Fade in={true} timeout={700}>
-              <Grid item xs={6} >
-                <Card elevation={3} className={classes.card}> 
-                  <Typography variant="h2" gutterBottom>Достигайте лучших возможных результатов в изучении английких слов вместе с RSLang</Typography>
+              <Grid item xs={6} className={classes.pageTitle}>
+                <Card elevation={3}> 
+                  <Typography className={styles.heading} variant="h2" gutterBottom>Достигайте лучших возможных результатов в изучении английких слов вместе с RSLang</Typography>
                 </Card>
               </Grid>
             </Fade>
-            <Grid item xs={6} >
-                <Card elevation={3} className={classes.card}>
+            <Grid item xs={6} className={classes.pageMainPicture}>
+                <Card elevation={3} className={styles.photoContainer}>
                   <img className={styles.photo} alt="main" src={MainPicture}></img>
                 </Card>
               </Grid>
           </Grid>
-          <Grid className={styles.gridContainer} item xs={6}>
+          <Grid className={styles.videoContainer} item xs={6}>
             <Paper elevation={3} className={styles.video}> 
               Video
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid className={styles.benefits__cardContainer} item xs={6}>
             <Card className={styles.benefits__card}>
               <CardMedia
                 component="img"
@@ -52,7 +52,7 @@ export const MainPage = () => {
                 image={DictionaryPhoto}
               />
               <CardContent className={classes.CardContent}>
-                <Typography >Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
+                <Typography className={classes.cardText}>Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
               </CardContent>
             </Card>
             <Card className={styles.benefits__card}>
@@ -63,7 +63,7 @@ export const MainPage = () => {
                 image={ProgressPhoto}
               />
               <CardContent>
-                <Typography>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
+                <Typography className={classes.cardText}>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
               </CardContent>
             </Card>
             <Card className={styles.benefits__card}>
@@ -74,7 +74,7 @@ export const MainPage = () => {
                   image={GamesPhoto}
                 />
                 <CardContent>
-                  <Typography variant="body1">Интересные игры для лучшего запоминания слов.</Typography>
+                  <Typography className={classes.cardText}>Интересные игры для лучшего запоминания слов.</Typography>
                 </CardContent>
               </Card>
           </Grid>
