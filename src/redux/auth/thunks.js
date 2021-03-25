@@ -1,6 +1,6 @@
 import { setIsFetching, setUserInfo} from "../register/actions";
-import {loginRequest} from "../api";
-import {authSetError, authSetUserInfo} from "./actions";
+import {loginRequest, updateTokenRequest} from "../api";
+import {authSetError, authSetUserInfo, setToken} from "./actions";
 
 export const login = (email, password) => async (dispatch) => {
     dispatch(setIsFetching(true))
@@ -20,4 +20,8 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => async (dispatch) =>{
     dispatch(setUserInfo(null))
     dispatch(authSetUserInfo(null))
+}
+export const updateToken = (id, tokenUpdate) => async (dispatch) =>{
+    const {data: {token, refreshToken}} = await updateTokenRequest(id, tokenUpdate)
+    dispatch(setToken(token, refreshToken))
 }

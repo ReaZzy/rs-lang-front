@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getWords} from "../../redux/words/thunks";
+import {getMyWords} from "../../redux/words/thunks";
 
 const MyWordsPage = () => {
     const dispatch = useDispatch()
@@ -9,7 +9,7 @@ const MyWordsPage = () => {
     const myWords = useSelector( state => state.words?.myWords)
 
     useEffect( ()=>{
-        dispatch(getWords(id, token))
+        dispatch(getMyWords(id, token))
     }, [id]) //eslint-disable-line
     return(
         <pre >
