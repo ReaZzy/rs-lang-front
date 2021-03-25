@@ -21,65 +21,65 @@ export const MainPage = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Container maxWidth="lg">
-        <Grid container spacing={1} className={styles.gridContainer} >
-          <Grid container justify="space-between" className={styles.gridContainer} alignContent="space-between" alignItems="center"  spacing={7}>
-            <Fade in={true} timeout={700}>
+      <div className={classes.root}>
+        <Container maxWidth="lg">
+          <Grid container spacing={1} className={styles.gridContainer} >
+            <Grid container justify="space-between" className={styles.gridContainer} alignContent="space-between" alignItems="center"  spacing={7}>
+              <Fade in={true} timeout={700}>
+                <Grid item xs={6} >
+                  <Card elevation={3} className={classes.card}>
+                    <Typography variant="h2" gutterBottom>Достигайте лучших возможных результатов в изучении английких слов вместе с RSLang</Typography>
+                  </Card>
+                </Grid>
+              </Fade>
               <Grid item xs={6} >
-                <Card elevation={3} className={classes.card}> 
-                  <Typography variant="h2" gutterBottom>Достигайте лучших возможных результатов в изучении английких слов вместе с RSLang</Typography>
-                </Card>
-              </Grid>
-            </Fade>
-            <Grid item xs={6} >
                 <Card elevation={3} className={classes.card}>
                   <img className={styles.photo} alt="main" src={MainPicture}></img>
                 </Card>
               </Grid>
-          </Grid>
-          <Grid className={styles.gridContainer} item xs={6}>
-            <Paper elevation={3} className={styles.video}> 
-              Video
-            </Paper>
-          </Grid>
-          <Grid item xs={6}>
-            <Card className={styles.benefits__card}>
-              <CardMedia
-                component="img"
-                alt={"dictionary"}
-                className={styles.benefits__photo}
-                image={DictionaryPhoto}
-              />
-              <CardContent className={classes.CardContent}>
-                <Typography >Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
-              </CardContent>
-            </Card>
-            <Card className={styles.benefits__card}>
-              <CardMedia
-                component="img"
-                alt={"progress"}
-                className={styles.benefits__photo}
-                image={ProgressPhoto}
-              />
-              <CardContent>
-                <Typography>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
-              </CardContent>
-            </Card>
-            <Card className={styles.benefits__card}>
+            </Grid>
+            <Grid className={styles.gridContainer} item xs={6}>
+              <Paper elevation={3} className={styles.video}>
+                Video
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Card className={styles.benefits__card}>
                 <CardMedia
-                  component="img"
-                  alt={"progress"}
-                  className={styles.benefits__photo}
-                  image={GamesPhoto}
+                    component="img"
+                    alt={"dictionary"}
+                    className={styles.benefits__photo}
+                    image={DictionaryPhoto}
+                />
+                <CardContent className={classes.CardContent}>
+                  <Typography >Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
+                </CardContent>
+              </Card>
+              <Card className={styles.benefits__card}>
+                <CardMedia
+                    component="img"
+                    alt={"progress"}
+                    className={styles.benefits__photo}
+                    image={ProgressPhoto}
+                />
+                <CardContent>
+                  <Typography>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
+                </CardContent>
+              </Card>
+              <Card className={styles.benefits__card}>
+                <CardMedia
+                    component="img"
+                    alt={"progress"}
+                    className={styles.benefits__photo}
+                    image={GamesPhoto}
                 />
                 <CardContent>
                   <Typography variant="body1">Интересные игры для лучшего запоминания слов.</Typography>
                 </CardContent>
               </Card>
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </div>
+        </Container>
+      </div>
   )
 }

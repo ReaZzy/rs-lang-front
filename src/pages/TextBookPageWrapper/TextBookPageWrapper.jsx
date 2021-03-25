@@ -3,6 +3,7 @@ import { useHistory, useLocation, useParams, Link } from 'react-router-dom';
 import { Pagination } from '@material-ui/lab';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { TextBookPage } from '../TextBookPage/TextBookPage';
 
 
 
@@ -73,7 +74,7 @@ export const TextBookPageWrapper = () => {
   return (
     <>
       <section>
-        <p>Список слов</p>
+        <TextBookPage />
       </section>
 
       <section className="settings-link">
@@ -85,7 +86,7 @@ export const TextBookPageWrapper = () => {
           <ul>
             {
               gamesLinkConfig.map((linkItem, key) => (
-                <li><Link to={linkItem.to} key={key}>{ linkItem.text }</Link></li>
+                <li key={key}><Link to={linkItem.to} >{ linkItem.text }</Link></li>
               )
               
               )

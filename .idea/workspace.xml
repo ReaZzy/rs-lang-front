@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a49a7954-8154-4d29-8aa9-a39548d6e545" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/TextBookPage/TextBookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookPage/TextBookPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/games/Sprint/components/GameSprint/GameSprint.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/games/Sprint/components/GameSprint/GameSprint.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/words/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/words/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/words/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/words/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/words/thunks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/words/thunks.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1q0x4ZxSkvyBnqPbiMzNakWTuE3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\redux" />
+      <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\redux\register" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\pages\TextBookPage" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a49a7954-8154-4d29-8aa9-a39548d6e545" name="Default Changelist" comment="" />
+      <created>1616230119717</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616230119717</updated>
+      <workItem from="1616230130630" duration="1117000" />
+      <workItem from="1616315241319" duration="2894000" />
+      <workItem from="1616318283334" duration="2000" />
+      <workItem from="1616320337371" duration="14434000" />
+      <workItem from="1616353338835" duration="205000" />
+      <workItem from="1616356439502" duration="3305000" />
+      <workItem from="1616359808884" duration="61000" />
+      <workItem from="1616400746453" duration="748000" />
+      <workItem from="1616402475157" duration="735000" />
+      <workItem from="1616407944052" duration="4842000" />
+      <workItem from="1616416218489" duration="6182000" />
+      <workItem from="1616433805519" duration="2696000" />
+      <workItem from="1616442910970" duration="2843000" />
+      <workItem from="1616492162182" duration="4315000" />
+      <workItem from="1616497512745" duration="443000" />
+      <workItem from="1616497976388" duration="1793000" />
+      <workItem from="1616528000744" duration="2353000" />
+      <workItem from="1616593615764" duration="616000" />
+      <workItem from="1616605789678" duration="6536000" />
+      <workItem from="1616618465873" duration="1670000" />
+      <workItem from="1616665722436" duration="2029000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616230215344">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616230215344" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1616620149710">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616620149710" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1616620149710">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616620149710" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1616620149710">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616620149710" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1616620149710">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616620149710" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616422452687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616422452687" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1616358908903">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616358908903" />
+  </component>
+</project>
