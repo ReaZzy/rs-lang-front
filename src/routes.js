@@ -2,13 +2,14 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import TextBookMain from './pages/TextBookMain';
-import RegisterPage from './pages/Register';
-import { LoginPage } from './pages/Login/LoginPage';
-import MyWordsPage from './pages/MyWordsPage';
-import TeamPage from './pages/TeamPage';
-import ProgressPage from './pages/ProgressPage';
-import SettingsPage from './pages/SettingsPage';
-import TextBookPage from './pages/TextBookPage';
+import RegisterPage from "./pages/Register";
+import { LoginPage } from "./pages/Login/LoginPage";
+import MyWordsPage from "./pages/MyWordsPage";
+import TeamPage from "./pages/TeamPage";
+import ProgressPage from "./pages/ProgressPage";
+import SettingsPage from "./pages/SettingsPage";
+import TextBookPageWrapper  from './pages/TextBookPageWrapper';
+
 import Sprint from './pages/games/Sprint';
 
 import AudioChallenge from './pages/games/AudioChallenge/AudioChallenge';
@@ -26,7 +27,7 @@ export const useRoutes = (isAuthenticated) => {
           <TextBookMain />
         </Route>
         <Route path='/textbook/:module/:page?'>
-          <TextBookPage />
+          <TextBookPageWrapper />
         </Route>
         <Route path='/my-words'>
           <MyWordsPage />
