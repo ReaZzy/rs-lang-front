@@ -7,9 +7,6 @@
 .sprint__text {
   text-align: center;
 }
-.sprint__select_level {
-  margin: 30px;
-}
 .start__text {
   color: #ffffff;
   font-size: 1.5em;
@@ -18,8 +15,9 @@
   color: #ffffff;
   font-size: 40px;
 }
-.sprint__select_level {
+.game__select_level {
   width: 50px;
+  margin: 30px;
   border-radius: 3px;
   padding: 5px;
   background-color: #ffffff;
