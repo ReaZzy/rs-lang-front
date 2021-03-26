@@ -9,7 +9,10 @@ import TeamPage from "./pages/TeamPage";
 import ProgressPage from "./pages/ProgressPage";
 import SettingsPage from "./pages/SettingsPage";
 import TextBookPageWrapper  from './pages/TextBookPageWrapper';
+
 import Sprint from './pages/games/Sprint';
+
+import AudioChallenge from './pages/games/AudioChallenge/AudioChallenge';
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
@@ -41,9 +44,12 @@ export const useRoutes = (isAuthenticated) => {
         <Route path='/sprint'>
           <Sprint />
         </Route>
+        <Route path='/audio-challenge'>
+          <AudioChallenge />
+        </Route>
+        <Redirect to='/' />
 
-        <Redirect  to="/"/>
-        
+        <Redirect to='/' />
       </Switch>
     );
   }
@@ -61,6 +67,9 @@ export const useRoutes = (isAuthenticated) => {
       </Route>
       <Route path='/sprint'>
         <Sprint />
+      </Route>
+      <Route path='/audio-challenge'>
+        <AudioChallenge />
       </Route>
       <Redirect to='/' />
     </Switch>
