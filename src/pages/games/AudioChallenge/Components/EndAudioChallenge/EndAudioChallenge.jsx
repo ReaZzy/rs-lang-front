@@ -2,13 +2,14 @@ import React, { useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import CommonGameOverScreen from '../../../components/CommonGameOverScreen/CommonGameOverScreen';
 
-const GameOverSprint = React.memo(
+const GameOverAudioCall = React.memo(
   ({ rightAnswers, wrongAnswers, resultScore }) => {
     const [isArrayWords, setArrayWords] = useState(0);
     const handlerClickCheck = useCallback((isCheck) => {
       if (isCheck) setArrayWords(1);
       else setArrayWords(2);
     }, []);
+
     const history = useHistory();
     const handleOnClick = (path) => {
       history.push(`/${path}`);
@@ -27,4 +28,4 @@ const GameOverSprint = React.memo(
   }
 );
 
-export default GameOverSprint;
+export default GameOverAudioCall;
