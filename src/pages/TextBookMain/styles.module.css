@@ -1,0 +1,63 @@
+.moduleList {
+  padding: 20px 50px;
+  height: 100% !important;
+  flex-grow: 1;
+}
+
+.moduleContainer {
+  height: 100% !important;
+
+}
+
+.CardLink {
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+.moduleCard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CardContainer {
+  height: 100% !important;
+}
+
+.moduleCardHeader {
+  max-width: 100% !important;
+  height: 100% !important;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+
+.moduleCardWrapper {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  height: 100%;
+  width: 100%;
+}
+
+.moduleCardWrapper:hover .moduleCardHeader{
+    opacity: 1;
+}
+
+.moduleCardBottom {
+  background: #fafafa !important;
+  height: 100%;
+  max-width: 100% !important;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moduleNumber {
+  font-size: 74px !important;
+}
+
+

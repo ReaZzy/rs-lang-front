@@ -28,7 +28,7 @@ function App() {
         <ThemeProvider theme={theme}>
             <div className="App">
                 <Header />
-                <main>{routes}</main>
+                <main className="Main">{routes}</main>
                 <Footer />
             </div>
         </ThemeProvider>

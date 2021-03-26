@@ -31,7 +31,7 @@ export const Header = () => {
               RSLang
             </Typography>
             <Button color='inherit'>
-              <Link className={styles.link} to={'/login'}>
+              <Link className={styles.link} to={'/login'}> 
                 Login
               </Link>
             </Button>
