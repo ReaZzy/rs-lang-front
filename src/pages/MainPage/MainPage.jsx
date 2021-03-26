@@ -68,18 +68,18 @@ export const MainPage = () => {
             </Card>
             <Card className={styles.benefits__card}>
                 <CardMedia
-                  component="img"
-                  alt={"progress"}
-                  className={styles.benefits__photo}
-                  image={GamesPhoto}
+                    component="img"
+                    alt={"progress"}
+                    className={styles.benefits__photo}
+                    image={GamesPhoto}
                 />
                 <CardContent>
                   <Typography className={classes.cardText}>Интересные игры для лучшего запоминания слов.</Typography>
                 </CardContent>
               </Card>
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </div>
+        </Container>
+      </div>
   )
 }

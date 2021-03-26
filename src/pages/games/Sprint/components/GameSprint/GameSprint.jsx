@@ -4,7 +4,7 @@ import ErrorSound from '../../../../../assets/games/sprint/audio/error.mp3';
 import { getData } from '../../../services/services';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import {
-  Card,
+
   CircularProgress,
   LinearProgress,
   Typography,
@@ -16,6 +16,9 @@ import FullscreenIcon from '@material-ui/icons/Fullscreen';
 
 import styles from './styles.module.css';
 import { randomInteger, rightAnswer } from '../../helpers/helper';
+import {useDispatch, useSelector} from "react-redux";
+import {setCorrectWord} from "../../../../../redux/words/actions";
+import {correctWord, wrongWord} from "../../../../../redux/words/thunks";
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
@@ -30,6 +33,9 @@ const GameSprint = React.memo(
     level,
   }) => {
     const [sound, isSound] = useState(true);
+    const dispatch = useDispatch()
+    const id = useSelector(state=> state.auth.userInfo?.id ||  state.auth.userInfo?.userId)
+    const token = useSelector(state=> state.auth.userInfo?.token )
     const [translate, setTranslate] = useState(' ');
     const [extraPoint, setExtraPoint] = useState(0);
     const [point, setPoint] = useState(0);
@@ -108,6 +114,7 @@ const GameSprint = React.memo(
         ) {
           setExtraPoint(extraPoint + 1);
           setRightAnswers(words[words.length - 1]);
+          dispatch(correctWord(id, words[words.length - 1], token))
           if (sound) audioCorrect.play();
           const result = rightAnswer(extraPoint, point);
           setCounterExtraPoints(result - point);
@@ -118,6 +125,7 @@ const GameSprint = React.memo(
           setCounterExtraPoints(0);
           setResponseUser('Wrong!!!');
           setWrongAnswers(words[words.length - 1]);
+          dispatch(wrongWord(id, words[words.length - 1], token))
           setExtraPoint(0);
         }
 
