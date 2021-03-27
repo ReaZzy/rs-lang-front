@@ -94,6 +94,15 @@ export default function SimpleMenu() {
           className={styles.menu__item}
           onClick={handleClose}
         >
+          <NavLink to='/our-game' className={styles.link}>
+            Our game
+          </NavLink>
+        </MenuItem>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={styles.menu__item}
+          onClick={handleClose}
+        >
           <GroupIcon className={styles.icon} />
           <NavLink to='/team' className={styles.link}>
             О команде
