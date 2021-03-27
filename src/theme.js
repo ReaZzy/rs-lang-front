@@ -81,7 +81,7 @@ export const theme = createMuiTheme({
     MuiCard: {
       root: {
         boxShadow: "none",
-        backgroundColor: "white",
+        // backgroundColor: "white",
       },
     },
     MuiTextField: {
@@ -99,6 +99,7 @@ export const theme = createMuiTheme({
     MuiButton: {
       root: {
         backgroundColor: ACCENT_COLOR,
+        borderRadius: "8px",
         "&:focus": {
           outline: "none",
         },
