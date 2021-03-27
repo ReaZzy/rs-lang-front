@@ -13,6 +13,7 @@ import TextBookPageWrapper  from './pages/TextBookPageWrapper';
 import Sprint from './pages/games/Sprint';
 
 import AudioChallenge from './pages/games/AudioChallenge/AudioChallenge';
+import OurCustomGame from './pages/games/OurCustomGame/OurCustomGame';
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
@@ -47,8 +48,9 @@ export const useRoutes = (isAuthenticated) => {
         <Route path='/audio-challenge'>
           <AudioChallenge />
         </Route>
-        <Redirect to='/' />
-
+        <Route path='/our-game'>
+          <OurCustomGame />
+        </Route>
         <Redirect to='/' />
       </Switch>
     );
@@ -70,6 +72,9 @@ export const useRoutes = (isAuthenticated) => {
       </Route>
       <Route path='/audio-challenge'>
         <AudioChallenge />
+      </Route>
+      <Route path='/our-game'>
+        <OurCustomGame />
       </Route>
       <Redirect to='/' />
     </Switch>

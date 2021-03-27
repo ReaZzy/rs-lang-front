@@ -1,0 +1,54 @@
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 15px 20px;
+  background-image: linear-gradient(
+      rgba(211, 206, 206, 0.5),
+      rgba(240, 235, 235, 0.5)
+    ),
+    url('../../../../../assets/games/ourCustomGame/memoryCards.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+img {
+  height: 200px;
+  width: 200px;
+}
+
+.main_container_end {
+  position: absolute;
+  top: calc(50% + 45px);
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main_container_end.full {
+  display: flex;
+}
+
+.main_container_end_btns {
+  margin-top: 15px;
+}
+button {
+  margin: 5px;
+}
+.fullScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.icon__fullScreen {
+  cursor: pointer;
+}
+.navigation_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
