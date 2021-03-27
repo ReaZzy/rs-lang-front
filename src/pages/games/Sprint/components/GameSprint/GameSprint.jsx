@@ -59,7 +59,7 @@ const GameSprint = React.memo(
 
     useEffect(() => {
       const getWords = async () => {
-        const fetchData = getData(level, 10);
+        const fetchData = getData(level, 10, id, token);
         const newWords = await fetchData();
         setWords(newWords);
         const current = newWords[newWords.length - 1];

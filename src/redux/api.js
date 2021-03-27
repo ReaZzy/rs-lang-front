@@ -45,16 +45,33 @@ export const deleteWordRequest = (id,wordId, token) => {
 }
 
 export const getAggregatedWordsRequest = (page, module, id, token) => {
-    return instance.get(`/users/${id}/aggregatedWords?group=${module}&page=${page}&filter=%7B%20%22%24or%22%3A%20%5B%20%7B%20%22userWord.difficulty%22%3A%20null%20%7D%2C%20%7B%20%22userWord.difficulty%22%3A%20%22hard%22%20%7D%20%5D%20%7D`, {
+    return instance.get(`/users/${id}/aggregatedWords?group=${module}&page=${page}&filter=%7B%20%22%24or%22%3A%20%5B%20%7B%20%22userWord.difficulty%22%3A%20null%20%7D%2C%20%7B%20%22userWord.difficulty%22%3A%20%22hard%22%20%7D%2C%20%7B%22userWord.difficulty%22%3A%22learn%22%7D%20%5D%20%7D`, {
         headers: {
             "Authorization": `Bearer ${token}`
         }
     })
 }
-export const setAggregatedWordRequest = (id, wordId, type, token) => {
+export const setAggregatedWordRequest = (id, wordId, type, token,  correctTimes=0, wrongTimes=0) => {
     return instance.post(`/users/${id}/words/${wordId}`, {
         "difficulty": `${type}`,
-        "optional": {}
+        "optional": {
+            correctTimes: correctTimes,
+            wrongTimes: wrongTimes
+        }
+    }, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        },
+    })
+}
+
+export const updateAggregatedWord = (id, wordId, type,token, correctTimes=0, wrongTimes=0) => {
+    return instance.put(`/users/${id}/words/${wordId}`, {
+        "difficulty": `${type}`,
+        "optional": {
+            "correctTimes": correctTimes,
+            "wrongTimes": wrongTimes
+        }
     }, {
         headers: {
             "Authorization": `Bearer ${token}`

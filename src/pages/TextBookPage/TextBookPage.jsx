@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom';
 import {AudioComponent} from "./audioComponent";
 import {deleteWord, getAggregatedWords, setAggregatedWord} from "../../redux/words/thunks";
 import {useDispatch, useSelector} from "react-redux";
-import axios from "axios";
 
 export const TextBookPage = React.memo(() => {
     let {module, page} = useParams();
@@ -39,21 +38,15 @@ export const TextBookPage = React.memo(() => {
                                 audioExample={e.audioExample}
                                 audioMeaning={e.audioMeaning}
                             />
-                            <h3> {correctWords?.find(f=> f.id === e._id)?.correctTimes
-                                ? `Correct times ${correctWords?.find(f=> f.id === e._id)?.correctTimes}`
-                                : ``
-                            }</h3>
-                            <h3> {wrongWords?.find(f=> f.id === e._id)?.wrongTimes
-                                ? `Wrong times ${wrongWords?.find(f=> f.id === e._id)?.wrongTimes}`
-                                : ``
-                            }</h3>
-                            <b>{e.word}</b>
-                            <b> {e.wordTranslate}</b>
-                            {e.transcription}
-                            <p>{e.textMeaning}</p>
-                            <p>{e.textMeaningTranslate}</p>
-                            <p>{e.textExample}</p>
-                            <p>{e.textExampleTranslate}</p>
+                            <h3>Correct {e.userWord?.optional?.correctTimes}</h3>
+                            <h3>Wrong {e.userWord?.optional?.wrongTimes}</h3>
+                            <b dangerouslySetInnerHTML={{__html:e.word}}/>
+                            <b dangerouslySetInnerHTML={{__html:e.wordTranslate}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.transcription}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textMeaning}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textMeaningTranslate}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textExample}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textExampleTranslate}}/>
 
                             {
                                 e.userWord?.difficulty === "hard"
