@@ -21,7 +21,9 @@ const words = (state = initialState, action) => {
                     {
                         "paginatedResults": state.aggregatedWords?.paginatedResults.map( e => {
                             if (e._id === action.payload.id) {
-                                return {...e, "userWord": {"difficulty": `${action.payload.type}`}}
+                                return {...e, "userWord": {"difficulty": `${action.payload.type}`, "optional":
+                                            {"correctTimes": action.payload.correctTimes, "wrongTimes": action.payload.wrongTimes}
+                                }}
                             } else return e
                         } ),
                         "totalCount": state.aggregatedWords?.totalCount

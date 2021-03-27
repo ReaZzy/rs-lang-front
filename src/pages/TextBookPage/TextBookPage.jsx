@@ -9,13 +9,12 @@ export const TextBookPage = React.memo(() => {
     const isFetching = useSelector( state => state.words.wordsFetching )
     const dispatch = useDispatch()
     const aggregatedWords = useSelector( state => state.words.aggregatedWords )
-    const correctWords = useSelector( state => state.words.correct )
-    const wrongWords = useSelector( state => state.words.wrong )
+
     const token = useSelector( state => state.auth.userInfo?.token )
     const id = useSelector( state => state.auth.userInfo?.id || state.auth.userInfo?.userId )
 
-    const handleSetWord = (wordId, type) => {
-        dispatch( setAggregatedWord( id, wordId, type, token, page - 1, module - 1 ) )
+    const handleSetWord = (word, type) => {
+        dispatch( setAggregatedWord( id, word, type, token, page - 1, module - 1 ) )
     }
 
 
@@ -51,15 +50,15 @@ export const TextBookPage = React.memo(() => {
                             {
                                 e.userWord?.difficulty === "hard"
                                     ? <button onClick={() => {
-                                        dispatch( deleteWord( id, e._id, token ) )
+                                        handleSetWord( e, "learn" )
                                     }}>UNHARD</button>
                                     : <button onClick={() => {
-                                        handleSetWord( e._id, "hard" )
+                                        handleSetWord( e, "hard" )
                                     }}>HARD</button>
                             }
 
                             <button onClick={() => {
-                                handleSetWord( e._id, "deleted" )
+                                handleSetWord( e, "deleted" )
                             }}>DELETE
                             </button>
                         </div>
