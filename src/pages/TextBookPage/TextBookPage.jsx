@@ -70,7 +70,6 @@ export const TextBookPage = React.memo(() => {
                                 handleSetWord( e._id, "deleted" )
                             }}>DELETE
                             </button>
-                            {console.log(e.textMeaning)}
                         </div>
                         
                     ) )

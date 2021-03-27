@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { NavLink } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import styles from './styles.module.css';
+import { useStyles } from './styles.module';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -13,6 +13,7 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 
 export default function SimpleMenu() {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -30,9 +31,8 @@ export default function SimpleMenu() {
         onClick={handleClick}
         edge='start'
         color='inherit'
-        className={styles.menuButton}
       >
-        <MenuIcon className={styles.menuIcon} />
+        <MenuIcon />
       </IconButton>
       <Menu
         id='simple-menu'
@@ -43,80 +43,80 @@ export default function SimpleMenu() {
       >
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <HomeIcon className={styles.icon} />
-          <NavLink to='/' className={styles.link}>
-            Главная
+          <HomeIcon className={classes.menuItemIcon} />
+          <NavLink to='/' className={classes.menuLink}>
+            Main
           </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <MenuBookIcon className={styles.icon} />
-          <NavLink to='/textbook' className={styles.link}>
-            Учебник
+          <MenuBookIcon className={classes.menuItemIcon} />
+          <NavLink to='/textbook' className={classes.menuLink}>
+            Textbook
           </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <SpellcheckIcon className={styles.icon} />
-          <NavLink to='/my-words' className={styles.link}>
-            Мои слова
+          <SpellcheckIcon className={classes.menuItemIcon} />
+          <NavLink to='/my-words' className={classes.menuLink}>
+            My words
           </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <NavLink to='/sprint' className={styles.link}>
+          <NavLink to='/sprint' className={classes.menuLink}>
             Sprint game
           </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <NavLink to='/audio-challenge' className={styles.link}>
+          <NavLink to='/audio-challenge' className={classes.menuLink}>
             Audio challenge
           </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <GroupIcon className={styles.icon} />
-          <NavLink to='/team' className={styles.link}>
-            О команде
+          <GroupIcon className={classes.menuItemIcon} />
+          <NavLink to='/team' className={classes.menuLink}>
+            Team
           </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <EqualizerIcon className={styles.icon} />
-          <NavLink to='/progress' className={styles.link}>
-            Прогресс
+          <EqualizerIcon className={classes.menuItemIcon} />
+          <NavLink to='/progress' className={classes.menuLink}>
+            Progress
           </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
-          className={styles.menu__item}
+          className={classes.menuItem}
           onClick={handleClose}
         >
-          <SettingsIcon className={styles.icon} />
-          <NavLink to='/settings' className={styles.link}>
-            Настройки
+          <SettingsIcon className={classes.menuItemIcon} />
+          <NavLink to='/settings' className={classes.menuLink}>
+            Settings
           </NavLink>
         </MenuItem>
       </Menu>

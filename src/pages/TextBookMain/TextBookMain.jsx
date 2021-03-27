@@ -5,9 +5,11 @@ import styles from "./styles.module.css";
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
+import { useStyles } from './styles.module';
 
 
 export const TextBookMain = () => {
+    const classes = useStyles();
     const colors = {
         '1': '#95ff68',
         '2': '#fffc5f',
@@ -20,21 +22,21 @@ export const TextBookMain = () => {
     const moduleNumbers = [1, 2, 3, 4, 5, 6]
 
     return (
-        <Container maxWidth="md" className={styles.moduleContainer} >
-            <Grid container xs={12} className={styles.moduleList} justify="space-between"  spacing={4}>
+        <Container maxWidth="md" className={classes.moduleContainer} >
+            <Grid container className={classes.moduleList} justify="space-between"  spacing={4}>
                 {
                     moduleNumbers.map((item, key) => (
                         <Grid xs={4} item className={styles.moduleItem} key={`module${key}`}>
-                            <Card className={styles.moduleCardWrapper}>
-                                <Link to={`/textbook/${item}/1`} className={styles.CardLink}>
-                                    <Grid container xs={12} direction="column"  className={styles.CardContainer}>
-                                        <Grid item xs={4}  className={styles.moduleCardHeader}>
-                                            <Card style={{background: colors[item]}} className={styles.moduleCardHeader}></Card>
+                            <Card className={classes.moduleCardWrapper}>
+                                <Link to={`/textbook/${item}/1`} className={classes.moduleCardLink}>
+                                    <Grid container  direction="column"  className={classes.CardContainer}>
+                                        <Grid item xs={4}  className={classes.moduleCardHeaderWrapper}>
+                                            <Card style={{background: colors[item]}} className={classes.moduleCardHeader}></Card>
                                         </Grid>
-                                        <Grid item xs={8} className={styles.moduleCardBottom}>
-                                            <Card className={styles.moduleCardBottom}>
-                                                <Typography className={styles.moduleText} variant="h2">Module</Typography>
-                                                <Typography className={styles.moduleNumber} variant="h1">{item}</Typography>
+                                        <Grid item xs={8} className={classes.moduleCardBottom}>
+                                            <Card className={classes.moduleCardBottom}>
+                                                <Typography className={classes.moduleText} variant="h2">Module</Typography>
+                                                <Typography className={classes.moduleNumber} variant="h1">{item}</Typography>
                                             </Card>
                                         </Grid>
                                     </Grid>

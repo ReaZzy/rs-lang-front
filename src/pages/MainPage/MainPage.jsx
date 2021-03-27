@@ -24,57 +24,57 @@ export const MainPage = () => {
     <div className={classes.root}>
       <Container maxWidth="lg">
         <Grid container spacing={1} className={styles.gridContainer} >
-          <Grid container justify="space-between" className={styles.heroSection} alignContent="space-between" alignItems="center"  spacing={7}>
+          <Grid container justify="space-between" className={styles.mainPageHeroSection} alignContent="space-between" alignItems="center"  spacing={7}>
             <Fade in={true} timeout={700}>
-              <Grid item xs={6} className={classes.pageTitle}>
+              <Grid item xs={6} className={classes.mainPageTitle}>
                 <Card elevation={3}> 
-                  <Typography className={styles.heading} variant="h2" gutterBottom>Достигайте лучших возможных результатов в изучении английких слов вместе с RSLang</Typography>
+                  <Typography className={styles.mainPageHeading} variant="h2" gutterBottom>Достигайте лучших возможных результатов в изучении английких слов вместе с RSLang</Typography>
                 </Card>
               </Grid>
             </Fade>
             <Grid item xs={6} className={classes.pageMainPicture}>
-                <Card elevation={3} className={styles.photoContainer}>
-                  <img className={styles.photo} alt="main" src={MainPicture}></img>
+                <Card elevation={3} className={styles.mainPagePhotoContainer}>
+                  <img className={styles.mainPagePhoto} alt="main" src={MainPicture}></img>
                 </Card>
               </Grid>
           </Grid>
-          <Grid className={styles.videoContainer} item xs={6}>
-            <Paper elevation={3} className={styles.video}> 
+          <Grid className={styles.mainPageVideoContainer} item xs={6}>
+            <Paper elevation={3} className={styles.mainPageVideo}> 
               Video
             </Paper>
           </Grid>
-          <Grid className={styles.benefits__cardContainer} item xs={6}>
-            <Card className={styles.benefits__card}>
+          <Grid className={styles.benefitsCardContainer} item xs={6}>
+            <Card className={styles.benefitsCard}>
               <CardMedia
                 component="img"
                 alt={"dictionary"}
-                className={styles.benefits__photo}
+                className={styles.benefitsPhoto}
                 image={DictionaryPhoto}
               />
-              <CardContent className={classes.CardContent}>
-                <Typography className={classes.cardText}>Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
+              <CardContent className={classes.benefitsCardContent}>
+                <Typography className={classes.benefitsCardText}>Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
               </CardContent>
             </Card>
-            <Card className={styles.benefits__card}>
+            <Card className={styles.benefitsCard}>
               <CardMedia
                 component="img"
                 alt={"progress"}
-                className={styles.benefits__photo}
+                className={styles.benefitsPhoto}
                 image={ProgressPhoto}
               />
               <CardContent>
-                <Typography className={classes.cardText}>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
+                <Typography className={classes.benefitsCardText}>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
               </CardContent>
             </Card>
-            <Card className={styles.benefits__card}>
+            <Card className={styles.benefitsCard}>
                 <CardMedia
                     component="img"
                     alt={"progress"}
-                    className={styles.benefits__photo}
+                    className={styles.benefitsPhoto}
                     image={GamesPhoto}
                 />
                 <CardContent>
-                  <Typography className={classes.cardText}>Интересные игры для лучшего запоминания слов.</Typography>
+                  <Typography className={classes.benefitsCardText}>Интересные игры для лучшего запоминания слов.</Typography>
                 </CardContent>
               </Card>
             </Grid>
