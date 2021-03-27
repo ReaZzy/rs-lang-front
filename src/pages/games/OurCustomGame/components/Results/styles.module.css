@@ -1,0 +1,10 @@
+.result_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+@media (max-width: 767px) {
+  .modal-container {
+    align-items: flex-start;
+  }
+}
