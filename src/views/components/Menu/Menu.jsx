@@ -94,10 +94,19 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
+          <NavLink to='/our-game' className={classes.menuLink}>
+            Memory game
+          </NavLink>
+        </MenuItem>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+        >
           <GroupIcon className={classes.menuItemIcon} />
           <NavLink to='/team' className={classes.menuLink}>
             Team
-          </NavLink>
+            </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}

@@ -32,16 +32,14 @@ function CommonGameOverScreen({
           color='primary'
           onClick={() => handlerClickCheck(true)}
         >
-          {' '}
-          right answers{' '}
+          right answers
         </Button>
         <Button
           variant='outlined'
           color='primary'
           onClick={() => handlerClickCheck(false)}
         >
-          {' '}
-          wrong answers{' '}
+          wrong answers
         </Button>
       </div>
       <List>
@@ -51,7 +49,8 @@ function CommonGameOverScreen({
               key={item.word}
               className={styles.gameOver__container__text}
             >
-              {item.word} - {item.wordTranslate}
+              {item.word === item.translate ? item.text : item.word} -{' '}
+              {item.wordTranslate || item.translate}
             </ListItemText>
           ))}
         {isArrayWords === 2 &&
@@ -60,7 +59,8 @@ function CommonGameOverScreen({
               key={item.word}
               className={styles.gameOver__container__text}
             >
-              {item.word} - {item.wordTranslate}
+              {item.word === item.translate ? item.text : item.word} -{' '}
+              {item.wordTranslate || item.translate}
             </ListItemText>
           ))}
       </List>
