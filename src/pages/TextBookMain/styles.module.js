@@ -16,10 +16,12 @@ export const useStyles = makeStyles((theme) => ({
   },
   CardContainer: {
     height: '100%',
+    // flexFlow: 'column wrap'
   },
   moduleCardHeaderWrapper: {
+    flex: 'auto',
     maxWidth: '100%',
-    height: '100%',
+    height: '30%',
   },
   moduleCardHeader: {
     maxWidth: '100%',
@@ -32,13 +34,13 @@ export const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     height: '100%',
     width: '100%',
-    "&:hover > moduleCardHeader:hover": {
+    "&:hover $moduleCardHeader": {
       opacity: '1',
     }
   },
   moduleCardBottom: {
     background: '#fafafa',
-    height: '100%',
+    height: '70%',
     maxWidth: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -48,4 +50,5 @@ export const useStyles = makeStyles((theme) => ({
   moduleNumber: {
     fontSize: '74px',
   },
-}))
+
+})) 

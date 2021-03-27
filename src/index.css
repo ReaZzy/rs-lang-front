@@ -1,6 +1,6 @@
 html {
   margin: 0;
-  height: 100%;
+  min-height: 100%;
   font-size: 18px;
 }
 
@@ -11,7 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
+  min-height: 100%;
 }
 
 code {
@@ -20,6 +20,6 @@ code {
 }
 
 .App, .Main, #root {
-  height: 100%;
+  min-height: 100%;
 }
 
