@@ -116,5 +116,31 @@ export const theme = createMuiTheme({
         borderRadius: "4px"
       }
     },
+    MuiSvgIcon: {
+      root: {
+        color: '#fff'
+      }
+    },
+    MuiSelect: {
+      icon: {
+        color: '#fff'
+      },
+      
+    },
+    MuiInput: {
+      root: {
+        "&:focus": {
+          outline: "none",
+        },
+        "&:hover": {
+          outline: "none",
+        },
+      }
+    },
+    MuiButtonBase: {
+      root: {
+        color: '#fff'
+      }
+    }
   },
 });

@@ -11,6 +11,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import GroupIcon from '@material-ui/icons/Group';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
+import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 
 export default function SimpleMenu() {
   const classes = useStyles();
@@ -76,6 +77,7 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
+          <SportsEsportsIcon className={classes.menuItemIcon} />
           <NavLink to='/sprint' className={classes.menuLink}>
             Sprint game
           </NavLink>
@@ -94,6 +96,7 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
+          <SportsEsportsIcon className={classes.menuItemIcon} />
           <NavLink to='/audio-challenge' className={classes.menuLink}>
             Audio challenge
           </NavLink>
@@ -103,6 +106,7 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
+          <SportsEsportsIcon className={classes.menuItemIcon} />
           <NavLink to='/our-game' className={classes.menuLink}>
             Memory game
           </NavLink>

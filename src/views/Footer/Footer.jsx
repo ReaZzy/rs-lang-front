@@ -41,7 +41,7 @@ export const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img src={logoSrc} alt="" />
+            <img src={logoSrc} alt="" className={classes.footerLogo}/>
           </a>
           </Toolbar>
           </Container>

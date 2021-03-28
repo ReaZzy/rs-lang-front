@@ -19,9 +19,16 @@
 }
 .run_container {
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
   color: #ffffff;
   height: 50vh;
+}
+.run_container_way {
+  position: relative;
+}
+.run_word {
+  position: absolute;
 }
 .audio_challenge__score {
   color: #ffffff;

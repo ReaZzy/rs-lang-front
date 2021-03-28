@@ -38,6 +38,7 @@ const GameSavanna = React.memo(
     const [point, setPoint] = useState(0);
     const [translate, setTranslate] = useState(' ');
     const [words, setWords] = useState([]);
+    const [positionWord, setPositionWord] = useState(0);
     const [currentWord, setCurrentWord] = useState({
       word: '',
       wordTranslate: '',
@@ -188,6 +189,19 @@ const GameSavanna = React.memo(
       };
     }, [next, handleUserKeyPress]);
 
+    useEffect(() => {
+      let timer = setTimeout(() => {
+        setPositionWord(positionWord + 1);
+      }, 100);
+
+      if (positionWord >= 90) {
+        clearTimeout(timer);
+        setPositionWord(0);
+        nextWord();
+      }
+      return () => clearTimeout(timer);
+    }, [positionWord, nextWord]);
+
     return (
       <>
         {isLoading ? (
@@ -238,7 +252,17 @@ const GameSavanna = React.memo(
                   <CircularProgress />
                 ) : (
                   <div>
-                    <div className={styles.run_container}>word</div>
+                    <div className={styles.run_container}>
+                      <div className={styles.run_container_way}>
+                        {' '}
+                        <h3
+                          className={styles.run_word}
+                          style={{ top: `${positionWord}%` }}
+                        >
+                          word
+                        </h3>
+                      </div>
+                    </div>
                     <div className={styles.button_translate_container}>
                       <ol>
                         <Button
