@@ -85,6 +85,15 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
+          <NavLink to='/savanna' className={classes.menuLink}>
+            Savanna
+          </NavLink>
+        </MenuItem>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+        >
           <NavLink to='/audio-challenge' className={classes.menuLink}>
             Audio challenge
           </NavLink>
@@ -106,7 +115,7 @@ export default function SimpleMenu() {
           <GroupIcon className={classes.menuItemIcon} />
           <NavLink to='/team' className={classes.menuLink}>
             Team
-            </NavLink>
+          </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
