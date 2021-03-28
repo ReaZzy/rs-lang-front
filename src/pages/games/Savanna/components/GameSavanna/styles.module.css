@@ -1,0 +1,55 @@
+.text__translate {
+  padding: 0 5px;
+  margin-left: 10px;
+}
+.game_content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../../../../../assets/games/audioChallenge/audioImg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.button_translate_container {
+}
+.run_container {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  height: 50vh;
+}
+.audio_challenge__score {
+  color: #ffffff;
+  font-size: 18px;
+  margin-right: 10px;
+}
+.savanna__panel {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 280;
+  margin: 20px 80px;
+}
+
+.text_center {
+  display: flex;
+  justify-content: center;
+}
+
+.word_english {
+  color: #ffffff;
+}
+.fullScreen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

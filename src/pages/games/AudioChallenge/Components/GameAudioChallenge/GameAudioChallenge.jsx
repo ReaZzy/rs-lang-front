@@ -47,7 +47,6 @@ const GameAudioChallenge = React.memo(
       const getWords = async () => {
         const fetchData = getData(level, pages);
         const newWords = await fetchData();
-        console.log(newWords);
         setWords(newWords);
         const current = newWords[newWords.length - 1];
         setCurrentWord(current);

@@ -6,8 +6,19 @@ import Correct from '../../../../../assets/games/sprint/audio/correct.mp3';
 import ErrorSound from '../../../../../assets/games/sprint/audio/error.mp3';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import { CircularProgress, Button } from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import { CircularProgress, Button, Box, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import Rating from '@material-ui/lab/Rating';
 import styles from './styles.module.css';
+const StyledRating = withStyles({
+  iconFilled: {
+    color: '#ff6d75',
+  },
+  iconHover: {
+    color: '#ff3d47',
+  },
+})(Rating);
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
@@ -47,7 +58,6 @@ const GameSavanna = React.memo(
       const getWords = async () => {
         const fetchData = getData(level, pages);
         const newWords = await fetchData();
-        console.log(newWords);
         setWords(newWords);
         const current = newWords[newWords.length - 1];
         setCurrentWord(current);
@@ -106,11 +116,6 @@ const GameSavanna = React.memo(
         setWordEnglish,
       ]
     );
-
-    function Sound() {
-      const audioPlay = new Audio(pathApi + currentWord.audio);
-      return audioPlay.play();
-    }
 
     const nextWord = useCallback(() => {
       const wordsUpdated = words.filter(
@@ -203,14 +208,19 @@ const GameSavanna = React.memo(
                 <audio src={pathApi + currentWord.audio} autoPlay='autoplay'>
                   <track kind='captions' />
                 </audio>
-                <div className={styles.audio_challenge__panel}>
+                <div className={styles.savanna__panel}>
                   <h1 className={styles.audio_challenge__score}>
                     {' '}
                     Score: {point}{' '}
                   </h1>
-                  <Button variant='contained' color='primary' onClick={Sound}>
-                    <VolumeUpIcon />
-                  </Button>
+                  <Box component='fieldset' mb={3} borderColor='transparent'>
+                    <StyledRating
+                      name='customized-color'
+                      defaultValue={5}
+                      precision={1}
+                      icon={<FavoriteIcon fontSize='inherit' />}
+                    />
+                  </Box>
                 </div>
                 {wordImg && (
                   <img
@@ -228,11 +238,17 @@ const GameSavanna = React.memo(
                   <CircularProgress />
                 ) : (
                   <div>
-                    <div className={styles.button_translate}>
+                    <div className={styles.run_container}>word</div>
+                    <div className={styles.button_translate_container}>
                       <ol>
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{
+                            color: '#fff',
+                            background: 'orange',
+                            margin: '0 10px',
+                          }}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[0])}
@@ -244,6 +260,11 @@ const GameSavanna = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{
+                            color: '#fff',
+                            background: 'red',
+                            margin: '0 10px',
+                          }}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[1])}
@@ -255,6 +276,11 @@ const GameSavanna = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{
+                            color: '#fff',
+                            background: 'green',
+                            margin: '0 10px',
+                          }}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[2])}
@@ -266,6 +292,11 @@ const GameSavanna = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{
+                            color: '#fff',
+                            background: 'brown',
+                            margin: '0 10px',
+                          }}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[3])}
@@ -277,6 +308,11 @@ const GameSavanna = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{
+                            color: '#fff',
+                            background: 'pink',
+                            margin: '0 10px',
+                          }}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[4])}

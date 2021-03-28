@@ -13,7 +13,7 @@ const Sprint = React.memo(() => {
   const [level, setLevel] = useState(0);
 
   return (
-    <div className={styles.sprint}>
+    <div className={styles.savanna}>
       {!startGame && !endGame && (
         <StartPageSavanna setStartGame={setStartGame} setLevel={setLevel} />
       )}
