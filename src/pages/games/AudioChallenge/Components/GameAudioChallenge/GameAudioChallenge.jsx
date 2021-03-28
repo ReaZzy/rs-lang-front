@@ -212,18 +212,20 @@ const GameAudioChallenge = React.memo(
                     <VolumeUpIcon />
                   </Button>
                 </div>
-                {wordImg && (
-                  <img
-                    src={pathApi + currentWord.image}
-                    alt='images'
-                    className={styles.image - words}
-                  />
-                )}
-                {wordEnglish && (
-                  <div className={styles.word_english}>
-                    {currentWord.word} - {currentWord.wordTranslate}
-                  </div>
-                )}
+                <div className={styles.audio_challenge__imageWrapper}>
+                  {wordImg && (
+                    <img
+                      src={pathApi + currentWord.image}
+                      alt='images'
+                      className={styles.image - words}
+                    />
+                  )}
+                  {wordEnglish && (
+                    <div className={styles.word_english}>
+                      {currentWord.word} - {currentWord.wordTranslate}
+                    </div>
+                  )}
+                </div>
                 {isLoading ? (
                   <CircularProgress />
                 ) : (
@@ -233,6 +235,7 @@ const GameAudioChallenge = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[0])}
@@ -244,6 +247,7 @@ const GameAudioChallenge = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[1])}
@@ -255,6 +259,7 @@ const GameAudioChallenge = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[2])}
@@ -266,6 +271,7 @@ const GameAudioChallenge = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[3])}
@@ -277,6 +283,7 @@ const GameAudioChallenge = React.memo(
                         <Button
                           variant='outlined'
                           color='primary'
+                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
                           className={styles.button_translate_word}
                           disabled={isDisabled}
                           onClick={() => handlerClickWord(translate[4])}

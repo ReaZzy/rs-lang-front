@@ -4,6 +4,8 @@
   flex-direction: column;
   background-color: #ffffff;
   width: 300px;
+  margin-bottom: 30px;
+  border-radius: 4px;
 }
 .sprint__card {
   display: flex;

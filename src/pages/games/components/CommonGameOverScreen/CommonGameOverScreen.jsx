@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, List, ListItemText } from '@material-ui/core';
 import styles from './styles.module.css';
 
+
 function CommonGameOverScreen({
   children,
   resultScore,
@@ -29,17 +30,18 @@ function CommonGameOverScreen({
       <div className={styles.result__button__container}>
         <Button
           variant='outlined'
-          color='primary'
+          style={{color: '#fff', background: '#43ff4c'}}
           onClick={() => handlerClickCheck(true)}
         >
           right answers
         </Button>
         <Button
           variant='outlined'
-          color='primary'
           onClick={() => handlerClickCheck(false)}
+          style={{color: '#fff', background: '#ff5f56'}}
         >
           wrong answers
+          
         </Button>
       </div>
       <List>

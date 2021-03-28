@@ -19,19 +19,41 @@
   display: flex;
   justify-content: space-between;
   width: 80%;
-  margin: 20px 80px;
+  margin: 20px 80px 40px;
+}
+.audio_challenge__imageWrapper {
+  height: 242px;
 }
 .button_translate_word {
   margin: 5px;
+  color: #fff; 
+  padding: 7px 20px 7px 36px;
 }
+
+.text__translateListWrapper {
+  margin-bottom: 30px;
+}
+
 .text_center {
   display: flex;
   justify-content: center;
 }
-.text__translate {
+.text__translateItem {
   color: #ffffff;
-  margin: 0 3px;
+  margin: 0 28px 0 0px;
+  /* list-style: none; */
 }
+
+.text__translateList {
+  display: flex;
+  /* list-style: none; */
+}
+
+.button_translate_word {
+  margin-right: 10px;
+  color: #fff;
+}
+
 .word_english {
   color: #ffffff;
 }
