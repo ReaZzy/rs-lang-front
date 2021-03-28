@@ -5,6 +5,7 @@ import { theme } from "./theme";
 import { ThemeProvider } from "@material-ui/core";
 import { useRoutes } from "./routes";
 import { Header } from "./views/Header/Header";
+import { Footer } from "./views/Footer/Footer";
 
 function App() {
     const dispatch = useDispatch();
@@ -27,7 +28,8 @@ function App() {
         <ThemeProvider theme={theme}>
             <div className="App">
                 <Header />
-                <main>{routes}</main>
+                <main className="Main">{routes}</main>
+                <Footer />
             </div>
         </ThemeProvider>
     );

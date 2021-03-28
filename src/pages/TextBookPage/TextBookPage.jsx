@@ -29,6 +29,7 @@ export const TextBookPage = React.memo(() => {
             {!isFetching
                 ?
                     aggregatedWords?.paginatedResults?.map( e => (
+                        
                         <div key={e._id} style={{backgroundColor: e.userWord?.difficulty === "hard" && "red"}}>
                             <img src={`https://api-rslang.pet-projects.ru/${e.image}`} alt={""}/>
                             <AudioComponent
@@ -62,6 +63,7 @@ export const TextBookPage = React.memo(() => {
                             }}>DELETE
                             </button>
                         </div>
+                        
                     ) )
 
                 : <div>Loading...</div>

@@ -3,42 +3,136 @@
   margin-bottom: 20px !important;
 }
 
-.photo {
-  max-height: 352px;
+.mainPageHeroSection {
+  margin: 0 !important;
+  margin-bottom: 20px !important;
 }
 
-.video {
+.mainPageTitle, .pageMainPicture {
+  display: flex;
+  max-width: 50% !important;
+  background-color: white !important;
+  align-items: center;
+  margin-bottom: 31px;
+}
+
+.mainPageVideoContainer {
+  margin: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+.mainPagePhoto {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.mainPagePhotoContainer {
+  max-height: 352px;
+  object-fit: cover;
+}
+
+.mainPageVideo {
   width: 500px;
   height: 360px;
   background-color: white !important;
 }
 
-.benefits__photo {
+.benefitsPhoto {
   width: 105px !important;
   height: 105px ;
 }
 
-.benefits__card {
+.benefitsCard {
   display: flex;
   background-color: white !important;
   align-items: center;
   margin-bottom: 31px;
 }
 
-.benefits__card:first-child {
+.benefitsCard:first-child {
   margin-bottom: 10px !important;
-
 }
 
-.link {
-  text-decoration: none;
-  color:whitesmoke;
-  font-weight: bold;
-  font-family: "Roboto";
+@media (max-width: 1090px) {
+  .mainPageVideoContainer {
+    max-width: 100% !important;
+    flex-grow: 1 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .benefitsCard {
+    width: 66% !important;
+  }
+
+  .benefitsCardContainer {
+    flex-grow: 1 !important;
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefitsPhoto {
+    width: 91px !important;
+    height: 91px ;
+  }
 }
 
-.mainPage__button {
-  background-color: #5c75f4 !important;
-  border-radius: 4px;
-  text-align: center;
+@media (max-width: 960px) {
+  .mainPageHeroSection {
+    flex-direction: column-reverse;
+    align-content: center !important;
+  }
+
+  .mainPageTitle, .pageMainPicture {
+    max-width: 74% !important;
+  }
+
+  .mainPageHeading {
+    text-align: center;
+    font-size: 34px !important;
+  }
+
+  .benefitsPhoto {
+    width: 83px !important;
+    height: 83px ;
+  }
 }
+
+@media (max-width: 860px) {
+  .mainPageHeading {
+    font-size: 31px !important;
+  }
+
+  .benefitsCardText {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .mainPageHeading {
+    font-size: 27px !important;
+  }
+
+  .benefitsPhoto {
+    width: 78px !important;
+    height: 78px ;
+  }
+}
+
+@media (max-width: 660px) {
+  .mainPageHeading {
+    font-size: 24px !important;
+  }
+
+  .benefitsCardText {
+    font-size: 16px !important;
+  }
+
+  .benefitsPhoto {
+    width: 76px !important;
+    height: 76px;
+  }
+}
+
