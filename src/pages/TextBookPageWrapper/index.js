@@ -1,2 +1,2 @@
-import { TextBookPageWrapper } from './TextBookPage';
+import { TextBookPageWrapper } from './TextBookPageWrapper';
 export default TextBookPageWrapper;
