@@ -58,7 +58,7 @@ export const wrongWord = (id, word, token) => async (dispatch, getState) => {
     await setAggregatedWordRequest(
         id,
         word._id,
-        word?.usersWord?.wrongTimes > 1 ? "hard" : "learn",
+        word?.usersWord?.wrongTimes > 1 ? "hard" : word?.usersWord?.difficulty !=="hard" && "learn" || word?.usersWord?.difficulty !=="deleted" && "learn",
         token,
         word?.userWord?.optional?.correctTimes ? word?.userWord?.optional?.correctTimes : 0,
         1
@@ -67,7 +67,7 @@ export const wrongWord = (id, word, token) => async (dispatch, getState) => {
             async e => await updateAggregatedWord( id,
                 word._id, word?.userWord?.optional?.wrongTimes > 1
                     ? "hard"
-                    : "learn",
+                    :  word?.usersWord?.difficulty !=="hard" && "learn" || word?.usersWord?.difficulty !=="deleted" && "learn",
                 token, word?.userWord?.optional?.correctTimes, word?.userWord?.optional?.wrongTimes
                     ? word?.userWord?.optional?.wrongTimes + 1
                     : 1
@@ -77,7 +77,7 @@ export const wrongWord = (id, word, token) => async (dispatch, getState) => {
 
 export const correctWord = (id, word, token) => async (dispatch, getState) => {
     word = {...word, _id: word.id ?  word.id : word._id}
-    await setAggregatedWordRequest( id, word._id, word?.usersWord?.correctTimes > 1 ? "deleted" : "learn", token, 1 ).catch(
-        async e => await updateAggregatedWord( id, word._id, word?.userWord?.optional?.correctTimes > 1? "deleted" : "learn", token, word?.userWord?.optional?.correctTimes ? word?.userWord?.optional?.correctTimes + 1 : 1, word?.userWord?.optional?.wrongTimes )
+    await setAggregatedWordRequest( id, word._id, word?.usersWord?.correctTimes > 1 ? "deleted" :  word?.usersWord?.difficulty !=="hard" && "learn" || word?.usersWord?.difficulty !=="deleted" && "learn", token, 1 ).catch(
+        async e => await updateAggregatedWord( id, word._id, word?.userWord?.optional?.correctTimes > 1? "deleted" :  word?.usersWord?.difficulty !=="hard" && "learn" || word?.usersWord?.difficulty !=="deleted" && "learn", token, word?.userWord?.optional?.correctTimes ? word?.userWord?.optional?.correctTimes + 1 : 1, word?.userWord?.optional?.wrongTimes )
     )
 }

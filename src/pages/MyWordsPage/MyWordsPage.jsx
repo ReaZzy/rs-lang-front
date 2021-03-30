@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getMyWords} from "../../redux/words/thunks";
+import {MyWord} from "./MyWord";
 
 const MyWordsPage = () => {
     const dispatch = useDispatch()
@@ -13,7 +14,7 @@ const MyWordsPage = () => {
     }, [id]) //eslint-disable-line
     return(
         <pre >
-            {JSON.stringify(myWords)}
+            {myWords?.map(e=><MyWord e={e}/>)}
         </pre>
     )
 }
