@@ -1,14 +1,13 @@
 import React, { useCallback, useState } from 'react';
+import { InputLabel, Select, MenuItem, Typography } from '@material-ui/core';
 import CommonStartScreen from '../../../components/CommonStartScreen';
-import { InputLabel, Select, MenuItem } from '@material-ui/core';
 import styles from './styles.module.css';
-import Typography from '@material-ui/core/Typography';
 
-const StartGame = React.memo(({ setstartGamePages, setLevel }) => {
+const StartPageSavanna = React.memo(({ setStartGame, setLevel }) => {
   const [currentLevel, setCurrentLevel] = useState('1');
   const handleClickStart = useCallback(() => {
-    setstartGamePages(true);
-  }, [setstartGamePages]);
+    setStartGame(true);
+  }, [setStartGame]);
 
   const isSelect = useCallback(
     (event) => {
@@ -22,9 +21,9 @@ const StartGame = React.memo(({ setstartGamePages, setLevel }) => {
   return (
     <CommonStartScreen
       onStartClick={handleClickStart}
-      title='Audio Challenge'
+      title='Savanna Game'
       descriptionText='Learn new words and repeat it.'
-      rules='Training to improve listening skills'
+      rules='Choose the correct word!'
       keyboardRules='You can use keys 1,2,3,4,5 or Enter to control the game!'
     >
       <div className={styles.game__select_level}>
@@ -62,4 +61,4 @@ const StartGame = React.memo(({ setstartGamePages, setLevel }) => {
     </CommonStartScreen>
   );
 });
-export default StartGame;
+export default StartPageSavanna;

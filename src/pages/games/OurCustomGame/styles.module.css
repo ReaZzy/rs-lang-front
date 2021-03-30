@@ -1,5 +1,11 @@
 .our-custom-game {
+  position: relative;
   background-color: gray;
   min-height: 100vh;
   width: 100%;
+}
+.return_home {
+  position: absolute;
+  top: 60px;
+  right: 3px;
 }
