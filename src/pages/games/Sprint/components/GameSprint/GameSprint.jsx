@@ -13,17 +13,19 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import MusicOffIcon from '@material-ui/icons/MusicOff';
 import { IconButton } from '@material-ui/core';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
-import MicNoneOutlinedIcon from '@material-ui/icons/MicNoneOutlined';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import styles from './styles.module.css';
 import { randomInteger, rightAnswer } from '../../helpers/helper';
 import { useDispatch, useSelector } from 'react-redux';
-//import { setCorrectWord } from '../../../../../redux/words/actions';
 import { correctWord, wrongWord } from '../../../../../redux/words/thunks';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
+import MicIcon from '@material-ui/icons/Mic';
+import styles from './styles.module.css';
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
-
+const DATA_URL = 'https://api-rslang.pet-projects.ru/';
 const GameSprint = React.memo(
   ({
     startGame,
@@ -33,6 +35,7 @@ const GameSprint = React.memo(
     setResultScore,
     level,
   }) => {
+    const { transcript, resetTranscript } = useSpeechRecognition();
     const [sound, isSound] = useState(true);
     const dispatch = useDispatch();
     const id = useSelector(
@@ -53,6 +56,12 @@ const GameSprint = React.memo(
     const [responseUser, setResponseUser] = useState('Sprint Game');
     const [isLoading, setIsLoading] = useState(true);
 
+    useEffect(() => {
+      if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+        return null;
+      }
+    }, []);
+
     const getNewRandomWord = useCallback((count, items) => {
       const randIndex = randomInteger(0, count);
       const randWord = items[randIndex];
@@ -69,7 +78,7 @@ const GameSprint = React.memo(
         setIsLoading(false);
       };
       getWords();
-    }, [level]);
+    }, [level, id, token]);
 
     useEffect(() => {
       const timer = setInterval(() => {
@@ -176,6 +185,23 @@ const GameSprint = React.memo(
       };
     }, [handleUserKeyPress]);
 
+    const handleSoundWord = useCallback(() => {
+      const itemAudio = new Audio(`${DATA_URL}${currentWord.audio}`);
+      itemAudio.play();
+    }, [currentWord]);
+
+    useEffect(() => {
+      if (transcript) {
+        transcript === 'True' ||
+        transcript === 'true' ||
+        transcript === 'тру' ||
+        transcript === 'Тру'
+          ? handlerClickCheck(true)
+          : handlerClickCheck(false);
+        resetTranscript();
+      }
+    }, [resetTranscript, transcript, handlerClickCheck]);
+
     return (
       <>
         {isLoading ? (
@@ -230,33 +256,53 @@ const GameSprint = React.memo(
                       {' '}
                       <h3 className={styles.game__text}>Score: {point}</h3>
                       {sound ? (
-                        <MusicNoteIcon
-                          onClick={handlerSwichSound}
-                          fontSize='large'
-                          color='primary'
-                        />
+                        <IconButton>
+                          <MusicNoteIcon
+                            style={{ cursor: 'pointer' }}
+                            onClick={handlerSwichSound}
+                            fontSize='large'
+                            color='primary'
+                          />
+                        </IconButton>
                       ) : (
-                        <MusicOffIcon
-                          onClick={handlerSwichSound}
-                          fontSize='large'
-                          color='primary'
-                        />
+                        <IconButton>
+                          {' '}
+                          <MusicOffIcon
+                            style={{ cursor: 'pointer' }}
+                            onClick={handlerSwichSound}
+                            fontSize='large'
+                            color='primary'
+                          />
+                        </IconButton>
                       )}
                     </div>
 
                     <div className={styles.sprint__content}>
                       <h4>{currentWord.word}</h4>
-                      <IconButton>
-                        <VolumeUpIcon style={{color: "#000"}}/>
+                      <IconButton onClick={handleSoundWord}>
+                        <VolumeUpIcon style={{ color: '#000' }} />
                       </IconButton>
                       <h4 className={styles.sprint__translate}>{translate}</h4>
+                      <div className={styles.microphone}>
+                        <IconButton>
+                          <MicIcon
+                            style={{ color: '#000' }}
+                            onClick={() => {
+                              SpeechRecognition.startListening();
+                            }}
+                          />
+                        </IconButton>
+                        <p className={styles.microphone_text}>
+                          click and say "TRUE" or "FALSE"
+                        </p>
+                      </div>
                     </div>
 
                     <div className={styles.sprint__control_buttons}>
                       <div className={styles.buttons__block}>
                         <Button
                           variant='contained'
-                          color='primary'
+                          style={{ color: '#fff', background: '#ff5f56' }}
                           onClick={() => handlerClickCheck(false)}
                         >
                           FALSE
@@ -266,7 +312,7 @@ const GameSprint = React.memo(
                       <div className={styles.buttons__block}>
                         <Button
                           variant='contained'
-                          color='primary'
+                          style={{ color: '#fff', background: '#43ff4c' }}
                           onClick={() => handlerClickCheck(true)}
                         >
                           TRUE

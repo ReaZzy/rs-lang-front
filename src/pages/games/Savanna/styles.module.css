@@ -1,4 +1,4 @@
-.audio_challenge {
+.savanna {
   position: relative;
   display: flex;
   align-items: center;
@@ -9,5 +9,5 @@
 .return_home {
   position: absolute;
   top: 3px;
-  right: 3px;
+  right: 23px;
 }

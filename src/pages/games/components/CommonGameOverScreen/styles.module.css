@@ -8,7 +8,8 @@
     url('../../../../assets/games/sprint/letsPlay.jpg');
   background-position: center;
   background-size: cover;
-  background-attachment: fixed; 
+  background-attachment: fixed;
+  overflow: hidden;
 }
 .gameOver__header {
   display: flex;
@@ -16,6 +17,7 @@
   align-items: center;
 }
 .gameOver__text {
+  margin: 10px;
   font-size: 30px;
   color: #ffffff;
 }
@@ -23,8 +25,15 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin: 20px 0;
+  margin: 20px 5px;
 }
 .gameOver__container__text {
   color: #ffffff;
+}
+@media screen and (max-width: 450px) {
+  .result__button__container {
+    flex-direction: column;
+    width: 250px;
+    height: 120px;
+  }
 }

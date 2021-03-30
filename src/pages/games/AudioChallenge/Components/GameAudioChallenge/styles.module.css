@@ -26,10 +26,32 @@
 }
 .button_translate_word {
   margin: 5px;
-  color: #fff; 
+  color: #fff;
   padding: 7px 20px 7px 36px;
 }
-
+.translate_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow: hidden;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.translate_word {
+  margin: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.translate_word:hover {
+  opacity: 1;
+}
+.translate_word_text {
+  margin: 3px 7px;
+  font-size: 1.5em;
+}
 .text__translateListWrapper {
   margin-bottom: 30px;
 }
@@ -63,4 +85,12 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+@media screen and (max-width: 400px) {
+  .translate_word_text {
+    font-size: 1em;
+  }
+  .translate_container {
+    width: 300px;
+  }
 }
