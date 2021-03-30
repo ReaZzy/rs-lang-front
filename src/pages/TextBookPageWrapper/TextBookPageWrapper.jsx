@@ -7,6 +7,8 @@ import { TextBookPage } from '../TextBookPage/TextBookPage';
 import { Container } from "@material-ui/core";
 import SettingsIcon from '@material-ui/icons/Settings';
 import { useStyles } from './styles.module';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 
 export const TextBookPageWrapper = () => {
@@ -71,27 +73,37 @@ export const TextBookPageWrapper = () => {
 
   return (
     <>
-    <Container  maxWidth="lg">
-        <section className="settings-link">
-          <SettingsIcon className={classes.menuItemIcon} />
-          <Link to="/textbook/settings">Settings</Link>
+    <Container  maxWidth="md">
+        <section className={classes.gamesNav}>
+         <Grid container>
+            <Grid xs={11}>
+              <nav>
+                <ul className={classes.gamesNavList}>
+                  {
+                    gamesLinkConfig.map((linkItem, key) => (
+                      <li className={classes.gamesNavItem} key={key}>
+                        <Link className={classes.gamesNavLink} to={linkItem.to}>
+                          <Typography variant="h4" className={classes.gamesNavLinText}>
+                            { linkItem.text }
+                          </Typography>
+                        </Link>
+                      </li>
+                      )
+                    )
+                  }
+                </ul>
+              </nav>
+            </Grid>
+            <Grid xs={1} className={classes.settings}>
+              <Link to="/textbook/settings">
+                <SettingsIcon className={classes.menuItemIcon} />
+              </Link>
+            </Grid>
+         </Grid>
         </section>
-        <section className="games-nav">
-          <nav>
-            <ul>
-              {
-                gamesLinkConfig.map((linkItem, key) => (
-                  <li key={key}><Link to={linkItem.to}>{ linkItem.text }</Link></li>
-                  )
-                )
-              }
-            </ul>
-          </nav>
-        </section>
-        <section>
+        <section className={classes.textBookSection}>
           <TextBookPage />
-        </section>
-        <Pagination
+          <Pagination
           count={30}
           page = {Number(page)}
           renderItem={(item) => (
@@ -102,6 +114,7 @@ export const TextBookPageWrapper = () => {
             />
           )}
         />
+        </section>
       </Container>
     </>
   )

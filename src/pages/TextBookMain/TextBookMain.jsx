@@ -29,7 +29,7 @@ export const TextBookMain = () => {
                         <Grid xs={4} item style={{height: "422px"}} key={`module${key}`}>
                             <Card className={classes.moduleCardWrapper}>
                                 <Link to={`/textbook/${item}/1`} className={classes.moduleCardLink}>
-                                    <Grid xs={12} className={classes.CardContainer}>
+                                    <Grid className={classes.CardContainer}>
                                         <Grid item xs={12}  className={classes.moduleCardHeaderWrapper}>
                                             <Card style={{background: colors[item]}} className={classes.moduleCardHeader}></Card>
                                         </Grid>

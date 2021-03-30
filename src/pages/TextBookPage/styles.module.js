@@ -1,54 +1,89 @@
 import { makeStyles } from '@material-ui/core/styles';
+const TEXT_COLOR = 'rgba(0, 0, 0, 0.768)';
 
 export const useStyles = makeStyles((theme) => ({
-  moduleContainer: {
-    height: '100%',
+  TextBookPageHeading: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    marginBottom: '1rem'
   },
-  moduleList: {
-    padding: '20px 50px',
-    height: '100%',
-    flexGrow: '1',
+  TextBookWordList: {
+    listStyle: 'none'
   },
-  moduleCardLink: {
-    height: '100%',
-    width: '100%',
-    textDecoration: 'none',
+  TextBookWordItem: {
+    marginBottom: '1rem'
+
   },
-  CardContainer: {
-    height: '100%',
-    // flexFlow: 'column wrap'
+  TextBookWordCard: {
+    padding: '2rem',
+    borderRadius: "4px",
+    boxShadow: '0 2px 4px rgba(0, 0, 0, .2)',
   },
-  moduleCardHeaderWrapper: {
-    flex: 'auto',
-    maxWidth: '100%',
-    height: '30%',
+  TextBookWordMedia: {
+    marginBottom: '2rem'
   },
-  moduleCardHeader: {
-    maxWidth: '100%',
-    height: '100%',
-    opacity: '0.8',
-    transition: '0.1s',
+  TextBookWordImageWrapper: {
+    marginRight: '2rem'
   },
-  moduleCardWrapper: {
-    borderRadius: '10px',
-    overflow: 'hidden',
-    height: '100%',
-    width: '100%',
-    "&:hover $moduleCardHeader": {
-      opacity: '1',
-    }
+  TextBookWordHeding: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
-  moduleCardBottom: {
-    background: '#fafafa',
-    height: '70%',
-    maxWidth: '100%',
+  TextBookWordMeaning: {
+    textTransform: 'uppercase',
+    color: theme.palette.primary.main,
+    margin: '0 0 1rem',
+  },
+  TextBookWordTranslation: {
+    textTransform: 'uppercase',
+    color: '#8d8d8d',
+    margin: '0',
+  },
+  TextBookWordImage: {
+    height: '11rem',
+    width: '16rem'
+  },
+  TextBookWordContent: {
+    marginBottom: '2rem',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column'
+  },
+  TextBookWordButtons: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  TextBookWordButton: {
+    marginRight: '1rem',
+    '&:last-child': {
+      marginRight: '0'
+    },
+    color: 'fff'
+  },
+  TextBookWordText: {
+    margin: '0 0 1rem'
+  },
+  TextBookWordResult: {
     display: 'flex',
     justifyContent: 'center',
+    marginBottom: '1rem'
+    
+  },
+  TextBookWordResultWrapper: {
+    display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center'
   },
-  moduleNumber: {
-    fontSize: '74px',
+  TextBookWordRight: {
+    marginRight: '5rem',
+    color: theme.palette.secondary.green,
   },
+  TextBookWordWrong: {
+    color: theme.palette.secondary.main,
+  }
+  
 
 })) 
