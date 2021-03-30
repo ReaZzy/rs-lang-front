@@ -7,9 +7,8 @@ import {Grid, Card, Button} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.module';
 
-
-
 export const TextBookPage = React.memo(() => {
+    const IMG_API = 'https://api-rslang.pet-projects.ru/'
     const classes = useStyles();
     let {module, page} = useParams();
     const isFetching = useSelector( state => state.words.wordsFetching )
@@ -37,56 +36,56 @@ export const TextBookPage = React.memo(() => {
                 <ul className={classes.TextBookWordList}>
                     {!isFetching
                         ?
-                            aggregatedWords?.paginatedResults?.map( e => (
-                                <li className={classes.TextBookWordItem} key={e._id} style={{border: e.userWord?.difficulty === "hard" && '1px #ff5f56 solid'}}>
+                            aggregatedWords?.paginatedResults?.map( word => (
+                                <li className={classes.TextBookWordItem} key={word._id} style={{border: word.userWord?.difficulty === "hard" && '1px #ff5f56 solid'}}>
                                     <Card className={classes.TextBookWordCard}>
                                        <Grid container className={classes.TextBookWordMedia}>
                                             <Grid className={classes.TextBookWordImageWrapper}>
-                                                <img className={classes.TextBookWordImage} src={`https://api-rslang.pet-projects.ru/${e.image}`} alt={""}/>
+                                                <img className={classes.TextBookWordImage} src={`${IMG_API+word.image}`} alt={""}/>
                                             </Grid>
                                             <Grid className={classes.TextBookWordResultWrapper}>
                                                 <Grid  className={classes.TextBookWordResult}>
-                                                    <Typography variant='h5' className={classes.TextBookWordRight}>Correct: {e.userWord?.optional?.correctTimes || '0'}</Typography>
-                                                    <Typography variant='h5' className={classes.TextBookWordWrong}>Wrong: {e.userWord?.optional?.wrongTimes || '0'}</Typography>
+                                                    <Typography variant='h5' className={classes.TextBookWordRight}>Correct: {word.userWord?.optional?.correctTimes || '0'}</Typography>
+                                                    <Typography variant='h5' className={classes.TextBookWordWrong}>Wrong: {word.userWord?.optional?.wrongTimes || '0'}</Typography>
                                                 </Grid>
                                                 <AudioComponent
-                                                audio={e.audio}
-                                                id={e._id}
-                                                audioExample={e.audioExample}
-                                                audioMeaning={e.audioMeaning}
+                                                audio={word.audio}
+                                                id={word._id}
+                                                audioExample={word.audioExample}
+                                                audioMeaning={word.audioMeaning}
                                                 />
                                             </Grid>
                                        </Grid>
                                         <Grid className={classes.TextBookWordContent}>
                                             <Grid className={classes.TextBookWordHeding}>
-                                                <h2 className={classes.TextBookWordMeaning} dangerouslySetInnerHTML={{__html:e.word}}/>
-                                                <h3 className={classes.TextBookWordTranslation}dangerouslySetInnerHTML={{__html:e.wordTranslate}}/>
-                                                <p dangerouslySetInnerHTML={{__html:e.transcription}}/>
+                                                <h2 className={classes.TextBookWordMeaning} dangerouslySetInnerHTML={{__html:word.word}}/>
+                                                <h3 className={classes.TextBookWordTranslation}dangerouslySetInnerHTML={{__html:word.wordTranslate}}/>
+                                                <p dangerouslySetInnerHTML={{__html:word.transcription}}/>
                                             </Grid>
-                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:e.textMeaning}}/>
-                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:e.textMeaningTranslate}}/>
-                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:e.textExample}}/>
-                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:e.textExampleTranslate}}/>
+                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textMeaning}}/>
+                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textMeaningTranslate}}/>
+                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textExample}}/>
+                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textExampleTranslate}}/>
                                         </Grid>
                                         <Grid className={classes.TextBookWordButtons}>
                                             {
-                                                e.userWord?.difficulty === "hard"
+                                                word.userWord?.difficulty === "hard"
                                                     ? <Button 
                                                     className={classes.TextBookWordButton}
                                                     onClick={() => {
-                                                        handleSetWord( e, "learn" )
+                                                        handleSetWord( word, "learn" )
                                                     }}>UNHARD</Button>
                                                     : <Button 
                                                     className={classes.TextBookWordButton}
                                                     onClick={() => {
-                                                        handleSetWord( e, "hard" )
+                                                        handleSetWord( word, "hard" )
                                                     }}>HARD</Button>
                                             }
                                             
                                             <Button 
                                              className={classes.TextBookWordButton}
                                              onClick={() => {
-                                                handleSetWord( e, "deleted" )
+                                                handleSetWord( word, "deleted" )
                                             }}>DELETE
                                             </Button>
                                         </Grid>
