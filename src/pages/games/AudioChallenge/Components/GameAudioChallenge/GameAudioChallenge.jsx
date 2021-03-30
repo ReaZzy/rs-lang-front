@@ -21,7 +21,6 @@ const GameAudioChallenge = React.memo(
     setResultScore,
     level,
   }) => {
-    const [isDisabled, setDisabled] = useState(false);
     const [wordImg, setWordImg] = useState(false);
     const [wordEnglish, setWordEnglish] = useState(false);
     const [point, setPoint] = useState(0);
@@ -84,13 +83,12 @@ const GameAudioChallenge = React.memo(
           audioCorrect.play();
           const result = RightAnswer(point);
           setPoint(result);
-          setDisabled(true);
           setWordImg(true);
           setWordEnglish(true);
         } else {
           audioError.play();
           setWrongAnswers(words[words.length - 1]);
-          setDisabled(true);
+
           setWordImg(true);
           setWordEnglish(true);
         }
@@ -117,7 +115,7 @@ const GameAudioChallenge = React.memo(
       );
       setWords(wordsUpdated);
       setCurrentWord(wordsUpdated[wordsUpdated.length - 1]);
-      setDisabled(false);
+
       setWordImg(false);
       setWordEnglish(false);
     }, [currentWord.word, words]);
@@ -229,69 +227,62 @@ const GameAudioChallenge = React.memo(
                   <CircularProgress />
                 ) : (
                   <div>
-                    <div className={styles.button_translate}>
-                      <ol>
-                        <Button
-                          variant='outlined'
-                          color='primary'
-                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
-                          className={styles.button_translate_word}
-                          disabled={isDisabled}
-                          onClick={() => handlerClickWord(translate[0])}
-                        >
-                          <li className={styles.text__translate}>
-                            {translate[0]}
-                          </li>
-                        </Button>
-                        <Button
-                          variant='outlined'
-                          color='primary'
-                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
-                          className={styles.button_translate_word}
-                          disabled={isDisabled}
-                          onClick={() => handlerClickWord(translate[1])}
-                        >
-                          <li className={styles.text__translate}>
-                            {translate[1]}
-                          </li>
-                        </Button>
-                        <Button
-                          variant='outlined'
-                          color='primary'
-                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
-                          className={styles.button_translate_word}
-                          disabled={isDisabled}
-                          onClick={() => handlerClickWord(translate[2])}
-                        >
-                          <li className={styles.text__translate}>
-                            {translate[2]}
-                          </li>
-                        </Button>
-                        <Button
-                          variant='outlined'
-                          color='primary'
-                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
-                          className={styles.button_translate_word}
-                          disabled={isDisabled}
-                          onClick={() => handlerClickWord(translate[3])}
-                        >
-                          <li className={styles.text__translate}>
-                            {translate[3]}
-                          </li>
-                        </Button>
-                        <Button
-                          variant='outlined'
-                          color='primary'
-                          style={{color: '#fff', padding: '7px 20px 7px 36px', marginRight: '8px'}}
-                          className={styles.button_translate_word}
-                          disabled={isDisabled}
-                          onClick={() => handlerClickWord(translate[4])}
-                        >
-                          <li className={styles.text__translate}>
-                            {translate[4]}
-                          </li>
-                        </Button>
-                      </ol>
+                    <div className={styles.translate_container}>
+                      <div
+                        style={{
+                          background: 'orange',
+                        }}
+                        className={styles.translate_word}
+                        onClick={() => handlerClickWord(translate[0])}
+                      >
+                        <h4 className={styles.translate_word_text}>
+                          1. {translate[0]}
+                        </h4>
+                      </div>
+                      <div
+                        style={{
+                          background: 'red',
+                        }}
+                        className={styles.translate_word}
+                        onClick={() => handlerClickWord(translate[1])}
+                      >
+                        <h4 className={styles.translate_word_text}>
+                          2. {translate[1]}
+                        </h4>
+                      </div>
+                      <div
+                        style={{
+                          background: 'green',
+                        }}
+                        className={styles.translate_word}
+                        onClick={() => handlerClickWord(translate[2])}
+                      >
+                        <h4 className={styles.translate_word_text}>
+                          3. {translate[2]}
+                        </h4>
+                      </div>
+                      <div
+                        style={{
+                          background: 'brown',
+                        }}
+                        className={styles.translate_word}
+                        onClick={() => handlerClickWord(translate[3])}
+                      >
+                        <h4 className={styles.translate_word_text}>
+                          4. {translate[3]}
+                        </h4>
+                      </div>
+                      <div
+                        style={{
+                          background: 'pink',
+                        }}
+                        className={styles.translate_word}
+                        onClick={() => handlerClickWord(translate[4])}
+                      >
+                        <h4 className={styles.translate_word_text}>
+                          5. {translate[4]}
+                        </h4>
+                      </div>
                     </div>
                     <div className={styles.text_center}>
                       <Button

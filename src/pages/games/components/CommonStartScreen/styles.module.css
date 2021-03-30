@@ -8,15 +8,18 @@
     url('../../../../assets/games/sprint/letsPlay.jpg');
   background-position: center;
   background-size: cover;
-  background-attachment: fixed; 
+  background-attachment: fixed;
+  overflow: hidden;
 }
 .start__text_name {
+  margin: 5px;
   color: #ffffff;
   font-size: 40px;
 }
 .start__text {
   color: #ffffff;
   font-size: 1.5em;
+  margin: 5px;
 }
 .game__select_level {
   width: 50px;
@@ -26,5 +29,6 @@
   margin: 30px;
 }
 .keyboard__rules__text {
+  margin: 5px;
   color: #ffffff;
 }

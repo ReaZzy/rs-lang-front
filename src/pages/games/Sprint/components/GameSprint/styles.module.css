@@ -4,7 +4,7 @@
   flex-direction: column;
   background-color: #ffffff;
   width: 300px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-radius: 4px;
 }
 .sprint__card {
@@ -14,21 +14,21 @@
   width: 600px;
 }
 .sprint__control_buttons {
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
 .sprint__progress {
   width: 80%;
-  margin: 20px;
+  margin: 5px;
   padding: 0 10px;
 }
 .head_sprint {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin: 10px 0;
+  margin: 5px 0;
   color: #ffffff;
 }
 .sprint__header {
@@ -53,7 +53,7 @@
   margin: 0;
 }
 .control_buttons {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -86,11 +86,13 @@
   cursor: pointer;
 }
 .fullScreen__container {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
 @media screen and (max-width: 620px) {
   .sprint__card {
     width: 100%;

@@ -12,6 +12,7 @@ import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import MusicOffIcon from '@material-ui/icons/MusicOff';
+import { IconButton } from '@material-ui/core';
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
 const soundGame = new Audio(SoundGame);
@@ -118,19 +119,24 @@ function MainContainer({ level, setLevel }) {
           />
           <div className={styles.navigation_container}>
             {sound ? (
-              <MusicNoteIcon
-                className={styles.icon__fullScreen}
-                onClick={handlerSwichSound}
-                fontSize='large'
-                color='primary'
-              />
+              <IconButton>
+                {' '}
+                <MusicNoteIcon
+                  className={styles.icon__fullScreen}
+                  onClick={handlerSwichSound}
+                  fontSize='large'
+                  color='primary'
+                />
+              </IconButton>
             ) : (
-              <MusicOffIcon
-                className={styles.icon__fullScreen}
-                onClick={handlerSwichSound}
-                fontSize='large'
-                color='primary'
-              />
+              <IconButton>
+                <MusicOffIcon
+                  className={styles.icon__fullScreen}
+                  onClick={handlerSwichSound}
+                  fontSize='large'
+                  color='primary'
+                />
+              </IconButton>
             )}
 
             <FullscreenIcon

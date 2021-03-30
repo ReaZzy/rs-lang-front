@@ -87,6 +87,8 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
+          {' '}
+          <SportsEsportsIcon className={classes.menuItemIcon} />
           <NavLink to='/savanna' className={classes.menuLink}>
             Savanna
           </NavLink>

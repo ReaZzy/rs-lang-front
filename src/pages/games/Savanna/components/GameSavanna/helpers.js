@@ -22,3 +22,5 @@ export const getRandom = (min, max, count) => {
 export const RightAnswer = (point) => {
   return point + 1;
 };
+
+export const lifesIconColor = ['orange', 'red', 'green', 'brown', 'pink'];

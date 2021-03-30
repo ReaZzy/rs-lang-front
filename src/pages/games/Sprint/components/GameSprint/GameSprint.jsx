@@ -13,17 +13,15 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import MusicOffIcon from '@material-ui/icons/MusicOff';
 import { IconButton } from '@material-ui/core';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
-import MicNoneOutlinedIcon from '@material-ui/icons/MicNoneOutlined';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import styles from './styles.module.css';
 import { randomInteger, rightAnswer } from '../../helpers/helper';
 import { useDispatch, useSelector } from 'react-redux';
-//import { setCorrectWord } from '../../../../../redux/words/actions';
 import { correctWord, wrongWord } from '../../../../../redux/words/thunks';
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
-
+const DATA_URL = 'https://api-rslang.pet-projects.ru/';
 const GameSprint = React.memo(
   ({
     startGame,
@@ -176,6 +174,11 @@ const GameSprint = React.memo(
       };
     }, [handleUserKeyPress]);
 
+    const handleSoundWord = useCallback(() => {
+      const itemAudio = new Audio(`${DATA_URL}${currentWord.audio}`);
+      itemAudio.play();
+    }, [currentWord]);
+
     return (
       <>
         {isLoading ? (
@@ -230,24 +233,31 @@ const GameSprint = React.memo(
                       {' '}
                       <h3 className={styles.game__text}>Score: {point}</h3>
                       {sound ? (
-                        <MusicNoteIcon
-                          onClick={handlerSwichSound}
-                          fontSize='large'
-                          color='primary'
-                        />
+                        <IconButton>
+                          <MusicNoteIcon
+                            style={{ cursor: 'pointer' }}
+                            onClick={handlerSwichSound}
+                            fontSize='large'
+                            color='primary'
+                          />
+                        </IconButton>
                       ) : (
-                        <MusicOffIcon
-                          onClick={handlerSwichSound}
-                          fontSize='large'
-                          color='primary'
-                        />
+                        <IconButton>
+                          {' '}
+                          <MusicOffIcon
+                            style={{ cursor: 'pointer' }}
+                            onClick={handlerSwichSound}
+                            fontSize='large'
+                            color='primary'
+                          />
+                        </IconButton>
                       )}
                     </div>
 
                     <div className={styles.sprint__content}>
                       <h4>{currentWord.word}</h4>
-                      <IconButton>
-                        <VolumeUpIcon style={{color: "#000"}}/>
+                      <IconButton onClick={handleSoundWord}>
+                        <VolumeUpIcon style={{ color: '#000' }} />
                       </IconButton>
                       <h4 className={styles.sprint__translate}>{translate}</h4>
                     </div>
@@ -256,7 +266,7 @@ const GameSprint = React.memo(
                       <div className={styles.buttons__block}>
                         <Button
                           variant='contained'
-                          color='primary'
+                          style={{ color: '#fff', background: '#ff5f56' }}
                           onClick={() => handlerClickCheck(false)}
                         >
                           FALSE
@@ -266,7 +276,7 @@ const GameSprint = React.memo(
                       <div className={styles.buttons__block}>
                         <Button
                           variant='contained'
-                          color='primary'
+                          style={{ color: '#fff', background: '#43ff4c' }}
                           onClick={() => handlerClickCheck(true)}
                         >
                           TRUE
