@@ -14,10 +14,15 @@ import MusicOffIcon from '@material-ui/icons/MusicOff';
 import { IconButton } from '@material-ui/core';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import styles from './styles.module.css';
 import { randomInteger, rightAnswer } from '../../helpers/helper';
 import { useDispatch, useSelector } from 'react-redux';
 import { correctWord, wrongWord } from '../../../../../redux/words/thunks';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
+import MicIcon from '@material-ui/icons/Mic';
+import MicOffIcon from '@material-ui/icons/MicOff';
+import styles from './styles.module.css';
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
@@ -31,6 +36,8 @@ const GameSprint = React.memo(
     setResultScore,
     level,
   }) => {
+    const { transcript, resetTranscript } = useSpeechRecognition();
+    const [isStartMicro, setIsStartMicro] = useState(false);
     const [sound, isSound] = useState(true);
     const dispatch = useDispatch();
     const id = useSelector(
@@ -50,6 +57,12 @@ const GameSprint = React.memo(
     const [counterExtraPoints, setCounterExtraPoints] = useState(0);
     const [responseUser, setResponseUser] = useState('Sprint Game');
     const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+        return null;
+      }
+    }, []);
 
     const getNewRandomWord = useCallback((count, items) => {
       const randIndex = randomInteger(0, count);
@@ -179,6 +192,18 @@ const GameSprint = React.memo(
       itemAudio.play();
     }, [currentWord]);
 
+    useEffect(() => {
+      if (transcript) {
+        transcript === 'True' ||
+        transcript === 'true' ||
+        transcript === 'тру' ||
+        transcript === 'Тру'
+          ? handlerClickCheck(true)
+          : handlerClickCheck(false);
+        resetTranscript();
+      }
+    }, [resetTranscript, transcript, handlerClickCheck]);
+
     return (
       <>
         {isLoading ? (
@@ -260,6 +285,19 @@ const GameSprint = React.memo(
                         <VolumeUpIcon style={{ color: '#000' }} />
                       </IconButton>
                       <h4 className={styles.sprint__translate}>{translate}</h4>
+                      <div className={styles.microphone}>
+                        <IconButton>
+                          <MicIcon
+                            style={{ color: '#000' }}
+                            onClick={() => {
+                              SpeechRecognition.startListening();
+                            }}
+                          />
+                        </IconButton>
+                        <p className={styles.microphone_text}>
+                          click and say "TRUE" or "FALSE"
+                        </p>
+                      </div>
                     </div>
 
                     <div className={styles.sprint__control_buttons}>

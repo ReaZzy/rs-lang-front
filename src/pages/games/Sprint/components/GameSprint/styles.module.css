@@ -14,15 +14,15 @@
   width: 600px;
 }
 .sprint__control_buttons {
-  margin: 10px 0 0 0;
+  margin: 5px 0 0 0;
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
 .sprint__progress {
   width: 80%;
-  margin: 5px;
-  padding: 0 10px;
+  margin-bottom: 5px;
+  padding: 0 5px;
 }
 .head_sprint {
   display: flex;
@@ -41,33 +41,31 @@
 .title_sprint {
   display: flex;
   justify-content: center;
-  font-size: 30px;
+  font-size: 25px;
   color: #ffffff;
   margin: 0;
 }
 .title_sprint_wrong {
   display: flex;
   justify-content: center;
-  font-size: 30px;
+  font-size: 25px;
   color: red;
   margin: 0;
 }
 .control_buttons {
-  margin-top: 10px;
   text-align: center;
 }
 
 .sprint_circle {
   margin: 5px;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border: 2px solid #ffffff;
   border-radius: 100%;
 }
 .circle_extrapoint_sprint {
   display: flex;
   justify-content: center;
-  margin: 10px;
 }
 .circle_right {
   border: 2px solid orange;
@@ -76,13 +74,16 @@
   color: orange;
 }
 .game__text {
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #ffffff;
 }
 .game__text_btn {
   color: #ffffff;
 }
 .icon__fullScreen {
+  position: absolute;
+  left: 3px;
+  top: 10px;
   cursor: pointer;
 }
 .fullScreen__container {
@@ -91,6 +92,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.microphone {
+  display: flex;
+
+  left: 3px;
+  top: 3px;
+}
+.microphone_text {
+  font-size: 14px;
 }
 
 @media screen and (max-width: 620px) {
