@@ -15,7 +15,7 @@ function CardField({ words, setGameIsOver, addCorrect, addIncorrect }) {
         image: word.image,
         opened: false,
         hidden: false,
-        id: word.id,
+        id: word._id,
         index: startIndex + i,
         audio: word.audio,
         text: word.word,

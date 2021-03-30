@@ -8,6 +8,8 @@ import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import { CircularProgress, Button } from '@material-ui/core';
 import styles from './styles.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { correctWord, wrongWord } from '../../../../../redux/words/thunks';
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
@@ -34,6 +36,11 @@ const GameAudioChallenge = React.memo(
     });
     const handleFullScreen = useFullScreenHandle();
     const [isLoading, setIsLoading] = useState(true);
+    const id = useSelector(
+      (state) => state.auth.userInfo?.id || state.auth.userInfo?.userId
+    );
+    const token = useSelector((state) => state.auth.userInfo?.token);
+    const dispatch = useDispatch();
 
     const getNewRandomWord = useCallback((count, items) => {
       const randIndex = RandomInteger(0, count);
@@ -44,7 +51,7 @@ const GameAudioChallenge = React.memo(
     useEffect(() => {
       const pages = RandomInteger(0, 6);
       const getWords = async () => {
-        const fetchData = getData(level, pages);
+        const fetchData = getData(level, pages, id, token);
         const newWords = await fetchData();
         setWords(newWords);
         const current = newWords[newWords.length - 1];
@@ -52,7 +59,7 @@ const GameAudioChallenge = React.memo(
         setIsLoading(false);
       };
       getWords();
-    }, [level]);
+    }, [level, id, token]);
 
     useEffect(() => {
       if (Object.values(currentWord).length && words.length) {
@@ -80,6 +87,7 @@ const GameAudioChallenge = React.memo(
       (correctTranslation) => {
         if (correctTranslation === currentWord.wordTranslate) {
           setRightAnswers(words[words.length - 1]);
+          dispatch(correctWord(id, words[words.length - 1], token));
           audioCorrect.play();
           const result = RightAnswer(point);
           setPoint(result);
@@ -88,6 +96,8 @@ const GameAudioChallenge = React.memo(
         } else {
           audioError.play();
           setWrongAnswers(words[words.length - 1]);
+
+          dispatch(wrongWord(id, words[words.length - 1], token));
 
           setWordImg(true);
           setWordEnglish(true);
@@ -101,6 +111,9 @@ const GameAudioChallenge = React.memo(
         setWrongAnswers,
         setWordImg,
         setWordEnglish,
+        dispatch,
+        id,
+        token,
       ]
     );
 

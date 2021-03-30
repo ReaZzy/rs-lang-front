@@ -3,20 +3,18 @@ import {useParams} from 'react-router-dom';
 import {AudioComponent} from "./audioComponent";
 import {deleteWord, getAggregatedWords, setAggregatedWord} from "../../redux/words/thunks";
 import {useDispatch, useSelector} from "react-redux";
-import axios from "axios";
 
 export const TextBookPage = React.memo(() => {
     let {module, page} = useParams();
     const isFetching = useSelector( state => state.words.wordsFetching )
     const dispatch = useDispatch()
     const aggregatedWords = useSelector( state => state.words.aggregatedWords )
-    const correctWords = useSelector( state => state.words.correct )
-    const wrongWords = useSelector( state => state.words.wrong )
+
     const token = useSelector( state => state.auth.userInfo?.token )
     const id = useSelector( state => state.auth.userInfo?.id || state.auth.userInfo?.userId )
 
-    const handleSetWord = (wordId, type) => {
-        dispatch( setAggregatedWord( id, wordId, type, token, page - 1, module - 1 ) )
+    const handleSetWord = (word, type) => {
+        dispatch( setAggregatedWord( id, word, type, token, page - 1, module - 1 ) )
     }
 
 
@@ -40,34 +38,28 @@ export const TextBookPage = React.memo(() => {
                                 audioExample={e.audioExample}
                                 audioMeaning={e.audioMeaning}
                             />
-                            <h3> {correctWords?.find(f=> f.id === e._id)?.correctTimes
-                                ? `Correct times ${correctWords?.find(f=> f.id === e._id)?.correctTimes}`
-                                : ``
-                            }</h3>
-                            <h3> {wrongWords?.find(f=> f.id === e._id)?.wrongTimes
-                                ? `Wrong times ${wrongWords?.find(f=> f.id === e._id)?.wrongTimes}`
-                                : ``
-                            }</h3>
-                            <b>{e.word}</b>
-                            <b> {e.wordTranslate}</b>
-                            {e.transcription}
-                            <p>{e.textMeaning}</p>
-                            <p>{e.textMeaningTranslate}</p>
-                            <p>{e.textExample}</p>
-                            <p>{e.textExampleTranslate}</p>
+                            <h3>Correct {e.userWord?.optional?.correctTimes}</h3>
+                            <h3>Wrong {e.userWord?.optional?.wrongTimes}</h3>
+                            <b dangerouslySetInnerHTML={{__html:e.word}}/>
+                            <b dangerouslySetInnerHTML={{__html:e.wordTranslate}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.transcription}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textMeaning}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textMeaningTranslate}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textExample}}/>
+                            <p dangerouslySetInnerHTML={{__html:e.textExampleTranslate}}/>
 
                             {
                                 e.userWord?.difficulty === "hard"
                                     ? <button onClick={() => {
-                                        dispatch( deleteWord( id, e._id, token ) )
+                                        handleSetWord( e, "learn" )
                                     }}>UNHARD</button>
                                     : <button onClick={() => {
-                                        handleSetWord( e._id, "hard" )
+                                        handleSetWord( e, "hard" )
                                     }}>HARD</button>
                             }
 
                             <button onClick={() => {
-                                handleSetWord( e._id, "deleted" )
+                                handleSetWord( e, "deleted" )
                             }}>DELETE
                             </button>
                         </div>
