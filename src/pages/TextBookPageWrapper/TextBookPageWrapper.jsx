@@ -76,7 +76,7 @@ export const TextBookPageWrapper = () => {
     <Container  maxWidth="md">
         <section className={classes.gamesNav}>
          <Grid container>
-            <Grid xs={11}>
+            <Grid item xs={11}>
               <nav>
                 <ul className={classes.gamesNavList}>
                   {
@@ -94,7 +94,7 @@ export const TextBookPageWrapper = () => {
                 </ul>
               </nav>
             </Grid>
-            <Grid xs={1} className={classes.settings}>
+            <Grid item xs={1} className={classes.settings}>
               <Link to="/textbook/settings">
                 <SettingsIcon className={classes.menuItemIcon} />
               </Link>
