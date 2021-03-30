@@ -1,7 +1,14 @@
 .game__select_level {
-  width: 50px;
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 3px;
   padding: 5px;
-  background-color: #ffffff;
+  background-color: #5c75f4;
   margin: 30px;
+}
+
+.selectItemText {
+  color: #fff;
 }

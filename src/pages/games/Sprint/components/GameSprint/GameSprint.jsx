@@ -11,8 +11,10 @@ import {
 } from '@material-ui/core';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import MusicOffIcon from '@material-ui/icons/MusicOff';
+import { IconButton } from '@material-ui/core';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
-
+import MicNoneOutlinedIcon from '@material-ui/icons/MicNoneOutlined';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import styles from './styles.module.css';
 import { randomInteger, rightAnswer } from '../../helpers/helper';
 import { useDispatch, useSelector } from 'react-redux';
@@ -244,6 +246,9 @@ const GameSprint = React.memo(
 
                     <div className={styles.sprint__content}>
                       <h4>{currentWord.word}</h4>
+                      <IconButton>
+                        <VolumeUpIcon style={{color: "#000"}}/>
+                      </IconButton>
                       <h4 className={styles.sprint__translate}>{translate}</h4>
                     </div>
 
