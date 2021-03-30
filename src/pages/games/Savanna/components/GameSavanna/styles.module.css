@@ -1,0 +1,164 @@
+.game_content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../../../../../assets/games/savanna/savannaBG.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.icon__fullScreen {
+  display: flex;
+  width: 100%;
+  margin-right: 20px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+.translate_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow: hidden;
+  font-size: 14px;
+}
+.translate_word {
+  margin: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.translate_word:hover {
+  opacity: 1;
+}
+.translate_word_text {
+  margin: 3px 7px;
+  font-size: 1.5em;
+}
+.return_home {
+  position: absolute;
+  top: 3px;
+  right: 43px;
+}
+.run_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  height: 50vh;
+}
+.run_container_way {
+  position: relative;
+}
+.run_word {
+  margin: 0;
+  position: absolute;
+}
+.savanna__score {
+  color: #ffffff;
+  font-size: 18px;
+  margin-right: 10px;
+}
+.savanna__panel {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 280;
+  margin: 0 40px;
+}
+
+.text_center {
+  display: flex;
+  justify-content: center;
+}
+
+.word_english {
+  color: #ffffff;
+}
+.fullScreen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.diamond {
+  width: 40px;
+  height: 40px;
+  animation-name: snowfall;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: -1.5s;
+  animation-direction: alternate;
+  transform-origin: 50%;
+}
+
+@-webkit-keyframes snowfall {
+  0% {
+    fill-opacity: 0;
+  }
+  25% {
+    fill-opacity: 1;
+  }
+  50% {
+    -webkit-transform: translateY(25px);
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 0;
+  }
+}
+
+@keyframes snowfall {
+  0% {
+    fill-opacity: 0;
+  }
+  25% {
+    fill-opacity: 1;
+  }
+  50% {
+    transform: translateY(25px);
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 0;
+  }
+}
+.icon_end {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+@media screen and (max-width: 700px) {
+  .translate_word_text {
+    margin: 0 7px;
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 600px) {
+  .savanna__panel {
+    position: absolute;
+    margin: 0 20px;
+    top: 530px;
+    left: 10px;
+    display: block;
+  }
+}
+@media screen and (max-width: 400px) {
+  .translate_word_text {
+    font-size: 1em;
+  }
+  .translate_container {
+    width: 300px;
+  }
+}

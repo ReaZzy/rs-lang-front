@@ -77,7 +77,7 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
-          <SportsEsportsIcon  className={classes.menuItemIcon} />
+          <SportsEsportsIcon className={classes.menuItemIcon} />
           <NavLink to='/sprint' className={classes.menuLink}>
             Sprint game
           </NavLink>
@@ -87,7 +87,18 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
-          <SportsEsportsIcon  className={classes.menuItemIcon} />
+          {' '}
+          <SportsEsportsIcon className={classes.menuItemIcon} />
+          <NavLink to='/savanna' className={classes.menuLink}>
+            Savanna
+          </NavLink>
+        </MenuItem>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+        >
+          <SportsEsportsIcon className={classes.menuItemIcon} />
           <NavLink to='/audio-challenge' className={classes.menuLink}>
             Audio challenge
           </NavLink>
@@ -97,7 +108,7 @@ export default function SimpleMenu() {
           className={classes.menuItem}
           onClick={handleClose}
         >
-          <SportsEsportsIcon  className={classes.menuItemIcon} />
+          <SportsEsportsIcon className={classes.menuItemIcon} />
           <NavLink to='/our-game' className={classes.menuLink}>
             Memory game
           </NavLink>
@@ -110,7 +121,7 @@ export default function SimpleMenu() {
           <GroupIcon className={classes.menuItemIcon} />
           <NavLink to='/team' className={classes.menuLink}>
             Team
-            </NavLink>
+          </NavLink>
         </MenuItem>
         <MenuItem
           style={{ color: '#f7e5ff' }}
