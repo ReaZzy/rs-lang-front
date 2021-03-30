@@ -3,6 +3,8 @@ const ACCENT_COLOR = "#5c75f4";
 const LIGHT_COLOR = "#bfd7ff";
 const DARK_COLOR = "#084ac0";
 const TEXT_COLOR = "rgba(0, 0, 0, 0.768)";
+const RED_COLOR = '#ff5f56';
+const GREEN_COLOR = '#2aff5c'
 
 // Create a theme instance.
 export const theme = createMuiTheme({
@@ -13,8 +15,8 @@ export const theme = createMuiTheme({
       dark: DARK_COLOR
     },
     secondary: {
-      main: "#f5f5f5",
-      light: "#fafafa",
+      main: RED_COLOR,
+      green: GREEN_COLOR,
       contrastText: "#fff"
     }
   },
@@ -81,7 +83,6 @@ export const theme = createMuiTheme({
     MuiCard: {
       root: {
         boxShadow: "none",
-        // backgroundColor: "white",
       },
     },
     MuiTextField: {
@@ -107,7 +108,6 @@ export const theme = createMuiTheme({
     },
     MuiInputLabel: {
       root: {
-        // color: ACCENT_COLOR,
       },
     },
     MuiMenu: {
