@@ -21,7 +21,6 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
 import MicIcon from '@material-ui/icons/Mic';
-import MicOffIcon from '@material-ui/icons/MicOff';
 import styles from './styles.module.css';
 
 const audioCorrect = new Audio(Correct);
@@ -37,7 +36,6 @@ const GameSprint = React.memo(
     level,
   }) => {
     const { transcript, resetTranscript } = useSpeechRecognition();
-    const [isStartMicro, setIsStartMicro] = useState(false);
     const [sound, isSound] = useState(true);
     const dispatch = useDispatch();
     const id = useSelector(
@@ -80,7 +78,7 @@ const GameSprint = React.memo(
         setIsLoading(false);
       };
       getWords();
-    }, [level]);
+    }, [level, id, token]);
 
     useEffect(() => {
       const timer = setInterval(() => {
