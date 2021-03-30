@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {AudioComponent} from "./audioComponent";
-import {deleteWord, getAggregatedWords, setAggregatedWord} from "../../redux/words/thunks";
+import {getAggregatedWords, setAggregatedWord} from "../../redux/words/thunks";
 import {useDispatch, useSelector} from "react-redux";
 
 export const TextBookPage = React.memo(() => {

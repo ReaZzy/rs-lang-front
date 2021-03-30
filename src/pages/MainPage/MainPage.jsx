@@ -22,7 +22,7 @@ export const MainPage = () => {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lgContainer">
         <Grid container spacing={1} className={styles.gridContainer} >
           <Grid container justify="space-between" className={styles.mainPageHeroSection} alignContent="space-between" alignItems="center"  spacing={7}>
             <Fade in={true} timeout={700}>
