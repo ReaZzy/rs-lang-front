@@ -14,7 +14,6 @@ import GamesPhoto from '../../assets/img/brain.svg';
 import styles from "./styles.module.css";
 import Typography from '@material-ui/core/Typography';
 
-
 const useStyles = makeStyles((theme) => ({}));
 
 export const MainPage = () => {
@@ -22,7 +21,7 @@ export const MainPage = () => {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth="lgContainer">
+      <Container maxWidth="lg">
         <Grid container spacing={1} className={styles.gridContainer} >
           <Grid container justify="space-between" className={styles.mainPageHeroSection} alignContent="space-between" alignItems="center"  spacing={7}>
             <Fade in={true} timeout={700}>
