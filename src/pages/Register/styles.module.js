@@ -12,7 +12,6 @@ export const useStyles = makeStyles((theme) => ({
     padding: '3rem',
     borderRadius: '16px',
     boxShadow: '0 2px 8px rgb(0 0 0 / 41%)',
-
   },
   formButton: {
     color: '#fff',

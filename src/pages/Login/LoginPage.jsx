@@ -1,12 +1,12 @@
 import React from "react";
 import {Field, Form, Formik} from "formik";
-import * as Yup from "yup"
 import {useDispatch, useSelector} from "react-redux";
 import {login} from "../../redux/auth/thunks";
 import {Link} from "react-router-dom";
 import {Container, Button} from '@material-ui/core';
 import { useStyles } from './styles.module';
 import Typography from '@material-ui/core/Typography';
+import {loginSchema} from './loginSchema'
 
 export const LoginPage = () => {
     const classes = useStyles();
@@ -15,42 +15,33 @@ export const LoginPage = () => {
     const handleSubmit = (data) => {
         dispatch(login(data.email, data.password))
     }
-    const loginSchema = Yup.object().shape({
-        email: Yup.string()
-            .email("Invalid email")
-            .required("Email is required"),
-        password: Yup.string()
-            .required( "Password is required" )
-            .min( 8, "Password is too short" )
-            .max( 20, "Password is too long" ),
-    })
 
     return (
         <>
             <Container maxWidth="sm" className={classes.logInContainer}>
-                <Formik onSubmit={handleSubmit} initialValues={{email:"",password:""}} validationSchema={loginSchema}>
+                <Formik onSubmit={handleSubmit} initialValues={{email:"", password:""}} validationSchema={loginSchema}>
                     {({errors, touched}) => (
                     <Form className={classes.form}>
                        <div className={classes.formField} >
                             <label htmlFor="email">
                                 <Typography  className={classes.formInputTitle} variant="h5">Email</Typography>
                             </label>
-                            <Field className={classes.formInput} id="email" name={"email"} component={"input"} type={"email"}/>
+                            <Field className={classes.formInput} id="email" name="email" component="input" type="email"/>
                             {errors.email && touched.email ? (
                                 <div className={classes.formInputError}>{errors.email}</div>
                             ) : null}
                        </div>
                         <div className={classes.formField}>
                             <label htmlFor="password">
-                            <Typography  className={classes.formInputTitle} variant="h5">Password</Typography>
+                                <Typography  className={classes.formInputTitle} variant="h5">Password</Typography>
                             </label>
-                            <Field className={classes.formInput} id="password" name={"password"} component={"input"} type={"password"}/>
+                            <Field className={classes.formInput} id="password" name="password" component="input" type="password"/>
                             {errors.password && touched.password ? (
                                 <div className={classes.formInputError}>{errors.password}</div>
                             ) : null}
                         </div>
                         <div  className={classes.formButtonField}>
-                            <Button className={classes.formButton} type={"submit"}>Submit</Button>
+                            <Button className={classes.formButton} type="submit">Submit</Button>
                             <Button className={classes.formRegButton}>
                                 <Link className={classes.formLink} to={"/register"}>Registration</Link>
                             </Button>
