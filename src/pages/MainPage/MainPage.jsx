@@ -14,7 +14,6 @@ import GamesPhoto from '../../assets/img/brain.svg';
 import styles from "./styles.module.css";
 import Typography from '@material-ui/core/Typography';
 
-
 const useStyles = makeStyles((theme) => ({}));
 
 export const MainPage = () => {
