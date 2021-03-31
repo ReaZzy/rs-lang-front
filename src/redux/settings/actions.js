@@ -1,0 +1,1 @@
+export const setSettings = (payload) => ({type:"settings/SET_SETTINGS", payload})

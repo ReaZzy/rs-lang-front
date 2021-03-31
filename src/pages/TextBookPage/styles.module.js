@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-const TEXT_COLOR = 'rgba(0, 0, 0, 0.768)';
 
 export const useStyles = makeStyles((theme) => ({
   TextBookPageHeading: {
