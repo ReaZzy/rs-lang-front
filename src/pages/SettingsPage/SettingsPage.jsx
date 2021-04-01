@@ -1,28 +1,26 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Container, Grid, Switch, Button } from "@material-ui/core";
 import { useStyles } from './styles.module';
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router-dom';
-import {setSettings} from '../../redux/settings/actions.js'
-import { connect, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-const SettingsPage = (props) => {
+const SettingsPage = () => {
     const classes = useStyles();
     const history = useHistory();
+    const dispatch = useDispatch()
     const settings = useSelector((state) => state.settings);
-    const [state, setState] = React.useState({
-        checkedWordTranslate: settings.checkedWordTranslate,
-        checkedSentenceTranslate: settings.checkedSentenceTranslate,
-        checkedHard: settings.checkedHard,
-        checkedDeleted: settings.checkedDeleted,
-    });
+    const setSettings = useCallback(
+        (state) => 
+        dispatch({ type: 'settings/SET_SETTINGS', payload: state }),
+        [dispatch]
+    )
 
     const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
+        setSettings({ ...settings, [event.target.name]: event.target.checked });
     };
 
     const handleClick = () => {
-        props.setSettings(state);
         history.goBack()
     }
       
@@ -38,7 +36,7 @@ const SettingsPage = (props) => {
                             Добавить перевод изучаемого слова.
                         </Typography>
                         <Switch
-                            checked={state.checkedWordTranslate}
+                            checked={settings.checkedWordTranslate}
                             onChange={handleChange}
                             color="primary"
                             name="checkedWordTranslate"
@@ -50,7 +48,7 @@ const SettingsPage = (props) => {
                             Добавить перевод предложений.
                         </Typography>
                         <Switch
-                            checked={state.checkedSentenceTranslate}
+                            checked={settings.checkedSentenceTranslate}
                             onChange={handleChange}
                             color="primary"
                             name="checkedSentenceTranslate"
@@ -62,7 +60,7 @@ const SettingsPage = (props) => {
                             Добавить кнопку "Сложное слово".
                         </Typography>
                         <Switch
-                            checked={state.checkedHard}
+                            checked={settings.checkedHard}
                             onChange={handleChange}
                             color="primary"
                             name="checkedHard"
@@ -74,7 +72,7 @@ const SettingsPage = (props) => {
                             Добавить кнопку "Удалить слово".
                         </Typography>
                         <Switch
-                            checked={state.checkedDeleted}
+                            checked={settings.checkedDeleted}
                             onChange={handleChange}
                             color="primary"
                             name="checkedDeleted"
@@ -83,7 +81,7 @@ const SettingsPage = (props) => {
                     </Grid>
                     <Grid className={classes.settingsButtons}>
                         <Button onClick={handleClick} className={classes.settingsBackButton}>
-                            Save and go Back
+                            Go Back
                         </Button>
                     </Grid>
                 </Grid>
@@ -92,9 +90,4 @@ const SettingsPage = (props) => {
     )
 }
 
-const mapDispatchToProps = dispatch => ({
-    setSettings: (checkedWordTranslate, checkedSentenceTranslate, checkedHard, checkedDeleted) => 
-    dispatch(setSettings(checkedWordTranslate, checkedSentenceTranslate, checkedHard, checkedDeleted))
-  })
-  
-export default connect(null, mapDispatchToProps)(SettingsPage);
+export default SettingsPage;

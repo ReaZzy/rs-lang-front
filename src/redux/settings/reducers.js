@@ -8,12 +8,7 @@ const initialState = {
 const settings = (state = initialState, action) => {
     switch ( action.type ) {
         case "settings/SET_SETTINGS":
-            return {
-                checkedWordTranslate: action.payload.checkedWordTranslate,
-                checkedSentenceTranslate: action.payload.checkedSentenceTranslate,
-                checkedHard: action.payload.checkedHard,
-                checkedDeleted: action.payload.checkedDeleted,
-            }
+            return {...state, ...action.payload}
         default:
             return state
     }
