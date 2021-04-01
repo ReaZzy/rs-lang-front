@@ -1,8 +1,7 @@
 import {setIsFetching} from "../register/actions";
 import {
     editAggregatedWords,
-    setAggregatedWords, setCorrectWord,
-    setIncorrectWord,
+    setAggregatedWords, 
     setMyWords,
     setWords,
     setWordsFetching

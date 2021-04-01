@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import SimpleMenu from '../components/Menu'
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useStyles } from './styles.module';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/auth/thunks';

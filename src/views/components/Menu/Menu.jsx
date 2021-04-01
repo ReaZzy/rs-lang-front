@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import { useStyles } from './styles.module';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import SettingsIcon from '@material-ui/icons/Settings';
 import GroupIcon from '@material-ui/icons/Group';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
@@ -131,16 +130,6 @@ export default function SimpleMenu() {
           <EqualizerIcon className={classes.menuItemIcon} />
           <NavLink to='/progress' className={classes.menuLink}>
             Progress
-          </NavLink>
-        </MenuItem>
-        <MenuItem
-          style={{ color: '#f7e5ff' }}
-          className={classes.menuItem}
-          onClick={handleClose}
-        >
-          <SettingsIcon className={classes.menuItemIcon} />
-          <NavLink to='/settings' className={classes.menuLink}>
-            Settings
           </NavLink>
         </MenuItem>
       </Menu>

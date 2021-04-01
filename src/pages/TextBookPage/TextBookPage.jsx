@@ -10,6 +10,7 @@ import { useStyles } from './styles.module';
 export const TextBookPage = React.memo(() => {
     const IMG_API = 'https://api-rslang.pet-projects.ru/'
     const classes = useStyles();
+    const settings = useSelector((state) => state.settings);
     let {module, page} = useParams();
     const isFetching = useSelector( state => state.words.wordsFetching )
     const dispatch = useDispatch()
@@ -59,16 +60,23 @@ export const TextBookPage = React.memo(() => {
                                         <Grid className={classes.TextBookWordContent}>
                                             <Grid className={classes.TextBookWordHeding}>
                                                 <h2 className={classes.TextBookWordMeaning} dangerouslySetInnerHTML={{__html:word.word}}/>
-                                                <h3 className={classes.TextBookWordTranslation}dangerouslySetInnerHTML={{__html:word.wordTranslate}}/>
+                                                {settings.checkedWordTranslate
+                                                    ? <h3 className={classes.TextBookWordTranslation}dangerouslySetInnerHTML={{__html:word.wordTranslate}}/>
+                                                    : null}
                                                 <p dangerouslySetInnerHTML={{__html:word.transcription}}/>
                                             </Grid>
                                             <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textMeaning}}/>
-                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textMeaningTranslate}}/>
+                                            {settings.checkedSentenceTranslate
+                                                ? <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textMeaningTranslate}}/>
+                                                : null}
                                             <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textExample}}/>
-                                            <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textExampleTranslate}}/>
+                                            {settings.checkedSentenceTranslate
+                                                ? <p className={classes.TextBookWordText} dangerouslySetInnerHTML={{__html:word.textExampleTranslate}}/>
+                                                : null}
                                         </Grid>
                                         <Grid className={classes.TextBookWordButtons}>
-                                            {
+                                            {settings.checkedHard
+                                                ?
                                                 word.userWord?.difficulty === "hard"
                                                     ? <Button 
                                                     className={classes.TextBookWordButton}
@@ -80,14 +88,18 @@ export const TextBookPage = React.memo(() => {
                                                     onClick={() => {
                                                         handleSetWord( word, "hard" )
                                                     }}>HARD</Button>
+                                                : null
                                             }
-                                            
-                                            <Button 
-                                             className={classes.TextBookWordButton}
-                                             onClick={() => {
-                                                handleSetWord( word, "deleted" )
-                                            }}>DELETE
-                                            </Button>
+                                            {settings.checkedDeleted
+                                                ?
+                                                <Button 
+                                                className={classes.TextBookWordButton}
+                                                onClick={() => {
+                                                    handleSetWord( word, "deleted" )
+                                                }}>DELETE
+                                                </Button>
+                                                : null
+                                            }
                                         </Grid>
                                     </Card>
                                 </li>
