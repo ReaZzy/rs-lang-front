@@ -26,12 +26,12 @@ export const TextBookMain = () => {
             <Grid container className={classes.moduleList} justify="space-between"  spacing={4}>
                 {
                     moduleNumbers.map((item, key) => (
-                        <Grid xs={4} item style={{height: "422px"}} key={`module${key}`}>
+                        <Grid id={"module"} xs={4} item style={{height: "422px"}} key={`module${key}`}>
                             <Card className={classes.moduleCardWrapper}>
                                 <Link to={`/textbook/${item}/1`} className={classes.moduleCardLink}>
                                     <Grid className={classes.CardContainer}>
                                         <Grid item xs={12}  className={classes.moduleCardHeaderWrapper}>
-                                            <Card style={{background: colors[item]}} className={classes.moduleCardHeader}></Card>
+                                            <Card style={{background: colors[item]}} className={classes.moduleCardHeader}/>
                                         </Grid>
                                         <Grid item xs={12} className={classes.moduleCardBottom}>
                                             <Card className={classes.moduleCardBottom}>

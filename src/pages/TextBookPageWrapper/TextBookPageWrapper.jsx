@@ -9,6 +9,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import { useStyles } from './styles.module';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import {useSelector} from "react-redux";
 
 
 export const TextBookPageWrapper = () => {
@@ -17,6 +18,7 @@ export const TextBookPageWrapper = () => {
   const [isUrlReady, setUrlBool] = useState(false);
   const history = useHistory();
   const location = useLocation();
+  const count = useSelector(state=> state.words.aggregatedWords.totalCount[0]?.count)
 
   const validationHandler = useCallback(
     () => {
@@ -27,14 +29,14 @@ export const TextBookPageWrapper = () => {
         redirectModule = 1;
       }
   
-      if (redirectPage === 0 || redirectPage > 30 || !redirectPage) {
+      if (redirectPage === 0 || redirectPage > Math.ceil(count/10) || !redirectPage) {
         redirectPage = 1;
       }
   
   
       return `/textbook/${redirectModule}/${redirectPage}`
   
-    }, [module, page])
+    }, [module, page, count])
     
   useEffect(() => {
     const redirectUrl = validationHandler();
@@ -104,7 +106,7 @@ export const TextBookPageWrapper = () => {
         <section className={classes.textBookSection}>
           <TextBookPage />
           <Pagination
-          count={30}
+          count={Math.ceil(count/10)||0}
           page = {Number(page)}
           renderItem={(item) => (
             <PaginationItem

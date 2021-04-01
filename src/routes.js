@@ -30,7 +30,7 @@ export const useRoutes = (isAuthenticated) => {
         <Route path='/textbook/:module/:page?'>
           <TextBookPageWrapper />
         </Route>
-        <Route path='/my-words'>
+        <Route path='/my-words/:page'>
           <MyWordsPage />
         </Route>
         <Route path='/team'>
