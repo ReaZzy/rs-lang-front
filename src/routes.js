@@ -25,7 +25,7 @@ export const useRoutes = (isAuthenticated) => {
           <MainPage />
         </Route>
         <Route path='/textbook' exact>
-          <TextBookMain />
+          <TextBookMain /> 
         </Route>
         <Route path='/textbook/:module/:page?'>
           <TextBookPageWrapper />

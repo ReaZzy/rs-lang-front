@@ -7,11 +7,11 @@ import IconButton from '@material-ui/core/IconButton';
 import { useStyles } from './styles.module';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import SettingsIcon from '@material-ui/icons/Settings';
 import GroupIcon from '@material-ui/icons/Group';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
+import SettingsIcon from '@material-ui/icons/Settings'
 
 export default function SimpleMenu (){
   const classes = useStyles();

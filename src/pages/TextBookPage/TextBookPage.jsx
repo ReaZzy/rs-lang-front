@@ -33,8 +33,7 @@ export const TextBookPage = React.memo(() => {
                         ?
                             aggregatedWords?.paginatedResults?.map( word => (
                                 <Word id={"word"} word={word} key={word._id}/>
-                            ) )
-
+                            ))
                         : <div>Loading...</div>
                     }
                 </ul>

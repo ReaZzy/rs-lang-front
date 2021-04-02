@@ -97,7 +97,7 @@ export const TextBookPageWrapper = () => {
               </nav>
             </Grid>
             <Grid item xs={1} className={classes.settings}>
-              <Link to="/textbook/settings">
+              <Link to="/settings">
                 <SettingsIcon className={classes.menuItemIcon} />
               </Link>
             </Grid>

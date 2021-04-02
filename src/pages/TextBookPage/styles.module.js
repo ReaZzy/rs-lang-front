@@ -68,7 +68,6 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: '1rem'
-    
   },
   TextBookWordResultWrapper: {
     display: 'flex',
