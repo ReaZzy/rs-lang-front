@@ -12,6 +12,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { CircularProgress } from '@material-ui/core';
 import Diamond from '../../../../../assets/games/savanna/diamond.png';
 import styles from './styles.module.css';
+import {useDispatch, useSelector} from "react-redux";
+import {correctWord, wrongWord} from "../../../../../redux/words/thunks";
 
 const audioCorrect = new Audio(Correct);
 const audioError = new Audio(ErrorSound);
@@ -26,6 +28,9 @@ const GameSavanna = React.memo(
     rightAnswers,
     wrongAnswers,
   }) => {
+    const token = useSelector( state => state.auth.userInfo?.token )
+    const id = useSelector( state => state.auth.userInfo?.id || state.auth.userInfo?.userId )
+    const dispatch = useDispatch()
     const [sizeDiamond, setSizeDiamond] = useState(0);
     const [wordImg, setWordImg] = useState(false);
     const [wordEnglish, setWordEnglish] = useState(false);
@@ -53,7 +58,7 @@ const GameSavanna = React.memo(
     useEffect(() => {
       const pages = RandomInteger(0, 6);
       const getWords = async () => {
-        const fetchData = getData(level, pages);
+        const fetchData = getData(level, pages,id,token);
         const newWords = await fetchData();
         setWords(newWords);
         const current = newWords[newWords.length - 1];
@@ -61,7 +66,7 @@ const GameSavanna = React.memo(
         setIsLoading(false);
       };
       getWords();
-    }, [level]);
+    }, [level]); // eslint-disable-line
 
     useEffect(() => {
       if (Object.values(currentWord).length && words.length) {
@@ -90,6 +95,7 @@ const GameSavanna = React.memo(
         if (correctTranslation === currentWord.wordTranslate) {
           setSizeDiamond(sizeDiamond + 2);
           setRightAnswers(words[words.length - 1]);
+          dispatch(correctWord(id, words[words.length - 1], token))
           audioCorrect.play();
           const result = RightAnswer(point);
           setIsNextWord(true);
@@ -98,11 +104,12 @@ const GameSavanna = React.memo(
           setLifes(lifes - 1);
           audioError.play();
           setWrongAnswers(words[words.length - 1]);
+          dispatch(wrongWord(id, words[words.length - 1], token))
           setIsNextWord(true);
         }
       },
-      [
-        currentWord.wordTranslate,
+      [ // eslint-disable-line
+        currentWord?.wordTranslate,
         point,
         words,
         setRightAnswers,
@@ -114,14 +121,14 @@ const GameSavanna = React.memo(
 
     const nextWord = useCallback(() => {
       const wordsUpdated = words.filter(
-        ({ word }) => word !== currentWord.word
+        ({ word }) => word !== currentWord?.word
       );
       setWords(wordsUpdated);
       setCurrentWord(wordsUpdated[wordsUpdated.length - 1]);
 
       setWordImg(false);
       setWordEnglish(false);
-    }, [currentWord.word, words]);
+    }, [currentWord?.word, words]);
 
     const next = useCallback(
       (event) => {
@@ -218,7 +225,7 @@ const GameSavanna = React.memo(
             </div>
             <FullScreen handle={handleFullScreen}>
               <div className={styles.fullScreen__content}>
-                <audio src={pathApi + currentWord.audio} autoPlay='autoplay'>
+                <audio src={pathApi + currentWord?.audio} autoPlay='autoplay'>
                   <track kind='captions' />
                 </audio>
                 <div className={styles.savanna__panel}>

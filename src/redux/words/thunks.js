@@ -1,7 +1,7 @@
 import {setIsFetching} from "../register/actions";
 import {
     editAggregatedWords,
-    setAggregatedWords, 
+    setAggregatedWords,
     setMyWords,
     setWords,
     setWordsFetching
@@ -40,10 +40,10 @@ export const setAggregatedWord = (id, word, type, token, page = 0, module = 0) =
     const data = await setAggregatedWordRequest( id, word._id, type, token,
         aggCorrectTimes,
         aggWrongTimes,
-        ).catch(async e=> updateAggregatedWord(id, word._id, type, token,
+    ).catch( async e => updateAggregatedWord( id, word._id, type, token,
         aggCorrectTimes,
-        aggWrongTimes, ))
-    dispatch( editAggregatedWords( data?.data?.wordId, data?.data?.difficulty,  aggCorrectTimes, aggWrongTimes ) )
+        aggWrongTimes, ) )
+    dispatch( editAggregatedWords( data?.data?.wordId, data?.data?.difficulty, aggCorrectTimes, aggWrongTimes ) )
     if (type === "deleted") dispatch( getAggregatedWords( page, module, id, token ) )
     dispatch( setIsFetching( false ) )
 }
@@ -53,30 +53,30 @@ export const deleteWord = (id, wordId, token, type = "normal") => async (dispatc
 }
 
 export const wrongWord = (id, word, token) => async (dispatch, getState) => {
-    word = {...word, _id: word.id ?  word.id : word._id}
+    word = {...word, _id: word.id ? word.id : word._id}
     await setAggregatedWordRequest(
         id,
         word._id,
-        word?.usersWord?.wrongTimes > 1 ? "hard" : "learn",
+        word.userWord?.wrongTimes > 1 ? "hard" : word.userWord?.difficulty === "hard"? "hard" : "learn", // eslint-disable-line
         token,
         word?.userWord?.optional?.correctTimes ? word?.userWord?.optional?.correctTimes : 0,
         1
     )
         .catch(
             async e => await updateAggregatedWord( id,
-                word._id, word?.userWord?.optional?.wrongTimes > 1
+                word._id, word.userWord?.optional?.wrongTimes > 1
                     ? "hard"
-                    : "learn",
-                token, word?.userWord?.optional?.correctTimes, word?.userWord?.optional?.wrongTimes
-                    ? word?.userWord?.optional?.wrongTimes + 1
+                    : word.userWord?.difficulty === "hard"? "hard" : "learn", // eslint-disable-line
+                token, word.userWord?.optional?.correctTimes, word.userWord?.optional?.wrongTimes
+                    ? word.userWord?.optional?.wrongTimes + 1
                     : 1
             )
         )
 }
 
 export const correctWord = (id, word, token) => async (dispatch, getState) => {
-    word = {...word, _id: word.id ?  word.id : word._id}
-    await setAggregatedWordRequest( id, word._id, word?.usersWord?.correctTimes > 1 ? "deleted" : "learn", token, 1 ).catch(
-        async e => await updateAggregatedWord( id, word._id, word?.userWord?.optional?.correctTimes > 1? "deleted" : "learn", token, word?.userWord?.optional?.correctTimes ? word?.userWord?.optional?.correctTimes + 1 : 1, word?.userWord?.optional?.wrongTimes )
+    word = {...word, _id: word.id ? word.id : word._id}
+    await setAggregatedWordRequest( id, word._id, word.userWord?.correctTimes > 1 ? "deleted" : word.userWord?.difficulty === "hard"? "hard" : "learn", token, 1 ).catch( // eslint-disable-line
+        async e => await updateAggregatedWord( id, word._id, word.userWord.optional.correctTimes > 1 ? "deleted" :word.userWord?.difficulty === "hard"? "hard" : "learn", token, word?.userWord?.optional?.correctTimes ? word?.userWord?.optional?.correctTimes + 1 : 1, word?.userWord?.optional?.wrongTimes ) // eslint-disable-line
     )
 }

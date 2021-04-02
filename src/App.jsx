@@ -16,7 +16,7 @@ function App() {
 
     useEffect(() => {
         dispatch(updateToken(id, token));
-    }, []);
+    }, []); //eslint-disable-line
 
     const isAuthenticated = !!useSelector(
         (state) => state.auth.userInfo?.token
