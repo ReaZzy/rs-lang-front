@@ -1,0 +1,42 @@
+.english-test {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/Alexey-Koren/rslang/assets/assets/Sprint/imgSprint/sprint-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+.level{
+  text-align: center;
+  margin: 5px;
+}
+
+@media screen and (max-width: 620px) {
+  .english-test {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+.card-body-test {
+  background-color: #faf8e9;
+  border-radius: 30px;
+}
+
+.card-body-test-color {
+  background-color: #faf8e9;
+}
+.cards-test {
+  margin: 0 auto;
+  width: 600px;
+  border-radius: 30px;
+  box-shadow: 10px 15px 39px -7px rgba(0, 0, 0, 0.8);
+}
+
+.header-card-test {
+  border-radius: 30px;
+}

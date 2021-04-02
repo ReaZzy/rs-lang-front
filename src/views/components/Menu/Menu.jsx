@@ -113,16 +113,6 @@ export default function SimpleMenu (){
             Memory game
         </MenuItem>
         </NavLink>
-        <NavLink to='/team' className={classes.menuLink}>
-        <MenuItem
-          style={{ color: '#f7e5ff' }}
-          className={classes.menuItem}
-          onClick={handleClose}
-        >
-          <GroupIcon className={classes.menuItemIcon} />
-            Team
-        </MenuItem>
-        </NavLink>
         <NavLink to='/progress' className={classes.menuLink}>
         <MenuItem
           style={{ color: '#f7e5ff' }}
@@ -141,6 +131,26 @@ export default function SimpleMenu (){
         >
           <SettingsIcon className={classes.menuItemIcon} />
             Settings
+        </MenuItem>
+        </NavLink>
+        <NavLink to='/english-test' className={classes.menuLink}>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+        >
+          {/* <GroupIcon className={classes.menuItemIcon} /> */}
+            Enlish Test
+        </MenuItem>
+        </NavLink>
+        <NavLink to='/team' className={classes.menuLink}>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+        >
+          <GroupIcon className={classes.menuItemIcon} />
+            Team
         </MenuItem>
         </NavLink>
       </Menu>
