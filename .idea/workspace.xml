@@ -20,21 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a49a7954-8154-4d29-8aa9-a39548d6e545" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/SettingsPage/styles.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/settings/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/settings/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/settings/reducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.test.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyWordsPage/MyWord.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyWordsPage/MyWord.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MyWordsPage/MyWordsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MyWordsPage/MyWordsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TextBookMain/TextBookMain.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookMain/TextBookMain.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ModulePage/ModulePage.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ModulePage/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SettingsPage/SettingsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SettingsPage/SettingsPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/TextBookPage/TextBookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookPage/TextBookPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/TextBookPage/Word.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookPage/Word.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/TextBookPage/styles.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookPage/styles.module.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/TextBookPageWrapper/TextBookPageWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TextBookPageWrapper/TextBookPageWrapper.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/games/OurCustomGame/components/MainContainer/styles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/games/OurCustomGame/components/MainContainer/styles.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/games/Savanna/components/GameSavanna/GameSavanna.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/games/Savanna/components/GameSavanna/GameSavanna.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/rootReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/words/thunks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/words/thunks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Header/Header.jsx" afterDir="false" />
@@ -80,7 +80,57 @@
       <recent name="C:\Users\maxim\Downloads\Programming\react\rs-lang-front\src\redux\register" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Textbook.should render 10 words">
+  <component name="RunManager" selected="Jest.Main page">
+    <configuration name="App.test.jsx" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/src/App.test.jsx" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Header" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/App.test.jsx" />
+      <test-names>
+        <test-name value="Header" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Header.should show login button" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/App.test.jsx" />
+      <test-names>
+        <test-name value="Header" />
+        <test-name value="should show login button" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Main page" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/App.test.jsx" />
+      <test-names>
+        <test-name value="Main page" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="Textbook" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -94,33 +144,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Textbook.should render 10 words" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/App.test.jsx" />
-      <test-names>
-        <test-name value="Textbook" />
-        <test-name value="should render 10 words" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Words reducer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/App.test.jsx" />
-      <test-names>
-        <test-name value="Words reducer" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
@@ -130,9 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.Textbook.should render 10 words" />
+        <item itemvalue="Jest.Main page" />
+        <item itemvalue="Jest.Header.should show login button" />
+        <item itemvalue="Jest.Header" />
+        <item itemvalue="Jest.App.test.jsx" />
         <item itemvalue="Jest.Textbook" />
-        <item itemvalue="Jest.Words reducer" />
       </list>
     </recent_temporary>
   </component>
@@ -175,6 +200,9 @@
       <workItem from="1617134921912" duration="1035000" />
       <workItem from="1617176327577" duration="6688000" />
       <workItem from="1617280283886" duration="3624000" />
+      <workItem from="1617302419260" duration="497000" />
+      <workItem from="1617305135300" duration="2764000" />
+      <workItem from="1617351319403" duration="1463000" />
     </task>
     <servers />
   </component>
@@ -194,6 +222,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="605" y="171" key="#Words_reducer" timestamp="1617307799574">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="605" y="171" key="#Words_reducer/0.0.1920.1040@0.0.1920.1040" timestamp="1617307799574" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616230215344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -202,29 +234,81 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616844019807" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1617283938760">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1617352772301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617283938760" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1617283938759">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617352772301" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1617352772301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617283938759" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1617283938759">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617352772301" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1617352772301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617283938759" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1617283938760">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617352772301" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1617352772301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617283938760" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617352772301" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.2.bottom" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.2.center" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.2.left" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.2.right" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.3.bottom" timestamp="1617307910520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910520" />
+    <state width="1899" height="348" key="GridCell.Tab.3.center" timestamp="1617307910520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910520" />
+    <state width="1899" height="348" key="GridCell.Tab.3.left" timestamp="1617307910519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910519" />
+    <state width="1899" height="348" key="GridCell.Tab.3.right" timestamp="1617307910520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617307910520" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616422452687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616422452687" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617281443229">
+    <state x="570" y="188" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1617305693614">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617281443229" />
+    <state x="570" y="188" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617305693614" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617352549072">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617352549072" />
   </component>
 </project>

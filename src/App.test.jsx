@@ -5,13 +5,19 @@ import configureStore from "redux-mock-store"
 import words from "./redux/words";
 import {TextBookMain} from "./pages/TextBookMain/TextBookMain";
 import {BrowserRouter} from "react-router-dom";
-import {TextBookPage} from "./pages/TextBookPage/TextBookPage";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import {Word} from "./pages/TextBookPage/Word";
+import settings from "./redux/settings";
+import {Header} from "./views/Header/Header";
+import {MainPage} from "./pages/MainPage/MainPage";
 
-let initialState
+let initialState, settingsState, reduxStore
 const storeMock = configureStore( [thunk] )
+
+beforeEach(()=>{
+    reduxStore = storeMock( {words: {...initialState}, settings:{...settingsState}, auth:{userInfo:{token:123}}} )
+})
 
 describe( "Words reducer", () => {
     beforeEach( () => {
@@ -47,9 +53,10 @@ describe( "Words reducer", () => {
 } )
 
 describe( "Textbook", () => {
-    let reduxStore, word
+    let word
     beforeEach( () => {
-        reduxStore = storeMock( {words: {...initialState}} )
+        settingsState= {checkedWordTranslate: true}
+
         word = {
             audio: "files/30_1191.mp3",
             audioExample: "files/30_1191_example.mp3",
@@ -81,13 +88,44 @@ describe( "Textbook", () => {
     } )
 
     it("should render word", ()=>{
-        const {container} = render( <Provider store={reduxStore}><Word word={word}/></Provider> )
+        const {container} = render( <BrowserRouter><Provider store={reduxStore}><Word word={word}/></Provider></BrowserRouter> )
         expect(container.querySelectorAll("#word")).toHaveLength(1)
     })
 
     it("should be red if word is hard", ()=>{
-        const {container} = render( <Provider store={reduxStore}><Word word={word}/></Provider> )
-        expect(container.querySelectorAll("#word")).toHaveClass("hard")
+        const {container} = render( <BrowserRouter><Provider store={reduxStore}><Word word={word}/></Provider></BrowserRouter> )
+        expect(container.querySelectorAll("#word")[0]).toHaveClass("hard")
+    })
+    it("should change settings",()=>{
+        const action = {type:"settings/SET_SETTINGS", payload:{checkedWordTranslate: false}}
+        const newState = settings(settingsState, action)
+        expect(newState.checkedWordTranslate).toBeFalsy()
+    })
+    it("should show word translate if it`s on", ()=>{
+        const {container} = render( <BrowserRouter><Provider store={reduxStore}><Word word={word}/></Provider></BrowserRouter> )
+        expect(container.querySelectorAll("#wordTranslate")).toHaveLength(1)
     })
 
-} )
+})
+
+describe("Header", ()=>{
+    let containerHeader
+    beforeEach(()=>{
+        const {container} = render(<BrowserRouter><Provider store={reduxStore}><Header/></Provider></BrowserRouter>)
+        containerHeader = container
+    })
+
+    it("should show header", ()=>{
+        expect(containerHeader.querySelector("#header")).toBeTruthy()
+    })
+    it("should show login button", ()=>{
+        expect(containerHeader.querySelector("#login").textContent).toBe("Logout")
+    })
+})
+
+describe("Main page", ()=>{
+    it("should show 3 blocks about us", ()=>{
+        const {container} = render(<MainPage/>)
+        expect(container.querySelectorAll("#block")).toHaveLength(3)
+    })
+})
