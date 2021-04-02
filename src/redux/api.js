@@ -28,6 +28,9 @@ export const getMyWordsRequest = (id, token) => {
 export const getWordsRequest = (page,module) => {
     return instance.get( `/words?group=${module}&page=${page}`)
 }
+export const getWordByIdRequest = (id) => {
+    return instance.get( `/words/${id}`)
+}
 
 export const updateTokenRequest = (id, token) => {
     return instance.get(`/users/${id}/tokens`, {

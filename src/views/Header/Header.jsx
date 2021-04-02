@@ -28,7 +28,7 @@ export const Header = () => {
    }, [dispatch, history]);
 
   return (
-    <header className={classes.header}>
+    <header className={classes.header} id={"header"}>
       <AppBar color="primary" position="static">
         <Container maxWidth="lg">
           <Toolbar color="primary.main"  >
@@ -36,7 +36,7 @@ export const Header = () => {
             <Typography variant="h6" className={classes.title}>
               RSLang
             </Typography>
-            <Button color='inherit' onClick={ isAuthenticated ? logoutHandler : loginHandler }>
+            <Button color='inherit' onClick={ isAuthenticated ? logoutHandler : loginHandler } id={"login"}>
               { !isAuthenticated ? 'Login' : 'Logout'}
             </Button>
           </Toolbar>

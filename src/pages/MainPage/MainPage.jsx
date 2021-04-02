@@ -43,7 +43,7 @@ export const MainPage = () => {
             </Paper>
           </Grid>
           <Grid className={styles.benefitsCardContainer} item xs={6}>
-            <Card className={styles.benefitsCard}>
+            <Card className={styles.benefitsCard} id={"block"}>
               <CardMedia
                 component="img"
                 alt={"dictionary"}
@@ -54,7 +54,7 @@ export const MainPage = () => {
                 <Typography className={classes.benefitsCardText}>Удобное заучивание слов, слова автоматически добавляются в словарь или в список выученных слов.</Typography>
               </CardContent>
             </Card>
-            <Card className={styles.benefitsCard}>
+            <Card className={styles.benefitsCard} id={"block"}>
               <CardMedia
                 component="img"
                 alt={"progress"}
@@ -65,7 +65,7 @@ export const MainPage = () => {
                 <Typography className={classes.benefitsCardText}>Возможность отслеживать свой прогресс мотивирует продолжать заниматься.</Typography>
               </CardContent>
             </Card>
-            <Card className={styles.benefitsCard}>
+            <Card className={styles.benefitsCard} id={"block"}>
                 <CardMedia
                     component="img"
                     alt={"progress"}
