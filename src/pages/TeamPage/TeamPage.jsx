@@ -5,6 +5,7 @@ import { useStyles } from './styles.module'
 import memberPhoto2 from '../../assets/img/Anastasia.jpg'
 import memberPhoto1 from '../../assets/img/Ilya.jpg'
 import memberPhoto3 from '../../assets/img/Kostya.jpg'
+import memberPhoto4 from '../../assets/img/Max.jpg'
 
 const TeamPage = () => {
     const classes = useStyles();
@@ -28,7 +29,7 @@ const TeamPage = () => {
                                 </Grid>
                                 <Typography className={classes.teamMemberName} variant="h4">Илья Нестерович</Typography>
                                 <Typography className={classes.teamMemberPosition} variant="h5">Full-stack Developer</Typography>
-                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: настройка сервера, авторизация, навигация по страницам учебника.</Typography>
+                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: настройка сервера, навигация по страницам учебника.</Typography>
                             </Card>
                         </Grid>
                         <Grid xs="12" md='5' className={classes.teamMember}>
@@ -50,13 +51,13 @@ const TeamPage = () => {
                                 <Grid className={classes.teamMemberPhotoWrapper}>
                                     <CardMedia
                                     className={classes.teamMemberPhoto}
-                                    // image={memberPhoto2}
+                                    image={memberPhoto4}
                                     title="team-member"
                                     />
                                 </Grid>
                                 <Typography className={classes.teamMemberName} variant="h4">Максим Небела</Typography>
                                 <Typography className={classes.teamMemberPosition} variant="h5">Frontend Developer</Typography>
-                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: Redux, вывод слов на страницу учебника, тесты, словарь.</Typography>
+                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: Redux, вывод слов на страницу учебника, авторизация, тесты, словарь.</Typography>
                             </Card>
                         </Grid>
                         <Grid xs="12" md='5' className={classes.teamMember}>
