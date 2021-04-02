@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { Button, Card, CardActions } from "@material-ui/core";
+import React, { useState, useCallback, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button, Card, CardActions } from '@material-ui/core';
 // import "./style.scss";
 
 const EndTest = ({
@@ -10,6 +10,7 @@ const EndTest = ({
   setLevel,
   level,
   setUserLevel,
+  userLevel,
 }) => {
   const history = useHistory();
   const handleOnClick = (path) => {
@@ -26,57 +27,57 @@ const EndTest = ({
     if (resultTest < 4) {
       setLevel(0);
 
-      setUserLevel("Beginner");
+      setUserLevel('Beginner');
     } else if (resultTest >= 4 && resultTest < 6) {
       setLevel(1);
 
-      setUserLevel("Elementary");
+      setUserLevel('Elementary');
     } else if (resultTest >= 6 && resultTest < 9) {
       setLevel(2);
 
-      setUserLevel("Pre-Intermediate");
+      setUserLevel('Pre-Intermediate');
     } else if (resultTest >= 9 && resultTest < 12) {
       setLevel(3);
 
-      setUserLevel("Intermediate");
+      setUserLevel('Intermediate');
     } else if (resultTest >= 12 && resultTest < 14) {
       setLevel(4);
 
-      setUserLevel("Upper Intermediate");
+      setUserLevel('Upper Intermediate');
     } else if (resultTest >= 14) {
       setLevel(5);
 
-      setUserLevel("Advanced");
+      setUserLevel('Advanced');
     }
   }, [resultTest, setLevel, setUserLevel]);
   return (
     <>
-      <Card className="text-center cards-test">
-        <CardActions className="header-gameover-sprint">
+      <Card className='text-center cards-test'>
+        <CardActions className='header-gameover-sprint'>
           Cool result
         </CardActions>
-        <Card className="card-body-test-color">
-          <Card>Your level {level} </Card>
+        <Card className='card-body-test-color'>
+          <Card>Your result: {resultTest} correct answers</Card>
+          <Card>
+            Your level: {userLevel}({level}){' '}
+          </Card>
           <Card>I like you</Card>
 
-          <Button
-            className="home-button"
-            onClick={() => handleOnClick("home")}
-          >
+          <Button className='home-button' onClick={() => handleOnClick('home')}>
             Home
           </Button>
         </Card>
       </Card>
 
-      <div className="result-buttons">
+      <div className='result-buttons'>
         <Button
-          className="button-sprint"
+          className='button-sprint'
           onClick={() => handlerClickCheck(true)}
         >
           right answers
         </Button>
         <Button
-          className="button-sprint"
+          className='button-sprint'
           onClick={() => handlerClickCheck(false)}
         >
           wrong answers
@@ -84,13 +85,9 @@ const EndTest = ({
       </div>
       <div>
         {isArrayWords === 1 &&
-          rightAnswer.map((item) => (
-            <div key={item}>{item}</div>
-          ))}
+          rightAnswer.map((item) => <div key={item}>{item}</div>)}
         {isArrayWords === 2 &&
-          wrongAnswer.map((item) => (
-            <div key={item}>{item}</div>
-          ))}
+          wrongAnswer.map((item) => <div key={item}>{item}</div>)}
       </div>
     </>
   );
