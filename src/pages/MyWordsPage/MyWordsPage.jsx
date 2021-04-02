@@ -7,6 +7,7 @@ import {useHistory, useParams} from "react-router-dom"
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
+
 const MyWordsPage = () => {
     const {page} = useParams()
     const [currentPage, setCurrentPage] = useState(0)

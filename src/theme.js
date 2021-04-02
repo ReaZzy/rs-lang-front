@@ -20,7 +20,15 @@ export const theme = createMuiTheme({
       contrastText: "#fff"
     }
   },
-  
+  breakpoints: {
+    values: {
+      xs: 660,
+      sm: 780,
+      md: 860,
+      lg: 960,
+      xl: 1090,
+    },
+  },
   typography: {
     fontFamily: "Roboto",
     body1: {
