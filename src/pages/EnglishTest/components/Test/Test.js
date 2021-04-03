@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Card, Button } from "@material-ui/core";
-import { getData } from "../../../games/services/services";
-import staticQuestions from "./staticQuestions";
+import React, { useState, useEffect, useCallback } from 'react';
+import { Card, Button } from '@material-ui/core';
+import { getData } from '../../../games/services/services';
+import staticQuestions from './staticQuestions';
+import { useSelector } from 'react-redux';
 // import "./style.scss";
 
 let countAnswerMin = 0;
@@ -28,7 +29,11 @@ const getRandom = (min, max, count) => {
   };
 };
 const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
-  const [testWord, setTestWord] = useState("");
+  const id = useSelector(
+    (state) => state.auth.userInfo?.id || state.auth.userInfo?.userId
+  );
+  const token = useSelector((state) => state.auth.userInfo?.token);
+  const [testWord, setTestWord] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [numberQuestion, setNumberQuestion] = useState(0);
   const [questionAnswers, setQuestionAnswers] = useState([]);
@@ -39,21 +44,20 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
     setarrRandomIndexForStaticDate,
   ] = useState([]);
   const [questionBlockText, setQuestionBlockText] = useState(
-    "translate the word"
+    'translate the word'
   );
 
-  const [question, setQuestion] = useState("");
-  const [questionSelect, setQuestionSelect] = useState("");
-  const [answer1, setAnswer1] = useState("");
-  const [answer2, setAnswer2] = useState("");
-  const [answer3, setAnswer3] = useState("");
-  const [answer4, setAnswer4] = useState("");
+  const [question, setQuestion] = useState('');
+  const [questionSelect, setQuestionSelect] = useState('');
+  const [answer1, setAnswer1] = useState('');
+  const [answer2, setAnswer2] = useState('');
+  const [answer3, setAnswer3] = useState('');
+  const [answer4, setAnswer4] = useState('');
 
   useEffect(() => {
     const getTestWords = async () => {
-      const fetchData = getData(0, 3);
+      const fetchData = getData(0, 10, id, token);
       const newWords = await fetchData();
-      console.log(newWords)
       setQuestionAnswers(newWords);
 
       const indexRandom = randomInteger(0, 3);
@@ -66,9 +70,7 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
       });
 
       setQuestion(newWords[indexRandom].word);
-
       setTestWord(newWords[indexRandom].wordTranslate);
-
       setAnswer1(arrayAnswersRandom[0].wordTranslate);
       setAnswer2(arrayAnswersRandom[1].wordTranslate);
       setAnswer3(arrayAnswersRandom[2].wordTranslate);
@@ -76,7 +78,7 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
       setIsLoading(false);
     };
     getTestWords();
-  }, []);
+  }, [id, token]);
 
   const generateNewAnswer = useCallback(
     (start, end) => {
@@ -96,11 +98,11 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
         } else if (countAnswer >= 10 && countAnswer < 15) {
           setQuestionSelect(questionAnswers[indexRandom].word);
           const questionChange = questionAnswers[indexRandom].textMeaning
-            .replace(/<[^>]+>/g, "")
+            .replace(/<[^>]+>/g, '')
             .toLowerCase();
           const newQuestion = questionChange.replace(
             questionAnswers[indexRandom].word,
-            "..."
+            '...'
           );
           setQuestion(newQuestion);
           setAnswer1(arrayAnswersRandom[0].word);
@@ -134,14 +136,14 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
     } else if (countAnswer >= 5 && countAnswer < 10) {
       const indexStaticDate = arrRandomIndexForStaticDate[countAnswer - 5];
       setTestWord(staticQuestions[indexStaticDate].answer);
-      setQuestionBlockText("Choose a missing word");
+      setQuestionBlockText('Choose a missing word');
       setQuestion(staticQuestions[indexStaticDate].text);
       setAnswer1(staticQuestions[indexStaticDate].options[0]);
       setAnswer2(staticQuestions[indexStaticDate].options[1]);
       setAnswer3(staticQuestions[indexStaticDate].options[2]);
       setAnswer4(staticQuestions[indexStaticDate].options[3]);
     } else if (countAnswer >= 10 && countAnswer < 15) {
-      setQuestionBlockText("select a word according to definition");
+      setQuestionBlockText('select a word according to definition');
       setCountQuestionStart(countAnswerMin);
       setCountQuestionEnd(countAnswerMax);
       generateNewAnswer(countQuestionStart, countQuestionEnd);
@@ -152,45 +154,43 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
 
   return (
     <>
-      <div className="test">
-        <Card className="text-center cards-test">
-          <Card className="header-card-test">Test</Card>
-          <Card className="card-body-test-color">
+      <div className='test'>
+        <Card className='text-center cards-test'>
+          <Card className='header-card-test'>Test</Card>
+          <Card className='card-body-test-color'>
             {isLoading ? (
-              <div animation="border" />
+              <div animation='border' />
             ) : (
               <Card>{numberQuestion + 1} from 15</Card>
             )}
             <Card>{questionBlockText}</Card>
             <Card>{question}</Card>
             <Button
-              className="answer-button"
+              className='answer-button'
               onClick={() => handleClickAnswer(answer1)}
             >
               {answer1}
             </Button>
             <Button
-              className="answer-button"
+              className='answer-button'
               onClick={() => handleClickAnswer(answer2)}
             >
               {answer2}
             </Button>
             <Button
-              className="answer-button"
+              className='answer-button'
               onClick={() => handleClickAnswer(answer3)}
             >
               {answer3}
             </Button>
             <Button
-              className="answer-button"
+              className='answer-button'
               onClick={() => handleClickAnswer(answer4)}
             >
               {answer4}
             </Button>
           </Card>
-          <Card className="text-muted">
-            Choose the correct answer
-          </Card>
+          <Card className='text-muted'>Choose the correct answer</Card>
         </Card>
       </div>
     </>
