@@ -1,6 +1,16 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
+  dictionaryHeaderWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: "2rem 0"
+  },
+  dictionaryLearnWords: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  
   TextBookPageHeading: {
     display: 'flex',
     alignItems: 'center',
@@ -11,8 +21,7 @@ export const useStyles = makeStyles((theme) => ({
     listStyle: 'none'
   },
   TextBookWordItem: {
-    marginBottom: '1rem',
-    listStyle: 'none'
+    marginBottom: '1rem'
 
   },
   TextBookWordCard: {

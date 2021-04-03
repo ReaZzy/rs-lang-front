@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from "react";
 import {getWordByIdRequest} from "../../redux/api";
 import {Word} from "../TextBookPage/Word";
+import { Container } from "@material-ui/core";
 
 
 export const MyWord = React.memo(({e}) => {
@@ -16,8 +17,9 @@ export const MyWord = React.memo(({e}) => {
     }, [e.wordId])
 
     return(
-        <div>
-        {word && <Word word={word} userWord={e} my key={e._id}/>}
-        </div>
+
+        <Container  maxWidth="md">
+            {word && <Word word={word} userWord={e} my key={e._id}/>}
+        </Container>
     )
 })
