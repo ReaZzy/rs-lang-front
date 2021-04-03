@@ -11,7 +11,8 @@ import GroupIcon from '@material-ui/icons/Group';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-import SettingsIcon from '@material-ui/icons/Settings'
+import SettingsIcon from '@material-ui/icons/Settings';
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 
 export default function SimpleMenu (){
   const classes = useStyles();
@@ -113,26 +114,16 @@ export default function SimpleMenu (){
             Memory game
         </MenuItem>
         </NavLink>
-        <NavLink to='/team' className={classes.menuLink}>
-        <MenuItem
-          style={{ color: '#f7e5ff' }}
-          className={classes.menuItem}
-          onClick={handleClose}
-        >
-          <GroupIcon className={classes.menuItemIcon} />
-            Team
-        </MenuItem>
-        </NavLink>
-        <NavLink to='/progress' className={classes.menuLink}>
-        <MenuItem
-          style={{ color: '#f7e5ff' }}
-          className={classes.menuItem}
-          onClick={handleClose}
-        >
-          <EqualizerIcon className={classes.menuItemIcon} />
-            Progress
-        </MenuItem>
-        </NavLink>
+        {/* <NavLink to='/progress' className={classes.menuLink}>
+          <MenuItem
+            style={{ color: '#f7e5ff' }}
+            className={classes.menuItem}
+            onClick={handleClose}
+          >
+            <EqualizerIcon className={classes.menuItemIcon} />
+              Progress
+          </MenuItem>
+        </NavLink> */}
         <NavLink to='/settings' className={classes.menuLink}>
         <MenuItem
           style={{ color: '#f7e5ff' }}
@@ -141,6 +132,26 @@ export default function SimpleMenu (){
         >
           <SettingsIcon className={classes.menuItemIcon} />
             Settings
+        </MenuItem>
+        </NavLink>
+        <NavLink to='/english-test' className={classes.menuLink}>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+        >
+          <BorderColorIcon className={classes.menuItemIcon} />
+            Enlish Test
+        </MenuItem>
+        </NavLink>
+        <NavLink to='/team' className={classes.menuLink}>
+        <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+        >
+          <GroupIcon className={classes.menuItemIcon} />
+            Team
         </MenuItem>
         </NavLink>
       </Menu>

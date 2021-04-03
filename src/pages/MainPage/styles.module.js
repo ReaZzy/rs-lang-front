@@ -22,13 +22,11 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: '31px',
 
     [theme.breakpoints.down('lg')]: {
-      maxWidth: '74%',
       maxWidth: '100%',
     },
   },
 
   mainPageTitleWrapper: {
-    maxWidth: '50%',
     display: 'flex',
     maxWidth: '50%',
     alignItems: 'center',

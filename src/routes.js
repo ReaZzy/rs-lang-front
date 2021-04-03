@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import MainPage from './pages/MainPage';
+import EnglishTestPage from './pages/EnglishTest';
 import TextBookMain from './pages/TextBookMain';
 import RegisterPage from './pages/Register';
 import { LoginPage } from './pages/Login/LoginPage';
@@ -51,6 +52,9 @@ export const useRoutes = (isAuthenticated) => {
         <Route path='/audio-challenge'>
           <AudioChallenge />
         </Route>
+        <Route path='/english-test'> 
+          <EnglishTestPage />
+        </Route>
         <Route path='/our-game'>
           <OurCustomGame />
         </Route>
@@ -81,6 +85,9 @@ export const useRoutes = (isAuthenticated) => {
       </Route>
       <Route path='/our-game'>
         <OurCustomGame />
+      </Route>
+      <Route path='/english-test'>
+        <EnglishTestPage />
       </Route>
       <Redirect to='/' />
     </Switch>
