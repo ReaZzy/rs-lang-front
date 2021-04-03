@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles.module';
 import Test from './components/Test';
 import StartTest from './components/StartTest';
 import EndTest from './components/EndTest';
-// import "./";
 
 const EnglishTestPage = () => {
   const [userLevel, setUserLevel] = useState('');
@@ -25,7 +21,6 @@ const EnglishTestPage = () => {
 
   return (
     <Container maxWidth='md' className={classes.moduleContainer}>
-      <div className='english-test'>
         {!startTest && !endTest && (
           <StartTest setStartTest={setStartTest} userLevel={userLevel} />
         )}
@@ -51,7 +46,6 @@ const EnglishTestPage = () => {
             userLevel={userLevel}
           />
         )}
-      </div>
     </Container>
   );
 };

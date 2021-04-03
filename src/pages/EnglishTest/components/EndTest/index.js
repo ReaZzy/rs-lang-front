@@ -1,3 +1,3 @@
-import EndTest from "./EndTest";
+import EndTest from "./EndTest.jsx";
 
 export default EndTest;

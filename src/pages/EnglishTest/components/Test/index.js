@@ -1,3 +1,3 @@
-import Test from "./Test";
+import Test from "./Test.jsx";
 
 export default Test;

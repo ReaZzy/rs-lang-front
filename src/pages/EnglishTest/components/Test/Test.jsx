@@ -1,18 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Card, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { getData } from '../../../games/services/services';
 import staticQuestions from './staticQuestions';
 import { useSelector } from 'react-redux';
-// import "./style.scss";
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { useStyles } from './styles.module';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 let countAnswerMin = 0;
 let countAnswerMax = 3;
 let countAnswer = 0;
+
 const randomInteger = (min, max) => {
   const rand = min + Math.random() * (max - min);
 
   return Math.round(rand);
 };
+
 const getRandom = (min, max, count) => {
   const arr = [];
   return function getRandomCount() {
@@ -28,7 +33,9 @@ const getRandom = (min, max, count) => {
     return arr;
   };
 };
+
 const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
+  const classes = useStyles();
   const id = useSelector(
     (state) => state.auth.userInfo?.id || state.auth.userInfo?.userId
   );
@@ -44,7 +51,7 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
     setarrRandomIndexForStaticDate,
   ] = useState([]);
   const [questionBlockText, setQuestionBlockText] = useState(
-    'translate the word'
+    'Translate the word.'
   );
 
   const [question, setQuestion] = useState('');
@@ -154,45 +161,51 @@ const Test = ({ setRightAnswer, setWrongAnswer, setEndTest }) => {
 
   return (
     <>
-      <div className='test'>
-        <Card className='text-center cards-test'>
-          <Card className='header-card-test'>Test</Card>
-          <Card className='card-body-test-color'>
-            {isLoading ? (
-              <div animation='border' />
-            ) : (
-              <Card>{numberQuestion + 1} from 15</Card>
-            )}
-            <Card>{questionBlockText}</Card>
-            <Card>{question}</Card>
-            <Button
-              className='answer-button'
-              onClick={() => handleClickAnswer(answer1)}
-            >
-              {answer1}
-            </Button>
-            <Button
-              className='answer-button'
-              onClick={() => handleClickAnswer(answer2)}
-            >
-              {answer2}
-            </Button>
-            <Button
-              className='answer-button'
-              onClick={() => handleClickAnswer(answer3)}
-            >
-              {answer3}
-            </Button>
-            <Button
-              className='answer-button'
-              onClick={() => handleClickAnswer(answer4)}
-            >
-              {answer4}
-            </Button>
-          </Card>
-          <Card className='text-muted'>Choose the correct answer</Card>
-        </Card>
-      </div>
+      <Grid className={classes.testContainer}>
+          <Grid className={classes.test}>
+            <Typography variant="h2" className={classes.testHeading}>
+              Test
+            </Typography>
+            <Grid>
+              {isLoading ? (
+                <LinearProgress />
+              ) : (
+                <Typography variant="h4"  className={classes.testQuestionNumber}>Question {numberQuestion + 1} of 15.</Typography>
+              )}
+              <Grid className={classes.testTaskType}>
+                <Typography variant='body1' className={classes.testTaskTypeText}>{questionBlockText}</Typography>
+                <Typography variant='body1'>Choose the correct answer.</Typography>
+              </Grid>
+              <Typography variant='h4' className={classes.testQuetionWord}>{question}</Typography>
+              <Grid className={classes.testAnswerButtons}>
+                <Button
+                  className={classes.testAnswerButton}
+                  onClick={() => handleClickAnswer(answer1)}
+                >
+                  {answer1}
+                </Button>
+                <Button
+                  className={classes.testAnswerButton}
+                  onClick={() => handleClickAnswer(answer2)}
+                >
+                  {answer2}
+                </Button>
+                <Button
+                  className={classes.testAnswerButton}
+                  onClick={() => handleClickAnswer(answer3)}
+                >
+                  {answer3}
+                </Button>
+                <Button
+                  className={classes.testAnswerButton}
+                  onClick={() => handleClickAnswer(answer4)}
+                >
+                  {answer4}
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+      </Grid>
     </>
   );
 };

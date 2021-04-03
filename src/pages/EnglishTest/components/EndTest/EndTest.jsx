@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button, Card, CardActions } from '@material-ui/core';
-// import "./style.scss";
+import { Button, Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import { useStyles } from './styles.module';
 
 const EndTest = ({
   rightAnswer,
@@ -12,6 +13,7 @@ const EndTest = ({
   setUserLevel,
   userLevel,
 }) => {
+  const classes = useStyles();
   const history = useHistory();
   const handleOnClick = (path) => {
     history.push(`/${path}`);
@@ -50,45 +52,35 @@ const EndTest = ({
       setUserLevel('Advanced');
     }
   }, [resultTest, setLevel, setUserLevel]);
+
   return (
     <>
-      <Card className='text-center cards-test'>
-        <CardActions className='header-gameover-sprint'>
-          Cool result
-        </CardActions>
-        <Card className='card-body-test-color'>
-          <Card>Your result: {resultTest} correct answers</Card>
-          <Card>
-            Your level: {userLevel}({level}){' '}
-          </Card>
-          <Card>I like you</Card>
-
-          <Button className='home-button' onClick={() => handleOnClick('home')}>
-            Home
+      <Grid  className={classes.testResult}>
+        <Typography variant="h3">
+          Your level: {userLevel} ({level}).{' '}
+        </Typography>
+        <Typography className={classes.testResultAnswers} variant="body1">Your result: {resultTest} correct answers.</Typography>
+        <Grid className={classes.testResultButtons}>
+          <Button
+            className={classes.testResultButton}
+            onClick={() => handlerClickCheck(true)}
+          >
+            Right answers
           </Button>
-        </Card>
-      </Card>
-
-      <div className='result-buttons'>
-        <Button
-          className='button-sprint'
-          onClick={() => handlerClickCheck(true)}
-        >
-          right answers
-        </Button>
-        <Button
-          className='button-sprint'
-          onClick={() => handlerClickCheck(false)}
-        >
-          wrong answers
-        </Button>
-      </div>
-      <div>
-        {isArrayWords === 1 &&
-          rightAnswer.map((item) => <div key={item}>{item}</div>)}
-        {isArrayWords === 2 &&
-          wrongAnswer.map((item) => <div key={item}>{item}</div>)}
-      </div>
+          <Button
+            className={classes.testResultButton}
+            onClick={() => handlerClickCheck(false)}
+          >
+            Wrong answers
+          </Button>
+        </Grid>
+        <Grid>
+          {isArrayWords === 1 &&
+            rightAnswer.map((item) => <Typography variant="body1" key={item}>{item}</Typography>)}
+          {isArrayWords === 2 &&
+            wrongAnswer.map((item) => <Typography variant="body1" key={item}>{item}</Typography>)}
+        </Grid>
+      </Grid>
     </>
   );
 };

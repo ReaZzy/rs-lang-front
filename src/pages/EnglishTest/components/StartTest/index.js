@@ -1,3 +1,3 @@
-import StartTest from "./StartTest";
+import StartTest from "./StartTest.jsx";
 
 export default StartTest;

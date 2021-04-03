@@ -52,7 +52,7 @@ export const useRoutes = (isAuthenticated) => {
         <Route path='/audio-challenge'>
           <AudioChallenge />
         </Route>
-        <Route path='/english-test'>
+        <Route path='/english-test'> 
           <EnglishTestPage />
         </Route>
         <Route path='/our-game'>

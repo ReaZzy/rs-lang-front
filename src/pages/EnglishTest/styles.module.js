@@ -4,6 +4,4 @@ export const useStyles = makeStyles((theme) => ({
   moduleContainer: {
     height: '100%',
   },
-  
-
 })) 

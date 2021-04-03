@@ -29,7 +29,7 @@ const TeamPage = () => {
                                 </Grid>
                                 <Typography className={classes.teamMemberName} variant="h4">Илья Нестерович</Typography>
                                 <Typography className={classes.teamMemberPosition} variant="h5">Full-stack Developer</Typography>
-                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: настройка сервера, навигация по страницам учебника.</Typography>
+                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: настройка сервера, навигация по страницам учебника, router.</Typography>
                             </Card>
                         </Grid>
                         <Grid xs="12" md='5' className={classes.teamMember}>
@@ -71,7 +71,7 @@ const TeamPage = () => {
                                 </Grid>
                                 <Typography className={classes.teamMemberName} variant="h4">Анастасия Бурдина</Typography>
                                 <Typography className={classes.teamMemberPosition} variant="h5">Frontend Developer</Typography>
-                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: верстка сайта, material UI, настройки.</Typography>
+                                <Typography className={classes.teamMemberContribution} variant="body1">Вклад в проект: верстка сайта, material UI, настройки, словарь, router.</Typography>
                             </Card>
                         </Grid>
                     </Grid>

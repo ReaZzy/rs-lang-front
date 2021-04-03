@@ -11,7 +11,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {useSelector} from "react-redux";
 
-
 export const TextBookPageWrapper = () => {
   const classes = useStyles();
   let { module, page } = useParams();
@@ -56,20 +55,20 @@ export const TextBookPageWrapper = () => {
 
   const gamesLinkConfig = [
     {
-      text: 'Саванна',
-      to: '/game/savanna'
+      text: 'Savannah',
+      to: '/savanna'
     },
     {
-      text: 'Аудиовызов',
-      to: '/game/audiogame',
+      text: 'Audio challenge',
+      to: '/audio-challenge',
     },
     {
-      text: 'Спринт',
-      to: '/game/sprint'
+      text: 'Sprint',
+      to: '/sprint'
     },
     {
-      text: 'Своя игра',
-      to: '/game/svoia_igra'
+      text: 'Memory',
+      to: '/our-game'
     }
   ]
 
