@@ -62,7 +62,7 @@ export const RegisterPage = () => {
                                 <label htmlFor="avatar">
                                     <Typography  className={classes.formInputTitle} variant="h5">Avatar</Typography>
                                 </label>
-                                <input className={classes.formInputFile} accept={"image/*"} id="avatar" name="avatar" type="file" 
+                                <input className={classes.formInputFile} accept={"image/x-png,image/jpeg"} id="avatar" name="avatar" type="file"
                                     onChange={(event) => {
                                         setFieldValue( "avatar", event.currentTarget.files );
                                     }}
