@@ -41,53 +41,55 @@ const MyWordsPage = () => {
     }
     return(
         <div style={{width:"70%", margin:"0 auto"}}>
-            {myWords[currentPage * 10 ] ? <div className={classes.container}>
-                    <div className={classes.dictionaryHeaderWrapper}>
-                        <Typography variant="h2" className={classes.dictionaryHeader}>
-                            Словарь
-                        </Typography>
-                        <select
-                            value={select}
-                            onChange={handleChange}
-                        >
-                            <option value={"all"}>all
-                            </option>
-                            <option value={"learn"}>learn</option>
-                            <option value={"hard"}>hard</option>
-                            <option value={"deleted"}>deleted</option>
-                        </select>
-                    </div>
-                    {currentPage > 0 && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleBack}>
-                                            <KeyboardArrowLeftIcon/>
-                                        </Button>}
-                    {myWords.filter(e=> e.difficulty === select || select==="all")[currentPage * 10 + 10] && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleClick}>
-                                                                <KeyboardArrowRightIcon/>
-                                                        </Button>}
-                    <div className={classes.dictionaryHeaderWrapper}>
-                        <Typography variant="h4" className={classes.dictionaryLearnTitle}>
-                            {select} слова
-                        </Typography>
-                    </div>
-                    <div className={classes.dictionaryLearnWords}>
-                        {myWords
-                            .filter(e=> e.difficulty === select || select==="all")
-                        ?.slice( currentPage * 10, (currentPage * 10) + 10 )
-                        ?.map( word => {
-                            if(word.difficulty === select) {
-                                return <MyWord e={word} key={word.id}/> 
-                            }
-                            else if (select==="all") return <MyWord e={word} key={word.id}/>
-                        })}
-                    </div>
+            {myWords?.length >= 0 &&
+            myWords[currentPage * 10 ] ? <div className={classes.container}>
+                        <div className={classes.dictionaryHeaderWrapper}>
+                            <Typography variant="h2" className={classes.dictionaryHeader}>
+                                Словарь
+                            </Typography>
+                            <select
+                                value={select}
+                                onChange={handleChange}
+                            >
+                                <option value={"all"}>all
+                                </option>
+                                <option value={"learn"}>learn</option>
+                                <option value={"hard"}>hard</option>
+                                <option value={"deleted"}>deleted</option>
+                            </select>
+                        </div>
+                        {currentPage > 0 && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleBack}>
+                            <KeyboardArrowLeftIcon/>
+                        </Button>}
+                        {myWords.filter(e=> e.difficulty === select || select==="all")[currentPage * 10 + 10] && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleClick}>
+                            <KeyboardArrowRightIcon/>
+                        </Button>}
+                        <div className={classes.dictionaryHeaderWrapper}>
+                            <Typography variant="h4" className={classes.dictionaryLearnTitle}>
+                                {select} слова
+                            </Typography>
+                        </div>
+                        <div className={classes.dictionaryLearnWords}>
+                            {myWords
+                                .filter(e=> e.difficulty === select || select==="all")
+                                ?.slice( currentPage * 10, (currentPage * 10) + 10 )
+                                ?.map( word => {
+                                    if(word.difficulty === select) {
+                                        return <MyWord e={word} key={word.id}/>
+                                    }
+                                    else if (select==="all") return <MyWord e={word} key={word.id}/>
+                                })}
+                        </div>
 
-                    {currentPage > 0 && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleBack}>
-                                                <KeyboardArrowLeftIcon/>
-                                        </Button>}
-                    {myWords.filter(e=> e.difficulty === select || select==="all")[currentPage * 10 + 10] && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleClick}>
-                                                            <KeyboardArrowRightIcon/>
-                                                        </Button>}
-                </div>
-                :<h3>Empty</h3>
+                        {currentPage > 0 && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleBack}>
+                            <KeyboardArrowLeftIcon/>
+                        </Button>}
+                        {myWords.filter(e=> e.difficulty === select || select==="all")[currentPage * 10 + 10] && <Button style={{width: "50%", marginTop: "10px"}} onClick={handleClick}>
+                            <KeyboardArrowRightIcon/>
+                        </Button>}
+                    </div>
+                    :<h3>Empty</h3>
+
             }
         </div>
     )

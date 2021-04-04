@@ -17,7 +17,7 @@ export const TextBookPageWrapper = () => {
   const [isUrlReady, setUrlBool] = useState(false);
   const history = useHistory();
   const location = useLocation();
-  const count = useSelector(state=> state.words.aggregatedWords.totalCount[0]?.count)
+  const count = useSelector(state=> state.words.aggregatedWords?.totalCount[0]?.count)
 
   const validationHandler = useCallback(
     () => {
