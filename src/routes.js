@@ -74,7 +74,10 @@ export const useRoutes = (isAuthenticated) => {
       <Route path='/login' exact>
         <LoginPage />
       </Route>
-      <Redirect to='/login' />
+      <Route path='/team'>
+          <TeamPage />
+        </Route>
+      <Redirect to='/' />
     </Switch>
   );
 };

@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {Field, Form, Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {registerUser} from "../../redux/register/thunks";
 import {Container, Button} from '@material-ui/core';
 import { useStyles } from './styles.module';
 import Typography from '@material-ui/core/Typography';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {registrationSchema} from './registrationSchema'
 
 export const RegisterPage = () => {
     const classes = useStyles();
-    const dispatch = useDispatch()
-    const serverError = useSelector(state=>state.register.error)
+    const dispatch = useDispatch();
+    const serverError = useSelector(state => state.register.error);
 
     const handleSubmit = (data) => {
         const formData = new FormData()
@@ -21,6 +21,20 @@ export const RegisterPage = () => {
         formData.append("avatar", data?.avatar[0])
         dispatch(registerUser(formData))
     }
+
+    const isRegistered = !!useSelector(
+        (state) => state.auth.userInfo?.id
+    );
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (isRegistered) {
+        history.push('/login');
+        } 
+    }, [history, isRegistered])
+
+
     return (
         <>
             <Container maxWidth="sm" className={classes.logInContainer}>

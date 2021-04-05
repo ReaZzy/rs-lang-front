@@ -8,11 +8,11 @@ import { useStyles } from './styles.module';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import GroupIcon from '@material-ui/icons/Group';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import SettingsIcon from '@material-ui/icons/Settings';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
+import { useSelector } from 'react-redux';
 
 export default function SimpleMenu (){
   const classes = useStyles();
@@ -21,6 +21,12 @@ export default function SimpleMenu (){
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const isAuthenticated = !!useSelector(
+    (state) => state.auth.userInfo?.token
+);
+
+  
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -43,16 +49,8 @@ export default function SimpleMenu (){
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <NavLink to='/' className={classes.menuLink}>
-        <MenuItem
-          style={{ color: '#f7e5ff' }}
-          className={classes.menuItem}
-          onClick={handleClose}
-        >
-          <HomeIcon className={classes.menuItemIcon} />
-            Main
-        </MenuItem>
-        </NavLink>
+        {isAuthenticated && <>
+          
         <NavLink to='/textbook' className={classes.menuLink}>
         <MenuItem
           style={{ color: '#f7e5ff' }}
@@ -114,16 +112,7 @@ export default function SimpleMenu (){
             Memory game
         </MenuItem>
         </NavLink>
-        {/* <NavLink to='/progress' className={classes.menuLink}>
-          <MenuItem
-            style={{ color: '#f7e5ff' }}
-            className={classes.menuItem}
-            onClick={handleClose}
-          >
-            <EqualizerIcon className={classes.menuItemIcon} />
-              Progress
-          </MenuItem>
-        </NavLink> */}
+       
         <NavLink to='/settings' className={classes.menuLink}>
         <MenuItem
           style={{ color: '#f7e5ff' }}
@@ -144,6 +133,22 @@ export default function SimpleMenu (){
             Enlish Test
         </MenuItem>
         </NavLink>
+        </>
+        
+        }
+        <NavLink to='/' className={classes.menuLink}>
+          <MenuItem
+          style={{ color: '#f7e5ff' }}
+          className={classes.menuItem}
+          onClick={handleClose}
+          >
+
+          <HomeIcon className={classes.menuItemIcon} />
+            Main
+        </MenuItem>
+        </NavLink>
+        
+        
         <NavLink to='/team' className={classes.menuLink}>
         <MenuItem
           style={{ color: '#f7e5ff' }}
@@ -154,6 +159,9 @@ export default function SimpleMenu (){
             Team
         </MenuItem>
         </NavLink>
+      
+      
+      
       </Menu>
     </div>
   );
