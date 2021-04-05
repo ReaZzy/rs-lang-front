@@ -74,22 +74,7 @@ export const useRoutes = (isAuthenticated) => {
       <Route path='/login' exact>
         <LoginPage />
       </Route>
-      <Route path='/sprint'>
-        <Sprint />
-      </Route>
-      <Route path='/savanna'>
-        <Savanna />
-      </Route>
-      <Route path='/audio-challenge'>
-        <AudioChallenge />
-      </Route>
-      <Route path='/our-game'>
-        <OurCustomGame />
-      </Route>
-      <Route path='/english-test'>
-        <EnglishTestPage />
-      </Route>
-      <Redirect to='/' />
+      <Redirect to='/login' />
     </Switch>
   );
 };
