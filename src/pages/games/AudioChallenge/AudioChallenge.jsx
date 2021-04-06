@@ -18,6 +18,8 @@ const AudioChallenge = React.memo(() => {
   const [wrongAnswers, setWrongAnswers] = useState([]);
   const [resultScore, setResultScore] = useState(0);
   const [level, setLevel] = useState('1');
+
+  console.log(startGamePages, endGamePages);
   return (
     <>
       <div className={styles.audio_challenge}>
@@ -29,6 +31,7 @@ const AudioChallenge = React.memo(() => {
         {!startGamePages && !endGamePages && (
           <StartGame
             setstartGamePages={setstartGamePages}
+            setendGamePages={setendGamePages}
             setLevel={setLevel}
           />
         )}
@@ -39,7 +42,10 @@ const AudioChallenge = React.memo(() => {
             startGamePages={startGamePages}
             setRightAnswers={(word) => setRightAnswers([...rightAnswers, word])}
             setWrongAnswers={(word) => setWrongAnswers([...wrongAnswers, word])}
+            rightAnswers={rightAnswers}
+            wrongAnswers={wrongAnswers}
             setendGamePages={setendGamePages}
+            setstartGamePages={setstartGamePages}
             setResultScore={setResultScore}
           />
         )}

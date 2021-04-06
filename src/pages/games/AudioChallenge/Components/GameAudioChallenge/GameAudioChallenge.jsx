@@ -19,6 +19,8 @@ const GameAudioChallenge = React.memo(
     startGamePages,
     setRightAnswers,
     setWrongAnswers,
+    wrongAnswers,
+    rightAnswers,
     setendGamePages,
     setResultScore,
     level,
@@ -145,20 +147,20 @@ const GameAudioChallenge = React.memo(
 
     useEffect(() => {
       if (startGamePages) {
-        if (
-          words.length === 10 ||
-          words.length === 110 ||
-          words.length === 70 ||
-          words.length === 50 ||
-          words.length === 90 ||
-          words.length === 30 ||
-          point === 10
-        ) {
+        if (rightAnswers.length + wrongAnswers.length >= 10) {
           setendGamePages(true);
+
           setResultScore(point);
         }
       }
-    }, [level, startGamePages, words, setendGamePages, point, setResultScore]);
+    }, [
+      startGamePages,
+      setendGamePages,
+      point,
+      setResultScore,
+      rightAnswers,
+      wrongAnswers,
+    ]);
 
     const handleUserKeyPress = useCallback(
       (event) => {
