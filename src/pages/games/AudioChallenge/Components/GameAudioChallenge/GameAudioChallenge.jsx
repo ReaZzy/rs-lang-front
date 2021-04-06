@@ -26,6 +26,7 @@ const GameAudioChallenge = React.memo(
     level,
   }) => {
     const [wordImg, setWordImg] = useState(false);
+    const [disabled, setDisabled] = useState(false)
     const [wordEnglish, setWordEnglish] = useState(false);
     const [point, setPoint] = useState(0);
     const [translate, setTranslate] = useState(' ');
@@ -91,6 +92,7 @@ const GameAudioChallenge = React.memo(
           setRightAnswers(words[words.length - 1]);
           dispatch(correctWord(id, words[words.length - 1], token));
           audioCorrect.play();
+          setDisabled(true)
           const result = RightAnswer(point);
           setPoint(result);
           setWordImg(true);
@@ -98,7 +100,7 @@ const GameAudioChallenge = React.memo(
         } else {
           audioError.play();
           setWrongAnswers(words[words.length - 1]);
-
+          setDisabled(true)
           dispatch(wrongWord(id, words[words.length - 1], token));
 
           setWordImg(true);
@@ -131,6 +133,7 @@ const GameAudioChallenge = React.memo(
       setWords(wordsUpdated);
       setCurrentWord(wordsUpdated[wordsUpdated.length - 1]);
 
+      setDisabled(false)
       setWordImg(false);
       setWordEnglish(false);
     }, [currentWord.word, words]);
@@ -241,7 +244,7 @@ const GameAudioChallenge = React.memo(
                 {isLoading ? (
                   <CircularProgress />
                 ) : (
-                  <div>
+                  <div style={{ pointerEvents: disabled && "none", opacity: disabled && "70%" }}>
                     <div className={styles.translate_container}>
                       <div
                         style={{
@@ -299,7 +302,7 @@ const GameAudioChallenge = React.memo(
                         </h4>
                       </div>
                     </div>
-                    <div className={styles.text_center}>
+                    <div className={styles.text_center} style={{ pointerEvents: "auto", opacity:"100%"}}>
                       <Button
                         variant='contained'
                         color='primary'
